@@ -110,6 +110,8 @@
     <div class="card">
       <h2>🎮 Игра «Поймай перевод»</h2>
       <p>Лови падающие английские глаголы! Нажимай на правильный перевод внизу, пока слово не упало.</p>
+      <div class="page-selector" id="game-page-selector"></div>
+
       <div style="display:flex; justify-content:space-between; font-weight:bold; font-size:1.2rem; margin-bottom:10px;">
         <span>Очки: <span id="game-score">0</span></span>
         <span>Жизни: <span id="game-lives">❤️❤️❤️</span></span>
@@ -330,8 +332,8 @@ function switchTab(btnEl, tab) {
   if (tab === "dict") renderDict();
   if (tab === "stats") renderStats();
   if (tab === "train") renderSetup();
+  if (tab === "game") renderGamePages();
 }
-
 function renderSetup() {
   const pageSel = document.getElementById("page-selector");
   pageSel.innerHTML = "";
@@ -538,6 +540,22 @@ function selectPair(el, side) {
 }
 
 let gameTimer = null, gameScore = 0, gameLives = 3, activeFallingWord = null, fallingY = 0;
+function renderGamePages() {
+  const sel = document.getElementById("game-page-selector");
+  if (!sel) return;
+  sel.innerHTML = "";
+  Object.keys(VERBS_DATA).forEach(p => {
+    const btn = document.createElement("button");
+    btn.className = "page-btn" + (p === currentPage ? " active" : "");
+    btn.innerText = VERBS_DATA[p].title;
+    btn.onclick = () => {
+      currentPage = p;
+      renderGamePages();
+      if (gameTimer) startGame();
+    };
+    sel.appendChild(btn);
+  });
+}
 
 function startGame() { clearInterval(gameTimer); gameScore = 0; gameLives = 3; updateGameHUD(); spawnWord(); }
 function updateGameHUD() {
