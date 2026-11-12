@@ -51,7 +51,11 @@
   .feedback.err { background: #F8D7DA; color: #721C24; }
   .final-badge { background: #FFD700; color: #5C4300; padding: 8px 15px; border-radius: 12px; text-align: center; font-weight: bold; margin-bottom: 10px; }
   .game-area { position: relative; height: 320px; background: #E0F7FA; border-radius: 20px; overflow: hidden; border: 3px solid var(--secondary); }
-  .falling-word { position: absolute; background: var(--primary); color: white; padding: 8px 16px; border-radius: 20px; font-weight: bold; font-size: 1.2rem; box-shadow: 0 4px 0 rgba(0,0,0,0.2); }
+  .falling-fruit { position: absolute; text-align: center; user-select: none; transform: translateX(-50%); }
+  .fruit-icon { font-size: 2.6rem; line-height: 1; filter: drop-shadow(0 4px 2px rgba(0,0,0,0.15)); }
+  .fruit-word { background: white; color: var(--text); padding: 3px 12px; border-radius: 12px; font-weight: bold; font-size: 1.05rem; border: 2px solid var(--primary); margin-top: -6px; box-shadow: 0 3px 0 rgba(0,0,0,0.15); white-space: nowrap; }
+  .basket { position: absolute; bottom: 5px; left: 50%; transform: translateX(-50%); font-size: 3.5rem; line-height: 1; transition: transform 0.15s; z-index: 2; }
+  .basket.catch-anim { transform: translateX(-50%) scale(1.25); }
   .game-controls { display: flex; gap: 10px; margin-top: 15px; flex-wrap: wrap; justify-content: center; }
   table { width: 100%; border-collapse: collapse; }
   th, td { padding: 10px; border-bottom: 2px solid #EEE; text-align: left; }
@@ -333,8 +337,10 @@ function nextQuestion() {
       if (!options.includes(rnd)) options.push(rnd);
     }
     shuffle(options);
-    box.innerHTML = `<div class="question-title">${currentWord.v1} <button class="btn btn-sound" onclick="speak('${currentWord.v1}')">🔊</button></div><div class="options-grid">${options.map(opt => `<button class="opt-btn" onclick="checkChoice(this, '${opt}')">${opt}</button>`).join("")}</div>`;
+    speak(`${currentWord.v1}, ${currentWord.v2}, ${currentWord.v3}`);
+    box.innerHTML = `<div class="question-title">${currentWord.v1} — ${currentWord.v2} — ${currentWord.v3} <button class="btn btn-sound" onclick="speak('${currentWord.v1}, ${currentWord.v2}, ${currentWord.v3}')">🔊</button></div><div class="options-grid">${options.map(opt => `<button class="opt-btn" onclick="checkChoice(this, '${opt}')">${opt}</button>`).join("")}</div>`;
   } else if (currentMode === "type_ru") {
+    speak(`${currentWord.v1}, ${currentWord.v2}, ${currentWord.v3}`);
     box.innerHTML = `<div class="question-title">${currentWord.v1} — ${currentWord.v2} — ${currentWord.v3} <button class="btn btn-sound" onclick="speak('${currentWord.v1}, ${currentWord.v2}, ${currentWord.v3}')">🔊</button></div><input type="text" id="ru-input" placeholder="Введи перевод на русском..." autocomplete="off"><button class="btn" style="width:100%;" onclick="checkTypeRu()">Проверить</button>`;
   } else if (currentMode === "type_en") {
     box.innerHTML = `<div class="question-title">${currentWord.tr}</div><div class="forms-inputs"><input type="text" id="en-v1" placeholder="1-я форма (V1)" autocomplete="off"><input type="text" id="en-v2" placeholder="2-я форма (V2)" autocomplete="off"><input type="text" id="en-v3" placeholder="3-я форма (V3)" autocomplete="off"></div><button class="btn" style="width:100%;" onclick="checkTypeEn()">Проверить</button>`;
@@ -440,6 +446,8 @@ function updateGameHUD() {
   document.getElementById("game-lives").innerText = "❤️".repeat(Math.max(0, gameLives));
 }
 
+const FRUITS = ["🍎", "🍊", "🍋", "🍐", "🍓", "🍑", "🍒", "🍍"];
+
 function spawnWord() {
   if (gameLives <= 0) {
     clearInterval(gameTimer);
@@ -450,28 +458,47 @@ function spawnWord() {
   const verbs = VERBS_DATA[currentPage].verbs;
   activeFallingWord = verbs[Math.floor(Math.random() * verbs.length)];
   fallingY = 0;
+
+  speak(activeFallingWord.v1);
+
   let choices = [activeFallingWord.tr];
   while (choices.length < 3) {
     const r = verbs[Math.floor(Math.random() * verbs.length)].tr;
     if (!choices.includes(r)) choices.push(r);
   }
   shuffle(choices);
-  document.getElementById("game-area").innerHTML = `<div class="falling-word" id="fall-el" style="left:40%; top:0px;">${activeFallingWord.v1}</div>`;
+
+  const fruit = FRUITS[Math.floor(Math.random() * FRUITS.length)];
+  document.getElementById("game-area").innerHTML = `
+    <div class="falling-fruit" id="fall-el" style="left:50%; top:0px;">
+      <div class="fruit-icon">${fruit}</div>
+      <div class="fruit-word">${activeFallingWord.v1}</div>
+    </div>
+    <div class="basket" id="game-basket">🧺</div>
+  `;
   document.getElementById("game-controls").innerHTML = choices.map(c => `<button class="btn" style="background:var(--secondary); box-shadow:0 4px 0 #369B94;" onclick="catchWord('${c}')">${c}</button>`).join("");
+
   clearInterval(gameTimer);
   gameTimer = setInterval(() => {
-    fallingY += 3;
+    fallingY += 2.5;
     const el = document.getElementById("fall-el");
     if (el) el.style.top = fallingY + "px";
-    if (fallingY > 270) { gameLives--; updateGameHUD(); spawnWord(); }
+    if (fallingY > 215) { gameLives--; updateGameHUD(); spawnWord(); }
   }, 50);
 }
 
 function catchWord(ans) {
-  if (ans === activeFallingWord.tr) { gameScore += 10; speak(activeFallingWord.v1); } else gameLives--;
-  updateGameHUD(); spawnWord();
+  if (ans === activeFallingWord.tr) {
+    gameScore += 10;
+    const basket = document.getElementById("game-basket");
+    if (basket) basket.classList.add("catch-anim");
+    setTimeout(() => { updateGameHUD(); spawnWord(); }, 180);
+  } else {
+    gameLives--;
+    updateGameHUD();
+    spawnWord();
+  }
 }
-
 function renderDict() {
   document.getElementById("dict-content").innerHTML = Object.keys(VERBS_DATA).map(p => `<h3>${VERBS_DATA[p].title}</h3><table><tr><th>V1</th><th>V2</th><th>V3</th><th>Перевод</th><th>Звук</th></tr>${VERBS_DATA[p].verbs.map(v => `<tr><td><b>${v.v1}</b></td><td>${v.v2}</td><td>${v.v3}</td><td>${v.tr}</td><td><button class="btn btn-sound" onclick="speak('${v.v1}, ${v.v2}, ${v.v3}')">🔊</button></td></tr>`).join("")}</table>`).join("");
 }
