@@ -767,14 +767,65 @@ function checkChoice(btn, selected) {
   handleResult(isOk);
 }
 
+const SEMANTIC_GROUPS = [
+  ["выходной", "выходные", "каникулы", "праздник", "отпуск"],
+  ["отметки", "оценки", "баллы"],
+  ["ластик", "резинка", "стерка"],
+  ["город", "большой город", "городок"],
+  ["деревня", "сельская местность", "за городом"],
+  ["кушать", "есть", "поесть", "съесть"],
+  ["вести", "водить", "управлять"],
+  ["покупать", "ходить за покупками", "купить"],
+  ["говорить", "разговаривать", "сказать", "рассказывать"],
+  ["учить", "изучать", "учиться", "узнавать"]
+];
+
+function getRuStem(word) {
+  let w = word.toLowerCase().replace(/ё/g, "е").replace(/[^а-яa-z0-9]/g, "");
+  if (w.length <= 4) return w;
+  if (w.length <= 6) return w.slice(0, -1);
+  return w.slice(0, -2);
+}
+
+function isCloseWord(w1, w2) {
+  if (w1 === w2) return true;
+  if (w1.length >= 4 && w2.length >= 4 && getRuStem(w1) === getRuStem(w2)) return true;
+  if (Math.abs(w1.length - w2.length) <= 1 && w1.length >= 5) {
+    let diff = 0;
+    for (let i = 0; i < Math.min(w1.length, w2.length); i++) {
+      if (w1[i] !== w2[i]) diff++;
+    }
+    if (diff <= 1) return true;
+  }
+  return false;
+}
+
 function checkTypeRu() {
-  const val = document.getElementById("ru-input").value.trim().toLowerCase().replace(/ё/g, "е");
-  if (!val) return;
-  const userWords = val.split(/[,;/]+/).map(s => s.trim());
-  const validList = [currentWord.tr.toLowerCase(), ...currentWord.syn.map(s => s.toLowerCase())];
-  const isOk = userWords.some(uw => validList.some(v => (v.includes(uw) && uw.length >= 3) || v === uw));
+  const raw = document.getElementById("ru-input").value.trim().toLowerCase().replace(/ё/g, "е");
+  if (!raw) return;
+
+  const cleanTr = currentWord.tr.toLowerCase().replace(/ё/g, "е").replace(/\([^)]*\)/g, "");
+  let validPhrases = [cleanTr, ...currentWord.syn.map(s => s.toLowerCase().replace(/ё/g, "е"))];
+
+  validPhrases.forEach(p => {
+    SEMANTIC_GROUPS.forEach(group => {
+      if (group.some(g => p.includes(g))) validPhrases.push(...group);
+    });
+  });
+
+  const userParts = raw.split(/[,;/—-]+/).map(s => s.trim()).filter(Boolean);
+  const isOk = userParts.some(uPart => {
+    const uWords = uPart.split(/\s+/).filter(w => w.length >= 2);
+    return validPhrases.some(vPhrase => {
+      if (vPhrase.includes(uPart) && uPart.length >= 3) return true;
+      const vWords = vPhrase.split(/[\s,;/—-]+/).filter(w => w.length >= 2);
+      return uWords.length > 0 && uWords.every(uw => vWords.some(vw => isCloseWord(uw, vw)));
+    });
+  });
+
   handleResult(isOk, `По учебнику: ${currentWord.tr}`);
 }
+
 
 function matchForm(input, expected) {
   const cleanIn = input.trim().toLowerCase();
