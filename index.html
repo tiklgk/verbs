@@ -686,6 +686,13 @@ const APP_DATA = {
     }
   }
 };
+function moveVerbsToEnd() {
+  const t = APP_DATA["4"].topics;
+  const verbs = t["g4_verbs"];
+  delete t["g4_verbs"];
+  t["g4_verbs"] = verbs;
+}
+moveVerbsToEnd();
 
 let currentGrade = null, currentTopic = null, currentMode = null;
 let trainView = "map";
