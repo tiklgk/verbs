@@ -3,79 +3,146 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Тренажер английских слов и глаголов</title>
+<title>Тренажер английского — Карта приключений</title>
 <style>
   :root {
     --bg: #FFF9E6; --card: #FFFFFF; --primary: #FF8C00; --primary-dark: #E07B00;
-    --secondary: #4ECDC4; --accent: #FF6B6B; --success: #2ECC71; --text: #2C3E50;
-    --shadow: 0 6px 0 rgba(0,0,0,0.1);
+    --secondary: #4ECDC4; --accent: #FF6B6B; --success: #2ECC71; --success-dark: #219653;
+    --text: #2C3E50; --shadow: 0 6px 0 rgba(0,0,0,0.1);
   }
   * { box-sizing: border-box; font-family: 'Comic Sans MS', 'Trebuchet MS', sans-serif; }
-  body { margin: 0; background: var(--bg); color: var(--text); padding-bottom: 40px; }
-  header { background: var(--primary); color: white; padding: 14px 20px; text-align: center; box-shadow: var(--shadow); }
-  header h1 { margin: 0; font-size: 1.5rem; text-shadow: 1px 1px 0 rgba(0,0,0,0.2); }
+  body { margin: 0; background: var(--bg); color: var(--text); padding-bottom: 50px; overflow-x: hidden; }
+  header { position: relative; background: var(--primary); color: white; padding: 14px 55px; text-align: center; box-shadow: var(--shadow); }
+  header h1 { margin: 0; font-size: 1.35rem; text-shadow: 1px 1px 0 rgba(0,0,0,0.2); }
   .grade-badge { display: inline-block; background: rgba(255,255,255,0.25); padding: 4px 12px; border-radius: 14px; font-size: 0.9rem; margin-top: 6px; cursor: pointer; font-weight: bold; }
-  .grade-badge:hover { background: rgba(255,255,255,0.4); }
+  .sound-toggle { position: absolute; top: 14px; right: 14px; background: rgba(255,255,255,0.25); border: 2px solid white; color: white; border-radius: 50%; width: 42px; height: 42px; font-size: 1.3rem; cursor: pointer; display: flex; align-items: center; justify-content: center; }
 
-  .grade-screen { max-width: 600px; margin: 40px auto; padding: 0 15px; text-align: center; }
-  .grade-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 25px; }
-  .grade-card { background: white; border: 4px solid var(--secondary); border-radius: 24px; padding: 30px 15px; cursor: pointer; box-shadow: var(--shadow); transition: 0.2s; }
-  .grade-card:hover { transform: translateY(-5px); border-color: var(--primary); background: #FFFDF5; }
-  .grade-card h2 { margin: 10px 0 5px; font-size: 1.6rem; color: var(--primary-dark); }
+  .grade-screen { max-width: 600px; margin: 35px auto; padding: 0 15px; text-align: center; }
+  .grade-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 22px; }
+  .grade-card { background: white; border: 4px solid var(--secondary); border-radius: 24px; padding: 25px 12px; cursor: pointer; box-shadow: var(--shadow); transition: 0.2s; }
+  .grade-card:hover { transform: translateY(-4px); border-color: var(--primary); background: #FFFDF5; }
+  .grade-card h2 { margin: 10px 0 5px; font-size: 1.5rem; color: var(--primary-dark); }
 
-  .nav-tabs { display: flex; justify-content: center; gap: 10px; padding: 15px; flex-wrap: wrap; }
-  .tab-btn { background: white; border: 3px solid var(--primary); color: var(--primary); padding: 10px 18px; border-radius: 20px; font-weight: bold; cursor: pointer; font-size: 1rem; transition: 0.2s; }
+  .nav-tabs { display: flex; justify-content: center; gap: 8px; padding: 12px 10px 6px; flex-wrap: wrap; }
+  .tab-btn { background: white; border: 3px solid var(--primary); color: var(--primary); padding: 8px 14px; border-radius: 18px; font-weight: bold; cursor: pointer; font-size: 0.95rem; transition: 0.2s; }
   .tab-btn.active { background: var(--primary); color: white; transform: translateY(-2px); }
 
-  .container { max-width: 820px; margin: 0 auto; padding: 0 15px; }
-  .card { background: var(--card); border-radius: 24px; padding: 22px; box-shadow: var(--shadow); border: 3px solid #FFE082; margin-bottom: 20px; }
-  .page-selector { display: flex; gap: 10px; margin-bottom: 18px; flex-wrap: wrap; }
-  .page-btn { flex: 1; min-width: 140px; padding: 11px; border-radius: 16px; border: 3px solid var(--secondary); background: white; cursor: pointer; font-weight: bold; }
+    .view-switch-wrap { background: #FFFFFF; border: 3px solid #FFE082; border-radius: 20px; padding: 12px; margin-bottom: 16px; box-shadow: 0 4px 0 rgba(0,0,0,0.06); text-align: center; }
+  .view-switch-bar { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .view-btn { background: #FFF8E7; border: 3px solid var(--primary); color: var(--primary-dark); padding: 10px 8px; border-radius: 16px; font-weight: bold; cursor: pointer; font-size: 0.95rem; transition: 0.2s; line-height: 1.25; }
+  .view-btn small { display: block; font-size: 0.75rem; font-weight: normal; opacity: 0.9; margin-top: 2px; }
+  .view-btn.active { background: var(--secondary); border-color: #369B94; color: white; box-shadow: 0 4px 0 #369B94; transform: translateY(-2px); }
+  .view-hint { margin-top: 10px; font-size: 0.85rem; color: #5D4037; background: #FFF3CD; padding: 6px 12px; border-radius: 12px; display: inline-block; font-weight: bold; }
+
+
+  .container { max-width: 820px; margin: 0 auto; padding: 0 12px; }
+  .card { background: var(--card); border-radius: 24px; padding: 20px 16px; box-shadow: var(--shadow); border: 3px solid #FFE082; margin-bottom: 20px; }
+  .campaign-unit { margin-bottom: 28px; position: relative; }
+  .unit-banner { background: linear-gradient(135deg, #4ECDC4, #2BBBAD); color: white; padding: 14px 18px; border-radius: 20px; box-shadow: 0 5px 0 #269A8E; margin-bottom: 22px; display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+  .unit-banner.locked-unit { background: linear-gradient(135deg, #BDC3C7, #95A5A6); box-shadow: 0 5px 0 #7F8C8D; }
+  .unit-banner h3 { margin: 0; font-size: 1.15rem; }
+  .unit-banner small { opacity: 0.95; font-size: 0.85rem; display: block; margin-top: 2px; }
+
+  .path-column { display: flex; flex-direction: column; align-items: center; gap: 22px; position: relative; padding: 6px 0; }
+  .path-node-wrap { display: flex; flex-direction: column; align-items: center; position: relative; z-index: 2; width: 150px; text-align: center; transition: transform 0.2s; }
+  .offset-0 { transform: translateX(0px); }
+  .offset-1 { transform: translateX(-44px); }
+  .offset-2 { transform: translateX(0px); }
+  .offset-3 { transform: translateX(44px); }
+
+  .node-circle { width: 78px; height: 78px; border-radius: 50%; border: 4px solid white; display: flex; align-items: center; justify-content: center; font-size: 2rem; cursor: pointer; position: relative; transition: 0.15s; user-select: none; }
+  .node-circle:active:not(.locked) { transform: translateY(4px); }
+  .node-circle.unlocked { background: var(--primary); box-shadow: 0 6px 0 var(--primary-dark), 0 0 0 4px #FFE082; animation: pulseNode 2s infinite; }
+  .node-circle.completed { background: var(--success); box-shadow: 0 6px 0 var(--success-dark); }
+  .node-circle.locked { background: #E5E7EB; box-shadow: 0 6px 0 #CBD5E1; color: #9CA3AF; cursor: not-allowed; }
+  @keyframes pulseNode {
+    0%, 100% { box-shadow: 0 6px 0 var(--primary-dark), 0 0 0 4px #FFE082; }
+    50% { box-shadow: 0 6px 0 var(--primary-dark), 0 0 0 9px rgba(255, 140, 0, 0.25); }
+  }
+  .node-stars { font-size: 0.95rem; margin-top: 6px; letter-spacing: 1px; min-height: 20px; }
+  .node-label { font-size: 0.85rem; font-weight: bold; color: var(--text); margin-top: 2px; line-height: 1.2; background: rgba(255,255,255,0.85); padding: 2px 8px; border-radius: 10px; }
+
+  .page-selector { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+  .page-btn { flex: 1; min-width: 135px; padding: 10px; border-radius: 14px; border: 3px solid var(--secondary); background: white; cursor: pointer; font-weight: bold; font-size: 0.9rem; }
   .page-btn.active { background: var(--secondary); color: white; }
-  .badge-done { background: var(--success); color: white; font-size: 0.75rem; padding: 3px 8px; border-radius: 10px; display: inline-block; margin-top: 4px; }
+  .badge-done { background: var(--success); color: white; font-size: 0.75rem; padding: 2px 7px; border-radius: 10px; display: inline-block; margin-top: 4px; }
 
-  .modes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; }
-  .mode-card { border: 3px solid #E0E0E0; border-radius: 20px; padding: 15px; text-align: center; cursor: pointer; transition: 0.2s; position: relative; background: #FAFAFA; }
+  .modes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; }
+  .mode-card { border: 3px solid #E0E0E0; border-radius: 18px; padding: 14px; text-align: center; cursor: pointer; transition: 0.2s; position: relative; background: #FAFAFA; }
   .mode-card:hover { transform: translateY(-3px); border-color: var(--primary); }
-  .mode-step { position: absolute; top: -10px; left: 15px; background: var(--accent); color: white; padding: 2px 10px; border-radius: 12px; font-size: 0.8rem; font-weight: bold; }
-  .mode-done-banner { background: var(--success); color: white; padding: 5px; border-radius: 10px; font-size: 0.85rem; margin-top: 8px; font-weight: bold; }
-
-  .btn { background: var(--primary); color: white; border: none; padding: 12px 24px; border-radius: 16px; font-size: 1.1rem; font-weight: bold; cursor: pointer; box-shadow: 0 4px 0 var(--primary-dark); }
+  .mode-step { position: absolute; top: -10px; left: 14px; background: var(--accent); color: white; padding: 2px 10px; border-radius: 12px; font-size: 0.78rem; font-weight: bold; }
+  .mode-done-banner { background: var(--success); color: white; padding: 4px; border-radius: 10px; font-size: 0.82rem; margin-top: 8px; font-weight: bold; }
+  .btn { background: var(--primary); color: white; border: none; padding: 12px 22px; border-radius: 16px; font-size: 1.05rem; font-weight: bold; cursor: pointer; box-shadow: 0 4px 0 var(--primary-dark); }
   .btn:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--primary-dark); }
-  .btn-sound { background: var(--secondary); box-shadow: 0 4px 0 #369B94; padding: 8px 14px; font-size: 1rem; margin-left: 8px; }
-  .btn-next { background: var(--success); box-shadow: 0 4px 0 #219653; margin-top: 15px; width: 100%; }
+  .btn-sound { background: var(--secondary); box-shadow: 0 4px 0 #369B94; padding: 8px 13px; font-size: 1rem; margin-left: 6px; }
+  .btn-next { background: var(--success); box-shadow: 0 4px 0 var(--success-dark); margin-top: 14px; width: 100%; }
 
-  .progress-bar-wrap { background: #EEE; border-radius: 12px; height: 20px; overflow: hidden; margin: 10px 0 20px; border: 2px solid #DDD; }
+  .progress-bar-wrap { background: #EEE; border-radius: 12px; height: 18px; overflow: hidden; margin: 10px 0 18px; border: 2px solid #DDD; }
   .progress-bar-fill { background: var(--success); height: 100%; width: 0%; transition: width 0.3s; }
-  .question-title { font-size: 1.7rem; text-align: center; margin: 15px 0; color: var(--primary-dark); }
-  .options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-  .opt-btn { background: #F0F8FF; border: 3px solid #B0E0E6; padding: 15px; border-radius: 16px; font-size: 1.1rem; cursor: pointer; font-weight: bold; color: var(--text); }
-  .opt-btn.correct { background: #D4EDDA; border-color: var(--success); color: #155724; }
-  .opt-btn.wrong { background: #F8D7DA; border-color: var(--accent); color: #721C24; }
+  .question-title { font-size: 1.55rem; text-align: center; margin: 12px 0; color: var(--primary-dark); }
+  .options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  @media (max-width: 480px) { .options-grid { grid-template-columns: 1fr; } }
+  .opt-btn { background: #F0F8FF; border: 3px solid #B0E0E6; padding: 14px; border-radius: 16px; font-size: 1.05rem; cursor: pointer; font-weight: bold; color: var(--text); }
+  .opt-btn.correct { background: #D4EDDA; border-color: var(--success); color: #155724; animation: bounceUp 0.45s ease; }
+  .opt-btn.wrong { background: #F8D7DA; border-color: var(--accent); color: #721C24; animation: shakeSide 0.4s ease; }
 
-  input[type="text"] { width: 100%; padding: 14px; font-size: 1.2rem; border: 3px solid var(--secondary); border-radius: 16px; margin-bottom: 10px; outline: none; }
-  .forms-inputs { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
-  .pairs-container { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-  .pair-col { display: flex; flex-direction: column; gap: 10px; }
-  .pair-item { padding: 12px; border: 3px solid #DDD; border-radius: 14px; text-align: center; cursor: pointer; font-weight: bold; background: white; }
+  @keyframes bounceUp { 0%, 100% { transform: scale(1); } 40% { transform: translateY(-7px) scale(1.03); } }
+  @keyframes shakeSide { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-7px); } 75% { transform: translateX(7px); } }
+  .anim-correct { animation: bounceUp 0.45s ease; border-color: var(--success) !important; }
+  .anim-wrong { animation: shakeSide 0.4s ease; border-color: var(--accent) !important; }
+
+  input[type="text"] { width: 100%; padding: 13px; font-size: 1.15rem; border: 3px solid var(--secondary); border-radius: 16px; margin-bottom: 10px; outline: none; }
+  .forms-inputs { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+  .pairs-container { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .pair-col { display: flex; flex-direction: column; gap: 8px; }
+  .pair-item { padding: 11px 8px; border: 3px solid #DDD; border-radius: 14px; text-align: center; cursor: pointer; font-weight: bold; background: white; font-size: 0.95rem; }
   .pair-item.selected { border-color: var(--primary); background: #FFF3E0; }
   .pair-item.matched { border-color: var(--success); background: #D4EDDA; opacity: 0.6; pointer-events: none; }
 
-  .feedback { padding: 15px; border-radius: 16px; margin-top: 15px; font-weight: bold; text-align: center; font-size: 1.1rem; }
+  .feedback { padding: 14px; border-radius: 16px; margin-top: 14px; font-weight: bold; text-align: center; font-size: 1.05rem; }
   .feedback.ok { background: #D4EDDA; color: #155724; }
   .feedback.err { background: #F8D7DA; color: #721C24; }
-  .final-badge { background: #FFD700; color: #5C4300; padding: 8px 15px; border-radius: 12px; text-align: center; font-weight: bold; margin-bottom: 10px; }
 
-  .game-area { position: relative; height: 320px; background: #E0F7FA; border-radius: 20px; overflow: hidden; border: 3px solid var(--secondary); }
+  .scramble-row { margin: 10px 0; text-align: center; }
+  .scramble-label { font-size: 0.9rem; font-weight: bold; color: #555; margin-bottom: 5px; }
+  .scramble-slots { display: flex; justify-content: center; flex-wrap: wrap; gap: 5px; min-height: 44px; }
+  .letter-slot { width: 34px; height: 42px; border: 3px dashed #B0E0E6; border-radius: 10px; display: inline-flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: bold; background: #F8FAFC; color: var(--primary-dark); }
+  .letter-slot.filled { border-style: solid; border-color: var(--primary); background: #FFF3E0; }
+  .letters-bank { display: flex; justify-content: center; flex-wrap: wrap; gap: 7px; margin: 15px 0; }
+  .letter-btn { width: 42px; height: 44px; border: 3px solid var(--secondary); border-radius: 12px; background: white; font-size: 1.2rem; font-weight: bold; color: var(--text); cursor: pointer; box-shadow: 0 3px 0 #369B94; }
+  .letter-btn:disabled { opacity: 0.25; cursor: default; box-shadow: none; }
+  .scramble-actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+
+  .boss-arena { background: linear-gradient(135deg, #2D1B4E, #4A1C40); color: white; border-radius: 18px; padding: 12px 14px; margin-bottom: 14px; border: 3px solid #F59E0B; }
+  .boss-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; font-weight: bold; font-size: 0.95rem; }
+  .boss-stage { display: flex; align-items: center; gap: 12px; }
+  .boss-avatar { font-size: 3.1rem; line-height: 1; }
+  .boss-hit { animation: bossHitAnim 0.45s ease; }
+  .boss-attack { animation: bossAttackAnim 0.45s ease; }
+  @keyframes bossHitAnim { 25% { transform: scale(0.8) rotate(-14deg); filter: brightness(2.2); } 60% { transform: scale(1.12) rotate(10deg); } }
+  @keyframes bossAttackAnim { 40% { transform: translateY(10px) scale(1.25); } }
+  .boss-hp-wrap { flex: 1; }
+  .boss-hp-bar { background: rgba(255,255,255,0.2); height: 16px; border-radius: 10px; overflow: hidden; border: 2px solid #FBBF24; }
+  .boss-hp-fill { background: linear-gradient(90deg, #EF4444, #F97316); height: 100%; width: 100%; transition: width 0.35s ease; }
+  .confetti-piece { position: fixed; top: -15px; width: 10px; height: 14px; z-index: 9999; pointer-events: none; border-radius: 3px; animation: confettiFall linear forwards; }
+  @keyframes confettiFall { 100% { transform: translateY(105vh) rotate(720deg); opacity: 0; } }
+
+  .game-area { position: relative; height: 300px; background: #E0F7FA; border-radius: 20px; overflow: hidden; border: 3px solid var(--secondary); }
   .falling-fruit { position: absolute; text-align: center; user-select: none; transform: translateX(-50%); }
-  .fruit-icon { font-size: 2.6rem; line-height: 1; filter: drop-shadow(0 4px 2px rgba(0,0,0,0.15)); }
-  .fruit-word { background: white; color: var(--text); padding: 3px 12px; border-radius: 12px; font-weight: bold; font-size: 1.05rem; border: 2px solid var(--primary); margin-top: -6px; box-shadow: 0 3px 0 rgba(0,0,0,0.15); white-space: nowrap; }
-  .basket { position: absolute; bottom: 5px; left: 50%; transform: translateX(-50%); font-size: 3.5rem; line-height: 1; transition: transform 0.15s; z-index: 2; }
+  .fruit-icon { font-size: 2.5rem; line-height: 1; }
+  .fruit-word { background: white; color: var(--text); padding: 3px 11px; border-radius: 12px; font-weight: bold; font-size: 1rem; border: 2px solid var(--primary); margin-top: -6px; white-space: nowrap; }
+  .basket { position: absolute; bottom: 5px; left: 50%; transform: translateX(-50%); font-size: 3.3rem; line-height: 1; transition: transform 0.15s; z-index: 2; }
   .basket.catch-anim { transform: translateX(-50%) scale(1.25); }
-  .game-controls { display: flex; gap: 10px; margin-top: 15px; flex-wrap: wrap; justify-content: center; }
+  .game-controls { display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap; justify-content: center; }
 
-  table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
-  th, td { padding: 10px; border-bottom: 2px solid #EEE; text-align: left; }
+  .awards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 10px; margin: 14px 0 22px; }
+  .award-card { border: 3px solid #E0E0E0; border-radius: 18px; padding: 12px; text-align: center; background: #F9F9F9; opacity: 0.55; filter: grayscale(1); }
+  .award-card.unlocked { opacity: 1; filter: none; border-color: #FFD700; background: #FFFDF0; }
+  .award-toast { position: fixed; top: 18px; left: 50%; transform: translateX(-50%) translateY(-140%); background: linear-gradient(135deg, #FFD700, #FFA500); color: #3E2723; padding: 12px 20px; border-radius: 18px; font-weight: bold; box-shadow: 0 8px 20px rgba(0,0,0,0.25); z-index: 9999; transition: transform 0.45s ease; border: 3px solid white; text-align: center; max-width: 90%; }
+  .award-toast.show { transform: translateX(-50%) translateY(0); }
+
+  table { width: 100%; border-collapse: collapse; margin-bottom: 20px; font-size: 0.95rem; }
+  th, td { padding: 8px; border-bottom: 2px solid #EEE; text-align: left; }
   th { background: #FFF3E0; }
   .hidden { display: none !important; }
 </style>
@@ -85,45 +152,58 @@
 <header>
   <h1>🚀 Тренажер английского языка</h1>
   <div id="header-grade-btn" class="grade-badge hidden" onclick="showGradeSelect()">🎒 4 класс (сменить)</div>
+  <button id="sound-toggle" class="sound-toggle" onclick="toggleSound()">🔈</button>
 </header>
 
-<!-- ЭКРАН ВЫБОРА КЛАССА -->
 <div id="grade-select-screen" class="grade-screen">
   <div class="card">
     <h2>Привет! В каком классе ты учишься?</h2>
-    <p>Выбери свой класс, чтобы открыть нужные слова и глаголы:</p>
+    <p>Выбери свой класс, чтобы открыть карту приключений:</p>
     <div class="grade-cards">
       <div class="grade-card" onclick="selectGrade('4')">
-        <div style="font-size:3.5rem;">🎒</div>
+        <div style="font-size:3.2rem;">🎒</div>
         <h2>4 класс</h2>
-        <p style="font-size:0.95rem; color:#666;">Неправильные глаголы + простые слова</p>
+        <p style="font-size:0.9rem; color:#666;">Глаголы, слова и Look &amp; Learn</p>
       </div>
       <div class="grade-card" onclick="selectGrade('5')">
-        <div style="font-size:3.5rem;">🎓</div>
+        <div style="font-size:3.2rem;">🎓</div>
         <h2>5 класс</h2>
-        <p style="font-size:0.95rem; color:#666;">Неправильные глаголы (стр. 170–172)</p>
+        <p style="font-size:0.9rem; color:#666;">Неправильные глаголы (стр. 170–172)</p>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ОСНОВНОЙ ИНТЕРФЕЙС -->
 <div id="main-app" class="hidden">
   <div class="nav-tabs">
-    <button class="tab-btn active" onclick="switchTab(this, 'train')">🎯 Тренировка</button>
-    <button class="tab-btn" onclick="switchTab(this, 'game')">🎮 Игровой режим</button>
+    <button class="tab-btn active" onclick="switchTab(this, 'train')">🎯 Обучение</button>
+    <button class="tab-btn" onclick="switchTab(this, 'game')">🎮 Игра</button>
     <button class="tab-btn" onclick="switchTab(this, 'dict')">📖 Словарь</button>
-    <button class="tab-btn" onclick="switchTab(this, 'stats')">🏆 Общий прогресс</button>
+    <button class="tab-btn" onclick="switchTab(this, 'stats')">🏆 Награды</button>
   </div>
 
   <div class="container">
-
     <div id="tab-train">
-      <div class="card">
-        <h3>1. Выбери тему для изучения:</h3>
-        <div class="page-selector" id="page-selector"></div>
+      <div class="view-switch-wrap" id="view-switch-bar">
+        <div class="view-switch-bar">
+          <button class="view-btn active" id="vbtn-map" onclick="setTrainView('map')">
+            🗺️ Карта кампании
+            <small>прохождение по шагам</small>
+          </button>
+          <button class="view-btn" id="vbtn-free" onclick="setTrainView('free')">
+            🔓 Все темы списком
+            <small>свободный выбор без замков</small>
+          </button>
+        </div>
+        <div class="view-hint">💡 Хочешь учить любую тему сразу? Нажми «Все темы списком»!</div>
+      </div>
 
-        <h3>2. Выбери режим (рекомендуем идти по порядку):</h3>
+      <div id="campaign-container"></div>
+
+      <div class="card hidden" id="free-mode-box">
+        <h3>1. Выбери тему:</h3>
+        <div class="page-selector" id="page-selector"></div>
+        <h3>2. Выбери тренажер:</h3>
         <div class="modes-grid" id="modes-grid"></div>
       </div>
 
@@ -132,14 +212,9 @@
           <span id="ex-mode-title" style="font-weight:bold; color:var(--primary);"></span>
           <button class="btn" style="padding:6px 12px; font-size:0.9rem; background:#999; box-shadow:none;" onclick="closeExercise()">✖ Выйти</button>
         </div>
-        
-        <div class="progress-bar-wrap">
-          <div class="progress-bar-fill" id="ex-progress-fill"></div>
-        </div>
-        <div style="text-align:right; font-size:0.9rem; margin-top:-15px; margin-bottom:10px;" id="ex-progress-text"></div>
-
-        <div id="final-banner" class="final-badge hidden">🔥 ФИНАЛЬНОЕ ПОВТОРЕНИЕ! Пройди без единой ошибки!</div>
-
+        <div class="progress-bar-wrap"><div class="progress-bar-fill" id="ex-progress-fill"></div></div>
+        <div style="text-align:right; font-size:0.9rem; margin-top:-12px; margin-bottom:10px;" id="ex-progress-text"></div>
+        <div id="final-banner" class="boss-arena hidden"></div>
         <div id="ex-content"></div>
         <div id="ex-feedback" class="feedback hidden"></div>
         <button id="ex-next-btn" class="btn btn-next hidden" onclick="nextQuestion()">Следующий вопрос ➔</button>
@@ -148,10 +223,13 @@
 
     <div id="tab-game" class="hidden">
       <div class="card">
-        <h2>🎮 Игра «Поймай перевод»</h2>
-        <p>Выбери тему и лови падающие фрукты со словами в корзинку!</p>
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+          <h2 style="margin:0;">🎮 Игра «Поймай перевод»</h2>
+          <button id="game-back-map-btn" class="btn hidden" style="padding:6px 12px; font-size:0.85rem; background:#6B7280; box-shadow:none;" onclick="exitGameToMap()">⬅ На карту</button>
+        </div>
+        <p id="game-subtitle">Выбери тему и лови падающие фрукты со словами в корзинку!</p>
         <div class="page-selector" id="game-page-selector"></div>
-        <div style="display:flex; justify-content:space-between; font-weight:bold; font-size:1.15rem; margin-bottom:10px;">
+        <div style="display:flex; justify-content:space-between; font-weight:bold; font-size:1.1rem; margin-bottom:10px;">
           <span>Очки: <span id="game-score">0</span> | 🏆 Рекорд: <span id="game-best">0</span></span>
           <span>Жизни: <span id="game-lives">❤️❤️❤️</span></span>
         </div>
@@ -171,15 +249,82 @@
 
     <div id="tab-stats" class="hidden">
       <div class="card">
-        <h2>🏆 Общий прогресс обучения</h2>
+        <h2>🏅 Мои награды</h2>
+        <div class="awards-grid" id="awards-content"></div>
+        <h2>🏆 Прогресс по темам</h2>
         <div id="stats-content"></div>
         <button class="btn" style="background:var(--accent); box-shadow:0 4px 0 #C0392B; margin-top:20px;" onclick="resetProgress()">Сбросить весь прогресс</button>
       </div>
     </div>
-
   </div>
 </div>
+<div id="award-toast" class="award-toast"></div>
 <script>
+let soundEnabled = localStorage.getItem("en_sound_enabled") !== "false";
+let audioCtx = null;
+
+function updateSoundBtn() {
+  const btn = document.getElementById("sound-toggle");
+  if (btn) btn.innerText = soundEnabled ? "🔈" : "🔇";
+}
+
+function toggleSound() {
+  soundEnabled = !soundEnabled;
+  localStorage.setItem("en_sound_enabled", soundEnabled);
+  updateSoundBtn();
+  if (soundEnabled) playSound("correct");
+}
+
+function playSound(type) {
+  if (!soundEnabled) return;
+  try {
+    if (!audioCtx) {
+      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      audioCtx = new AudioContext();
+    }
+    if (audioCtx.state === "suspended") audioCtx.resume();
+    const now = audioCtx.currentTime;
+
+    if (type === "correct") {
+      [587.33, 880].forEach((freq, idx) => {
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = "sine";
+        osc.frequency.setValueAtTime(freq, now + idx * 0.08);
+        gain.gain.setValueAtTime(0.001, now + idx * 0.08);
+        gain.gain.exponentialRampToValueAtTime(0.18, now + idx * 0.08 + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.08 + 0.25);
+        osc.connect(gain); gain.connect(audioCtx.destination);
+        osc.start(now + idx * 0.08); osc.stop(now + idx * 0.08 + 0.26);
+      });
+    } else if (type === "wrong") {
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = "triangle";
+      osc.frequency.setValueAtTime(175, now);
+      osc.frequency.exponentialRampToValueAtTime(105, now + 0.28);
+      gain.gain.setValueAtTime(0.001, now);
+      gain.gain.exponentialRampToValueAtTime(0.24, now + 0.02);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.3);
+      osc.connect(gain); gain.connect(audioCtx.destination);
+      osc.start(now); osc.stop(now + 0.31);
+    } else if (type === "win") {
+      [{ f: 523.25, t: 0, d: 0.12 }, { f: 659.25, t: 0.11, d: 0.12 }, { f: 783.99, t: 0.22, d: 0.12 }, { f: 1046.50, t: 0.33, d: 0.38 }].forEach(n => {
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = "sine";
+        osc.frequency.setValueAtTime(n.f, now + n.t);
+        gain.gain.setValueAtTime(0.001, now + n.t);
+        gain.gain.exponentialRampToValueAtTime(0.2, now + n.t + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + n.t + n.d);
+        osc.connect(gain); gain.connect(audioCtx.destination);
+        osc.start(now + n.t); osc.stop(now + n.t + n.d + 0.02);
+      });
+    }
+  } catch (e) {}
+}
+updateSoundBtn();
+
 const APP_DATA = {
   "4": {
     name: "4 класс",
@@ -241,7 +386,7 @@ const APP_DATA = {
           { v1: "write", v2: "wrote", v3: "written", tr: "писать", syn: ["писать", "написать", "записывать"] }
         ]
       },
-            "g4_words_1": {
+      "g4_words_1": {
         title: "Простые слова: Часть 1",
         type: "words",
         items: [
@@ -345,7 +490,7 @@ const APP_DATA = {
           { v1: "interesting", tr: "интересный", syn: ["интересный"] }
         ]
       },
-            "g4_look_1": {
+      "g4_look_1": {
         title: "Слова из раздела учебника Look & Learn: Unit 1–2",
         type: "words",
         items: [
@@ -435,8 +580,6 @@ const APP_DATA = {
           { v1: "get good marks", tr: "получать хорошие (плохие) отметки", syn: ["получать хорошие отметки", "получать плохие отметки", "получать отметки", "получать оценки"] }
         ]
       }
-
-
     }
   },
   "5": {
@@ -543,14 +686,38 @@ const APP_DATA = {
     }
   }
 };
-let currentGrade = null;
-let currentTopic = null;
-let currentMode = null;
+
+let currentGrade = null, currentTopic = null, currentMode = null;
+let trainView = "map";
+let activeCampaignNode = null;
+let levelErrors = 0;
+
 let progress = JSON.parse(localStorage.getItem("en_trainer_v2") || "{}");
+let campaignProgress = JSON.parse(localStorage.getItem("en_campaign_v1") || "{}");
 let sessionQueue = [], streakMap = {}, isFinalPhase = false, finalErrors = 0;
 let currentWord = null, selectedPairEn = null, selectedPairRu = null, matchedCount = 0;
 
 function saveProgress() { localStorage.setItem("en_trainer_v2", JSON.stringify(progress)); }
+function saveCampaign() { localStorage.setItem("en_campaign_v1", JSON.stringify(campaignProgress)); }
+
+function getNodeStars(grade, topicKey, stepIdx) {
+  const key = `${grade}_${topicKey}_${stepIdx}`;
+  return campaignProgress[key] || 0;
+}
+
+function setNodeStars(grade, topicKey, stepIdx, stars) {
+  const key = `${grade}_${topicKey}_${stepIdx}`;
+  if (stars > (campaignProgress[key] || 0)) {
+    campaignProgress[key] = stars;
+    saveCampaign();
+  }
+}
+
+function calcStarsByErrors(errCount) {
+  if (errCount === 0) return 3;
+  if (errCount <= 2) return 2;
+  return 1;
+}
 
 function getModesForTopic(topicObj) {
   const isWords = topicObj.type === "words";
@@ -558,10 +725,10 @@ function getModesForTopic(topicObj) {
     { id: "choice", step: "Шаг 1", name: "Выбери перевод", desc: "4 варианта ответа" },
     { id: "pairs", step: "Шаг 2", name: "Найди пару", desc: "Соедини слова" },
     { id: "type_ru", step: "Шаг 3", name: "Ввод перевода", desc: "Напиши по-русски" },
-    { id: "type_en", step: "Шаг 4", name: isWords ? "Ввод на английском" : "Три формы", desc: isWords ? "Напиши слово по-английски" : "Напиши V1, V2, V3" }
+    { id: "type_en", step: "Шаг 4", name: isWords ? "Ввод на английском" : "Три формы", desc: isWords ? "Напиши слово" : "Напиши V1, V2, V3" },
+    { id: "scramble", step: "Шаг 5", name: "Собери слово", desc: isWords ? "Собери из букв" : "Собери V2 и V3" }
   ];
 }
-
 function getModeData(grade, topic, mode) {
   const key = grade + "_" + topic;
   if (!progress[key]) progress[key] = {};
@@ -571,7 +738,8 @@ function getModeData(grade, topic, mode) {
 
 function speak(text) {
   window.speechSynthesis.cancel();
-  const u = new SpeechSynthesisUtterance(text.replace(/\//g, " or "));
+  const cleanText = text.replace(/\//g, " or ").replace(/—/g, ",");
+  const u = new SpeechSynthesisUtterance(cleanText);
   u.lang = "en-US"; u.rate = 0.85;
   window.speechSynthesis.speak(u);
 }
@@ -585,8 +753,7 @@ function selectGrade(g) {
   const badge = document.getElementById("header-grade-btn");
   badge.classList.remove("hidden");
   badge.innerText = (g === "4" ? "🎒 4 класс" : "🎓 5 класс") + " (сменить)";
-  closeExercise();
-  renderSetup();
+  setTrainView("map");
   renderGamePages();
 }
 
@@ -597,15 +764,132 @@ function showGradeSelect() {
   document.getElementById("grade-select-screen").classList.remove("hidden");
 }
 
+function setTrainView(view) {
+  trainView = view;
+  activeCampaignNode = null;
+  document.getElementById("vbtn-map").classList.toggle("active", view === "map");
+  document.getElementById("vbtn-free").classList.toggle("active", view === "free");
+  document.getElementById("exercise-box").classList.add("hidden");
+  document.getElementById("final-banner").classList.add("hidden");
+  document.getElementById("view-switch-bar").classList.remove("hidden");
+
+  if (view === "map") {
+    document.getElementById("free-mode-box").classList.add("hidden");
+    document.getElementById("campaign-container").classList.remove("hidden");
+    renderCampaignMap();
+  } else {
+    document.getElementById("campaign-container").classList.add("hidden");
+    document.getElementById("free-mode-box").classList.remove("hidden");
+    renderSetup();
+  }
+}
+
 function switchTab(btnEl, tab) {
+  clearInterval(gameTimer);
   ["train", "game", "dict", "stats"].forEach(t => document.getElementById("tab-" + t).classList.add("hidden"));
   document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
   document.getElementById("tab-" + tab).classList.remove("hidden");
   btnEl.classList.add("active");
+  document.getElementById("game-back-map-btn").classList.add("hidden");
+  document.getElementById("game-page-selector").classList.remove("hidden");
+  document.getElementById("game-subtitle").innerText = "Выбери тему и лови падающие фрукты со словами в корзинку!";
+
   if (tab === "dict") renderDict();
   if (tab === "stats") renderStats();
-  if (tab === "train") renderSetup();
+  if (tab === "train") setTrainView(trainView);
   if (tab === "game") { renderGamePages(); updateGameHUD(); }
+}
+
+const CAMPAIGN_STEPS = [
+  { idx: 0, icon: "🎯", title: "1. Тренировка" },
+  { idx: 1, icon: "🔤", title: "2. Собери слово" },
+  { idx: 2, icon: "🍎", title: "3. Игра «Поймай перевод»" },
+  { idx: 3, icon: "⚔️", title: "4. Битва с боссом" }
+];
+
+function renderCampaignMap() {
+  const container = document.getElementById("campaign-container");
+  const topics = APP_DATA[currentGrade].topics;
+  const topicKeys = Object.keys(topics);
+  let html = "";
+  let prevCompleted = true;
+
+  topicKeys.forEach((tKey, tIndex) => {
+    const tObj = topics[tKey];
+    const unitUnlocked = prevCompleted;
+    html += `<div class="campaign-unit">
+      <div class="unit-banner ${unitUnlocked ? "" : "locked-unit"}">
+        <div>
+          <h3>Этап ${tIndex + 1}. ${tObj.title}</h3>
+          <small>${unitUnlocked ? "Пройди 4 испытания по тропинке" : "🔒 Пройди предыдущий этап, чтобы открыть"}</small>
+        </div>
+        <div style="font-size:1.7rem;">${unitUnlocked ? "🗺️" : "🔒"}</div>
+      </div>
+      <div class="path-column">`;
+
+    CAMPAIGN_STEPS.forEach((st, sIdx) => {
+      const stars = getNodeStars(currentGrade, tKey, sIdx);
+      const isDone = stars > 0;
+      const isUnlocked = prevCompleted;
+      const stateClass = isDone ? "completed" : (isUnlocked ? "unlocked" : "locked");
+      const iconShow = isUnlocked ? st.icon : "🔒";
+      const starsHtml = isDone ? ("⭐".repeat(stars) + "☆".repeat(3 - stars)) : (isUnlocked ? "Нажми!" : "");
+
+      html += `<div class="path-node-wrap offset-${sIdx}">
+        <div class="node-circle ${stateClass}" onclick="launchCampaignLevel('${tKey}', ${sIdx}, ${isUnlocked})">${iconShow}</div>
+        <div class="node-stars">${starsHtml}</div>
+        <div class="node-label">${st.title}</div>
+      </div>`;
+
+      prevCompleted = isDone;
+    });
+
+    html += `</div></div>`;
+  });
+
+  container.innerHTML = html;
+}
+
+function launchCampaignLevel(tKey, stepIdx, isUnlocked) {
+  if (!isUnlocked) {
+    playSound("wrong");
+    alert("Этот уровень пока закрыт 🔒! Сначала пройди предыдущий кружочек на тропинке.");
+    return;
+  }
+  currentTopic = tKey;
+  activeCampaignNode = { grade: currentGrade, topic: tKey, step: stepIdx };
+  levelErrors = 0;
+
+  if (stepIdx === 2) {
+    ["train", "game", "dict", "stats"].forEach(t => document.getElementById("tab-" + t).classList.add("hidden"));
+    document.getElementById("tab-game").classList.remove("hidden");
+    document.getElementById("game-back-map-btn").classList.remove("hidden");
+    document.getElementById("game-page-selector").classList.add("hidden");
+    document.getElementById("game-subtitle").innerText = `Уровень кампании: «${APP_DATA[currentGrade].topics[tKey].title}». Набери 30 очков для победы!`;
+    startGame();
+    return;
+  }
+
+  document.getElementById("campaign-container").classList.add("hidden");
+  document.getElementById("view-switch-bar").classList.add("hidden");
+
+  if (stepIdx === 0) startCampaignBatch("choice", "1. Тренировка");
+  else if (stepIdx === 1) startCampaignBatch("scramble", "2. Собери слово");
+  else if (stepIdx === 3) startFinalPhase();
+}
+let campTotalQ = 0;
+
+function startCampaignBatch(modeId, titleStr) {
+  currentMode = modeId;
+  isFinalPhase = false;
+  levelErrors = 0;
+  const items = [...APP_DATA[currentGrade].topics[currentTopic].items];
+  shuffle(items);
+  sessionQueue = items.slice(0, Math.min(8, items.length));
+  campTotalQ = sessionQueue.length;
+  document.getElementById("exercise-box").classList.remove("hidden");
+  document.getElementById("ex-mode-title").innerText = titleStr;
+  nextQuestion();
 }
 
 function renderSetup() {
@@ -632,14 +916,16 @@ function renderSetup() {
     const mData = getModeData(currentGrade, currentTopic, m.id);
     const card = document.createElement("div");
     card.className = "mode-card";
-    card.innerHTML = `<span class="mode-step">${m.step}</span><h4>${m.name}</h4><p style="font-size:0.9rem; color:#666;">${m.desc}</p><div style="font-weight:bold; color:var(--primary);">Освоено: ${mData.mastered.length} / ${totalWords}</div>${mData.completed ? `<div class="mode-done-banner">🎉 Раздел полностью освоен!</div>` : ""}`;
+    card.innerHTML = `<span class="mode-step">${m.step}</span><h4>${m.name}</h4><p style="font-size:0.9rem; color:#666;">${m.desc}</p><div style="font-weight:bold; color:var(--primary);">Освоено: ${mData.mastered.length} / ${totalWords}</div>${mData.completed ? `<div class="mode-done-banner">🎉 Раздел освоен!</div>` : ""}`;
     card.onclick = () => startMode(m.id);
     modesGrid.appendChild(card);
   });
 }
 
 function startMode(modeId) {
+  activeCampaignNode = null;
   currentMode = modeId;
+  levelErrors = 0;
   const topicObj = APP_DATA[currentGrade].topics[currentTopic];
   const items = topicObj.items;
   const mData = getModeData(currentGrade, currentTopic, modeId);
@@ -651,6 +937,9 @@ function startMode(modeId) {
   sessionQueue = items.filter(v => !mData.mastered.includes(v.v1));
   shuffle(sessionQueue);
 
+  document.getElementById("free-mode-box").classList.add("hidden");
+  document.getElementById("view-switch-bar").classList.add("hidden");
+
   if (sessionQueue.length === 0) startFinalPhase();
   else {
     document.getElementById("exercise-box").classList.remove("hidden");
@@ -659,47 +948,150 @@ function startMode(modeId) {
   }
 }
 
-function startFinalPhase() {
-  isFinalPhase = true; finalErrors = 0;
-  sessionQueue = [...APP_DATA[currentGrade].topics[currentTopic].items];
-  shuffle(sessionQueue);
-  document.getElementById("exercise-box").classList.remove("hidden");
-  document.getElementById("final-banner").classList.remove("hidden");
-  nextQuestion();
+const BOSSES = [
+  { icon: "👾", name: "Космический Грамма-Монстр" },
+  { icon: "🦖", name: "Тираннозавр Слов" },
+  { icon: "🐉", name: "Огненный Дракон Времён" },
+  { icon: "👹", name: "Хранитель Переводов" },
+  { icon: "🤖", name: "Робот-Экзаменатор" }
+];
+let currentBoss = BOSSES[0], bossMaxHp = 10, bossHp = 10, playerHearts = 3;
+
+function renderBossArena() {
+  const banner = document.getElementById("final-banner");
+  if (!banner) return;
+  const hpPct = Math.max(0, Math.round((bossHp / bossMaxHp) * 100));
+  const heartsStr = "❤️".repeat(Math.max(0, playerHearts)) + "🖤".repeat(Math.max(0, 3 - playerHearts));
+  banner.innerHTML = `<div class="boss-top"><span>⚔️ БОСС: ${currentBoss.name}</span><span style="font-size:1.2rem;">${heartsStr}</span></div>
+    <div class="boss-stage"><div class="boss-avatar" id="boss-avatar">${currentBoss.icon}</div>
+      <div class="boss-hp-wrap"><div style="display:flex; justify-content:space-between; font-size:0.85rem; margin-bottom:4px;"><span>Здоровье босса</span><span>${bossHp} / ${bossMaxHp}</span></div>
+        <div class="boss-hp-bar"><div class="boss-hp-fill" style="width:${hpPct}%;"></div></div></div></div>`;
 }
 
+function triggerBossAnim(cls) {
+  const av = document.getElementById("boss-avatar");
+  if (!av) return;
+  av.classList.remove("boss-hit", "boss-attack");
+  void av.offsetWidth;
+  av.classList.add(cls);
+}
+
+function launchBossConfetti() {
+  const colors = ["#FFD700", "#FF6B6B", "#4ECDC4", "#2ECC71", "#A855F7", "#FF8C00"];
+  for (let i = 0; i < 65; i++) {
+    const p = document.createElement("div");
+    p.className = "confetti-piece";
+    p.style.left = Math.random() * 100 + "vw";
+    p.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+    p.style.animationDuration = (1.8 + Math.random() * 1.6) + "s";
+    p.style.animationDelay = (Math.random() * 0.4) + "s";
+    document.body.appendChild(p);
+    setTimeout(() => p.remove(), 3800);
+  }
+}
+
+function startFinalPhase() {
+  isFinalPhase = true; finalErrors = 0; playerHearts = 3;
+  const allItems = [...APP_DATA[currentGrade].topics[currentTopic].items];
+  shuffle(allItems);
+  sessionQueue = activeCampaignNode ? allItems.slice(0, Math.min(10, allItems.length)) : allItems;
+  bossMaxHp = sessionQueue.length; bossHp = bossMaxHp;
+  currentBoss = BOSSES[Math.floor(Math.random() * BOSSES.length)];
+  if (!currentMode) currentMode = "choice";
+  document.getElementById("exercise-box").classList.remove("hidden");
+  document.getElementById("ex-mode-title").innerText = "4. Битва с боссом";
+  document.getElementById("final-banner").classList.remove("hidden");
+  renderBossArena();
+  nextQuestion();
+}
 function closeExercise() {
   document.getElementById("exercise-box").classList.add("hidden");
   document.getElementById("final-banner").classList.add("hidden");
-  renderSetup();
+  setTrainView(trainView);
 }
 
 function updateExerciseProgress() {
   const total = APP_DATA[currentGrade].topics[currentTopic].items.length;
   const mData = getModeData(currentGrade, currentTopic, currentMode);
-  const pct = isFinalPhase ? Math.round(((total - sessionQueue.length) / total) * 100) : Math.round((mData.mastered.length / total) * 100);
+  let pct = 0, txt = "";
+  if (isFinalPhase) {
+    pct = Math.round(((bossMaxHp - bossHp) / bossMaxHp) * 100);
+    txt = `Урон боссу: ${bossMaxHp - bossHp} из ${bossMaxHp}`;
+  } else if (activeCampaignNode) {
+    const done = campTotalQ - sessionQueue.length;
+    pct = Math.round((done / campTotalQ) * 100);
+    txt = `Прогресс уровня: ${done} из ${campTotalQ}`;
+  } else {
+    pct = Math.round((mData.mastered.length / total) * 100);
+    txt = `Освоено слов: ${mData.mastered.length} из ${total}`;
+  }
   document.getElementById("ex-progress-fill").style.width = pct + "%";
-  document.getElementById("ex-progress-text").innerText = isFinalPhase ? `Финал: осталось ${sessionQueue.length} из ${total}` : `Освоено слов: ${mData.mastered.length} из ${total}`;
+  document.getElementById("ex-progress-text").innerText = txt;
 }
+
+function finishCampaignStep(starsCount, titleMsg, descMsg) {
+  const box = document.getElementById("ex-content");
+  document.getElementById("final-banner").classList.add("hidden");
+  setNodeStars(activeCampaignNode.grade, activeCampaignNode.topic, activeCampaignNode.step, starsCount);
+  if (typeof checkAchievements === "function") checkAchievements();
+  playSound("win");
+  launchBossConfetti();
+  const starsVisual = "⭐".repeat(starsCount) + "☆".repeat(3 - starsCount);
+  box.innerHTML = `<div style="text-align:center; padding:20px;">
+    <div style="font-size:2.8rem; margin-bottom:8px;">${starsVisual}</div>
+    <h2>${titleMsg}</h2>
+    <p>${descMsg}</p>
+    <button class="btn" onclick="closeExercise()">🗺️ Вернуться на карту</button>
+  </div>`;
+}
+
 function nextQuestion() {
   document.getElementById("ex-feedback").classList.add("hidden");
   document.getElementById("ex-next-btn").classList.add("hidden");
   updateExerciseProgress();
 
+  if (isFinalPhase && playerHearts <= 0) {
+    const box = document.getElementById("ex-content");
+    playSound("wrong");
+    box.innerHTML = `<div style="text-align:center; padding:20px;">
+      <div style="font-size:3.5rem;">${currentBoss.icon}</div>
+      <h2>💥 Босс оказался сильнее!</h2>
+      <p>У тебя закончились все 3 сердца! Попробуй одолеть босса ещё раз.</p>
+      <button class="btn" onclick="startFinalPhase()">⚔️ Сразиться снова</button>
+      <button class="btn" style="background:#6B7280; box-shadow:none; margin-left:8px;" onclick="closeExercise()">Назад</button>
+    </div>`;
+    return;
+  }
+
   if (sessionQueue.length === 0) {
+    if (activeCampaignNode && !isFinalPhase) {
+      const st = calcStarsByErrors(levelErrors);
+      finishCampaignStep(st, "🎉 Уровень пройден!", `Ошибок допущено: ${levelErrors}. Открыт следующий шаг на карте!`);
+      return;
+    }
     if (!isFinalPhase) {
-      alert("Отлично! Все слова осваиваются. Теперь финальное повторение всех слов без ошибок!");
+      playSound("win");
+      alert("Отлично! Все слова освоены! Впереди финальная БИТВА С БОССОМ!");
       startFinalPhase(); return;
     } else {
+      if (activeCampaignNode) {
+        const st = calcStarsByErrors(finalErrors);
+        finishCampaignStep(st, "🏆 БОСС ПОВЕРЖЕН!", `Ты одолел монстра «${currentBoss.name}» и завершил этап!`);
+        return;
+      }
       const box = document.getElementById("ex-content");
       document.getElementById("final-banner").classList.add("hidden");
-      if (finalErrors === 0) {
-        const mData = getModeData(currentGrade, currentTopic, currentMode);
-        mData.completed = true; saveProgress();
-        box.innerHTML = `<div style="text-align:center; padding:20px;"><h2>🏆 Поздравляем! Раздел освоен!</h2><p>Ты прошел финальное повторение без единой ошибки!</p><button class="btn" onclick="closeExercise()">К выбору режимов</button></div>`;
-      } else {
-        box.innerHTML = `<div style="text-align:center; padding:20px;"><h2>👍 Почти выучил!</h2><p>В финале было допущено ошибок: ${finalErrors}. Следует запустить финальное повторение заново.</p><button class="btn" onclick="startFinalPhase()">🔄 Запустить финал заново</button></div>`;
-      }
+      const mData = getModeData(currentGrade, currentTopic, currentMode);
+      mData.completed = true; saveProgress();
+      if (typeof checkAchievements === "function") checkAchievements();
+      playSound("win");
+      launchBossConfetti();
+      box.innerHTML = `<div style="text-align:center; padding:20px;">
+        <div style="font-size:4rem;">🏆</div>
+        <h2>ПОБЕДА НАД БОССОМ!</h2>
+        <p>Ты одолел монстра «${currentBoss.name}» и полностью освоил этот раздел!</p>
+        <button class="btn" onclick="closeExercise()">К выбору режимов</button>
+      </div>`;
       return;
     }
   }
@@ -733,33 +1125,60 @@ function nextQuestion() {
     } else {
       box.innerHTML = `<div class="question-title">${currentWord.tr}</div><div class="forms-inputs"><input type="text" id="en-v1" placeholder="1-я форма (V1)" autocomplete="off"><input type="text" id="en-v2" placeholder="2-я форма (V2)" autocomplete="off"><input type="text" id="en-v3" placeholder="3-я форма (V3)" autocomplete="off"></div><button class="btn" style="width:100%;" onclick="checkTypeEn(false)">Проверить</button>`;
     }
+  } else if (currentMode === "scramble") {
+    renderScramble();
   }
 }
 
 function handleResult(isCorrect, hintText) {
+  const exBox = document.getElementById("exercise-box");
+  exBox.classList.remove("anim-correct", "anim-wrong");
+  void exBox.offsetWidth;
+  exBox.classList.add(isCorrect ? "anim-correct" : "anim-wrong");
+
   const fb = document.getElementById("ex-feedback");
   fb.classList.remove("hidden", "ok", "err");
   const isWords = APP_DATA[currentGrade].topics[currentTopic].type === "words";
   const rightEn = isWords ? currentWord.v1 : `${currentWord.v1} — ${currentWord.v2} — ${currentWord.v3}`;
 
   if (isCorrect) {
+    playSound("correct");
     fb.classList.add("ok"); fb.innerHTML = `✅ Верно! ${hintText || ""}`;
-    if (!isFinalPhase) {
+    if (isFinalPhase) {
+      bossHp = Math.max(0, bossHp - 1);
+      renderBossArena();
+      triggerBossAnim("boss-hit");
+    } else if (!activeCampaignNode) {
       streakMap[currentWord.v1] = (streakMap[currentWord.v1] || 0) + 1;
       if (streakMap[currentWord.v1] >= 2) {
         const mData = getModeData(currentGrade, currentTopic, currentMode);
-        if (!mData.mastered.includes(currentWord.v1)) { mData.mastered.push(currentWord.v1); saveProgress(); }
+        if (!mData.mastered.includes(currentWord.v1)) {
+          mData.mastered.push(currentWord.v1);
+          saveProgress();
+          if (typeof checkAchievements === "function") checkAchievements();
+        }
       } else sessionQueue.splice(Math.min(3, sessionQueue.length), 0, currentWord);
     }
   } else {
+    playSound("wrong");
+    levelErrors++;
     fb.classList.add("err"); fb.innerHTML = `❌ Ошибка! Правильно: <b>${rightEn}</b> (${currentWord.tr})`;
-    if (isFinalPhase) finalErrors++;
-    else { streakMap[currentWord.v1] = 0; sessionQueue.splice(Math.min(2, sessionQueue.length), 0, currentWord); }
+    if (isFinalPhase) {
+      finalErrors++;
+      playerHearts--;
+      renderBossArena();
+      triggerBossAnim("boss-attack");
+      if (playerHearts > 0) sessionQueue.push(currentWord);
+    } else if (activeCampaignNode) {
+      sessionQueue.splice(Math.min(2, sessionQueue.length), 0, currentWord);
+    } else {
+      streakMap[currentWord.v1] = 0;
+      sessionQueue.splice(Math.min(2, sessionQueue.length), 0, currentWord);
+    }
   }
   updateExerciseProgress();
   document.getElementById("ex-next-btn").classList.remove("hidden");
 }
-
 function checkChoice(btn, selected) {
   document.querySelectorAll(".opt-btn").forEach(b => b.disabled = true);
   const isOk = selected === currentWord.tr;
@@ -826,11 +1245,12 @@ function checkTypeRu() {
   handleResult(isOk, `По учебнику: ${currentWord.tr}`);
 }
 
-
 function matchForm(input, expected) {
-  const cleanIn = input.trim().toLowerCase();
-  const variants = expected.toLowerCase().split("/").map(s => s.trim());
-  return variants.includes(cleanIn) || (expected.includes("/") && cleanIn.replace(/\s+/g, " ") === expected.toLowerCase());
+  const cleanIn = input.trim().toLowerCase().replace(/\s+/g, " ");
+  const normExp = expected.toLowerCase().replace(/—/g, "-");
+  if (cleanIn === normExp || cleanIn === normExp.replace(/\s*-\s*/g, " ")) return true;
+  const variants = normExp.split(/[/—-]+/).map(s => s.trim()).filter(Boolean);
+  return variants.includes(cleanIn);
 }
 
 function checkTypeEn(isWords) {
@@ -842,6 +1262,108 @@ function checkTypeEn(isWords) {
     isOk = matchForm(document.getElementById("en-v1").value, currentWord.v1) && matchForm(document.getElementById("en-v2").value, currentWord.v2) && matchForm(document.getElementById("en-v3").value, currentWord.v3);
     speak(`${currentWord.v1}, ${currentWord.v2}, ${currentWord.v3}`);
   }
+  handleResult(isOk);
+}
+
+let scrambleStages = [], scrambleStageIdx = 0;
+
+function getCleanTarget(str) {
+  return str.split(/[\/—]/).shift().trim().toLowerCase();
+}
+
+function renderScramble() {
+  const topicObj = APP_DATA[currentGrade].topics[currentTopic];
+  const isWords = topicObj.type === "words";
+  scrambleStageIdx = 0;
+
+  if (isWords) {
+    const t = getCleanTarget(currentWord.v1);
+    scrambleStages = [{ label: "Собери английское слово:", target: t, letters: t.replace(/\s+/g, "").split(""), bank: [], picked: [] }];
+  } else {
+    const t2 = getCleanTarget(currentWord.v2);
+    const t3 = getCleanTarget(currentWord.v3);
+    scrambleStages = [
+      { label: "2-я форма (Past Simple):", target: t2, letters: t2.replace(/\s+/g, "").split(""), bank: [], picked: [] },
+      { label: "3-я форма (Past Participle):", target: t3, letters: t3.replace(/\s+/g, "").split(""), bank: [], picked: [] }
+    ];
+  }
+
+  scrambleStages.forEach(st => {
+    const shuffled = st.letters.map((ch, idx) => ({ ch, idx }));
+    shuffle(shuffled);
+    st.bank = shuffled;
+  });
+
+  drawScrambleUI();
+}
+
+function drawScrambleUI() {
+  const isWords = APP_DATA[currentGrade].topics[currentTopic].type === "words";
+  const box = document.getElementById("ex-content");
+  const curStage = scrambleStages[scrambleStageIdx];
+
+  let headerHtml = `<div class="question-title">${currentWord.tr}</div>`;
+  if (!isWords) {
+    headerHtml += `<div style="text-align:center; font-size:1.1rem; margin-bottom:10px;">Начальная форма (V1): <b>${currentWord.v1}</b> <button class="btn btn-sound" onclick="speak('${currentWord.v1}')">🔊</button></div>`;
+  }
+
+  const rowsHtml = scrambleStages.map((st, sIdx) => {
+    let letterCursor = 0;
+    const slots = st.target.split("").map(ch => {
+      if (ch === " ") return `<span style="width:14px; display:inline-block;"></span>`;
+      const pIdx = st.picked[letterCursor];
+      letterCursor++;
+      const val = pIdx !== undefined ? st.bank[pIdx].ch.toUpperCase() : "";
+      return `<span class="letter-slot ${val ? "filled" : ""}">${val}</span>`;
+    }).join("");
+    const activeMark = sIdx === scrambleStageIdx ? "👉 " : "";
+    return `<div class="scramble-row"><div class="scramble-label">${activeMark}${st.label}</div><div class="scramble-slots">${slots}</div></div>`;
+  }).join("");
+
+  const bankHtml = curStage.bank.map((item, bIdx) => {
+    const used = curStage.picked.includes(bIdx);
+    return `<button class="letter-btn" ${used ? "disabled" : ""} onclick="pickScrambleLetter(${bIdx})">${item.ch.toUpperCase()}</button>`;
+  }).join("");
+
+  box.innerHTML = `${headerHtml}${rowsHtml}
+    <div class="letters-bank">${bankHtml}</div>
+    <div class="scramble-actions">
+      <button class="btn" style="background:#6B7280; box-shadow:0 4px 0 #4B5563;" onclick="undoScrambleLetter()">⬅ Удалить букву</button>
+      <button class="btn" onclick="checkScramble()">✅ Проверить</button>
+    </div>`;
+}
+
+function pickScrambleLetter(bIdx) {
+  const curStage = scrambleStages[scrambleStageIdx];
+  if (curStage.picked.length >= curStage.letters.length) return;
+  curStage.picked.push(bIdx);
+  if (curStage.picked.length === curStage.letters.length && scrambleStageIdx < scrambleStages.length - 1) {
+    scrambleStageIdx++;
+  }
+  drawScrambleUI();
+}
+
+function undoScrambleLetter() {
+  let curStage = scrambleStages[scrambleStageIdx];
+  if (curStage.picked.length === 0 && scrambleStageIdx > 0) {
+    scrambleStageIdx--;
+    curStage = scrambleStages[scrambleStageIdx];
+  }
+  if (curStage.picked.length > 0) {
+    curStage.picked.pop();
+    drawScrambleUI();
+  }
+}
+
+function checkScramble() {
+  const isWords = APP_DATA[currentGrade].topics[currentTopic].type === "words";
+  const allFilled = scrambleStages.every(st => st.picked.length === st.letters.length);
+  if (!allFilled) { alert("Сначала собери все буквы слова!"); return; }
+  const isOk = scrambleStages.every(st => {
+    const built = st.picked.map(i => st.bank[i].ch).join("");
+    return built === st.letters.join("");
+  });
+  speak(isWords ? currentWord.v1 : `${currentWord.v1}, ${currentWord.v2}, ${currentWord.v3}`);
   handleResult(isOk);
 }
 function renderPairsQuestion() {
@@ -866,32 +1388,58 @@ function selectPair(el, side) {
   if (selectedPairEn && selectedPairRu) {
     const v1 = selectedPairEn.dataset.v1;
     const wordObj = APP_DATA[currentGrade].topics[currentTopic].items.find(w => w.v1 === v1);
-    if (v1 === selectedPairRu.dataset.v1) {
-      selectedPairEn.classList.add("matched"); selectedPairRu.classList.add("matched"); matchedCount++;
-      if (!isFinalPhase) {
+    const leftEl = selectedPairEn, rightEl = selectedPairRu;
+    if (v1 === rightEl.dataset.v1) {
+      playSound("correct");
+      leftEl.classList.remove("selected"); rightEl.classList.remove("selected");
+      leftEl.classList.add("matched", "anim-correct"); rightEl.classList.add("matched", "anim-correct");
+      matchedCount++;
+      if (isFinalPhase) {
+        bossHp = Math.max(0, bossHp - 1);
+        renderBossArena(); triggerBossAnim("boss-hit");
+      } else if (!activeCampaignNode) {
         streakMap[v1] = (streakMap[v1] || 0) + 1;
         if (streakMap[v1] >= 2) {
           const mData = getModeData(currentGrade, currentTopic, currentMode);
-          if (!mData.mastered.includes(v1)) { mData.mastered.push(v1); saveProgress(); }
+          if (!mData.mastered.includes(v1)) {
+            mData.mastered.push(v1); saveProgress();
+            if (typeof checkAchievements === "function") checkAchievements();
+          }
         } else sessionQueue.push(wordObj);
       }
       if (matchedCount === parseInt(document.getElementById("ex-content").dataset.batchSize)) {
         updateExerciseProgress(); document.getElementById("ex-next-btn").classList.remove("hidden");
       }
     } else {
-      alert("Неверная пара! Попробуй еще раз.");
-      if (isFinalPhase) finalErrors++;
-      else { streakMap[v1] = 0; if (!sessionQueue.includes(wordObj)) sessionQueue.push(wordObj); }
+      playSound("wrong");
+      leftEl.classList.add("anim-wrong"); rightEl.classList.add("anim-wrong");
+      if (isFinalPhase) {
+        finalErrors++; playerHearts--; renderBossArena(); triggerBossAnim("boss-attack");
+      } else if (!activeCampaignNode) {
+        streakMap[v1] = 0; if (!sessionQueue.includes(wordObj)) sessionQueue.push(wordObj);
+      }
+      setTimeout(() => {
+        leftEl.classList.remove("selected", "anim-wrong");
+        rightEl.classList.remove("selected", "anim-wrong");
+        alert("Неверная пара! Попробуй еще раз.");
+      }, 360);
     }
-    selectedPairEn.classList.remove("selected"); selectedPairRu.classList.remove("selected");
     selectedPairEn = null; selectedPairRu = null;
   }
 }
 
-let gameTimer = null, gameScore = 0, gameLives = 3, activeFallingWord = null, fallingY = 0;
+let gameTimer = null, gameScore = 0, gameLives = 3, activeFallingWord = null, fallingY = 0, isNewRecordInSession = false;
 const FRUITS = ["🍎", "🍊", "🍋", "🍐", "🍓", "🍑", "🍒", "🍍"];
 
 function getBestKey() { return "en_game_best_" + currentGrade; }
+
+function exitGameToMap() {
+  clearInterval(gameTimer);
+  activeCampaignNode = null;
+  document.getElementById("tab-game").classList.add("hidden");
+  document.getElementById("tab-train").classList.remove("hidden");
+  setTrainView("map");
+}
 
 function renderGamePages() {
   const topics = APP_DATA[currentGrade].topics;
@@ -911,11 +1459,20 @@ function renderGamePages() {
   });
 }
 
-function startGame() { clearInterval(gameTimer); gameScore = 0; gameLives = 3; updateGameHUD(); spawnWord(); }
+function startGame() {
+  clearInterval(gameTimer);
+  gameScore = 0; gameLives = 3; isNewRecordInSession = false;
+  updateGameHUD();
+  spawnWord();
+}
 
 function updateGameHUD() {
   let best = parseInt(localStorage.getItem(getBestKey()) || "0");
-  if (gameScore > best) { best = gameScore; localStorage.setItem(getBestKey(), best); }
+  if (gameScore > best) {
+    best = gameScore;
+    localStorage.setItem(getBestKey(), best);
+    isNewRecordInSession = true;
+  }
   document.getElementById("game-score").innerText = gameScore;
   document.getElementById("game-best").innerText = best;
   document.getElementById("game-lives").innerText = "❤️".repeat(Math.max(0, gameLives));
@@ -923,10 +1480,30 @@ function updateGameHUD() {
 
 function spawnWord() {
   let best = parseInt(localStorage.getItem(getBestKey()) || "0");
+  if (activeCampaignNode && gameScore >= 30) {
+    clearInterval(gameTimer);
+    const errCount = 3 - gameLives;
+    const stars = calcStarsByErrors(errCount);
+    setNodeStars(activeCampaignNode.grade, activeCampaignNode.topic, activeCampaignNode.step, stars);
+    if (typeof checkAchievements === "function") checkAchievements();
+    playSound("win");
+    launchBossConfetti();
+    const starsVisual = "⭐".repeat(stars) + "☆".repeat(3 - stars);
+    document.getElementById("game-area").innerHTML = `<div style="text-align:center; padding-top:55px;">
+      <div style="font-size:2.4rem;">${starsVisual}</div>
+      <h2>🎉 Уровень пройден!</h2>
+      <p style="font-weight:bold;">Ты набрал ${gameScore} очков и открыл Битву с боссом!</p>
+    </div>`;
+    document.getElementById("game-controls").innerHTML = `<button class="btn" onclick="exitGameToMap()">🗺️ Вернуться на карту</button>`;
+    return;
+  }
+
   if (gameLives <= 0) {
     clearInterval(gameTimer);
-    document.getElementById("game-area").innerHTML = `<div style="text-align:center; padding-top:95px;"><h2>Игра окончена! Счет: ${gameScore}</h2><p style="font-size:1.2rem; font-weight:bold; color:var(--primary-dark);">🏆 Лучший рекорд: ${best}</p></div>`;
-    document.getElementById("game-controls").innerHTML = `<button class="btn" onclick="startGame()">🔄 Играть снова</button>`;
+    if (isNewRecordInSession && gameScore > 0) playSound("win");
+    else playSound("wrong");
+    document.getElementById("game-area").innerHTML = `<div style="text-align:center; padding-top:75px;"><h2>Игра окончена! Счет: ${gameScore}</h2><p style="font-size:1.15rem; font-weight:bold; color:var(--primary-dark);">🏆 Лучший рекорд: ${best}</p></div>`;
+    document.getElementById("game-controls").innerHTML = `<button class="btn" onclick="startGame()">🔄 Играть снова</button>` + (activeCampaignNode ? `<button class="btn" style="background:#6B7280; box-shadow:none;" onclick="exitGameToMap()">🗺️ На карту</button>` : "");
     return;
   }
   const items = APP_DATA[currentGrade].topics[currentTopic].items;
@@ -943,24 +1520,115 @@ function spawnWord() {
 
   const fruit = FRUITS[Math.floor(Math.random() * FRUITS.length)];
   document.getElementById("game-area").innerHTML = `<div class="falling-fruit" id="fall-el" style="left:50%; top:0px;"><div class="fruit-icon">${fruit}</div><div class="fruit-word">${activeFallingWord.v1}</div></div><div class="basket" id="game-basket">🧺</div>`;
-  document.getElementById("game-controls").innerHTML = choices.map(c => `<button class="btn" style="background:var(--secondary); box-shadow:0 4px 0 #369B94;" onclick="catchWord('${c}')">${c}</button>`).join("");
+  document.getElementById("game-controls").innerHTML = choices.map(c => `<button class="btn" style="background:var(--secondary); box-shadow:0 4px 0 #369B94;" onclick="catchWord(this, '${c}')">${c}</button>`).join("");
 
   clearInterval(gameTimer);
   gameTimer = setInterval(() => {
     fallingY += 2.5;
     const el = document.getElementById("fall-el");
     if (el) el.style.top = fallingY + "px";
-    if (fallingY > 215) { gameLives--; updateGameHUD(); spawnWord(); }
+    if (fallingY > 205) {
+      playSound("wrong");
+      gameLives--;
+      updateGameHUD();
+      spawnWord();
+    }
   }, 50);
 }
 
-function catchWord(ans) {
+function catchWord(btn, ans) {
+  clearInterval(gameTimer);
+  document.querySelectorAll("#game-controls .btn").forEach(b => b.disabled = true);
   if (ans === activeFallingWord.tr) {
+    playSound("correct");
+    btn.classList.add("anim-correct");
+    btn.style.background = "var(--success)";
     gameScore += 10;
+    if (typeof checkAchievements === "function") checkAchievements();
     const basket = document.getElementById("game-basket");
     if (basket) basket.classList.add("catch-anim");
-    setTimeout(() => { updateGameHUD(); spawnWord(); }, 180);
-  } else { gameLives--; updateGameHUD(); spawnWord(); }
+    setTimeout(() => { updateGameHUD(); spawnWord(); }, 260);
+  } else {
+    playSound("wrong");
+    btn.classList.add("anim-wrong");
+    btn.style.background = "var(--accent)";
+    gameLives--;
+    setTimeout(() => { updateGameHUD(); spawnWord(); }, 300);
+  }
+}
+const ACHIEVEMENTS = [
+  { id: "first_5", icon: "🌱", title: "Первые шаги", desc: "Выучить 5 слов или пройти уровень" },
+  { id: "scholar_25", icon: "📚", title: "Уверенный старт", desc: "Выучить 25 слов или 3 уровня" },
+  { id: "flawless", icon: "🎯", title: "Знаток", desc: "Одолеть босса или получить 3 звезды" },
+  { id: "topic_master", icon: "👑", title: "Покоритель этапа", desc: "Пройти всю тему целиком" },
+  { id: "basket_30", icon: "🧺", title: "Мастер корзинки", desc: "Набрать 30 очков в игре" },
+  { id: "basket_100", icon: "🏆", title: "Чемпион фруктов", desc: "Набрать 100 очков в игре" }
+];
+
+let unlockedAwards = JSON.parse(localStorage.getItem("en_awards_v1") || "[]");
+
+function showAwardToast(ach) {
+  const toast = document.getElementById("award-toast");
+  if (!toast) return;
+  toast.innerHTML = `🎉 Новая награда!<br><span style="font-size:1.1rem;">${ach.icon} ${ach.title}</span><div style="font-size:0.82rem; font-weight:normal;">${ach.desc}</div>`;
+  toast.classList.add("show");
+  playSound("win");
+  setTimeout(() => toast.classList.remove("show"), 3600);
+}
+
+function unlockAward(id) {
+  if (unlockedAwards.includes(id)) return;
+  unlockedAwards.push(id);
+  localStorage.setItem("en_awards_v1", JSON.stringify(unlockedAwards));
+  const ach = ACHIEVEMENTS.find(a => a.id === id);
+  if (ach) showAwardToast(ach);
+}
+
+function checkAchievements() {
+  let totalMastered = 0, anyCompleted = false, fullTopicDone = false;
+  const campValues = Object.values(campaignProgress);
+  const completedNodes = campValues.filter(s => s > 0).length;
+  if (campValues.includes(3)) anyCompleted = true;
+
+  Object.keys(APP_DATA).forEach(g => {
+    const topics = APP_DATA[g].topics;
+    Object.keys(topics).forEach(tKey => {
+      const modes = getModesForTopic(topics[tKey]);
+      let modesDoneCount = 0;
+      modes.forEach(m => {
+        const md = getModeData(g, tKey, m.id);
+        totalMastered += md.mastered.length;
+        if (md.completed) { anyCompleted = true; modesDoneCount++; }
+      });
+      const campStepsDone = [0, 1, 2, 3].every(s => getNodeStars(g, tKey, s) > 0);
+      if (modesDoneCount === modes.length || campStepsDone) fullTopicDone = true;
+    });
+  });
+
+  const best4 = parseInt(localStorage.getItem("en_game_best_4") || "0");
+  const best5 = parseInt(localStorage.getItem("en_game_best_5") || "0");
+  const maxBest = Math.max(best4, best5, gameScore);
+
+  if (totalMastered >= 5 || completedNodes >= 1) unlockAward("first_5");
+  if (totalMastered >= 25 || completedNodes >= 3) unlockAward("scholar_25");
+  if (anyCompleted) unlockAward("flawless");
+  if (fullTopicDone) unlockAward("topic_master");
+  if (maxBest >= 30) unlockAward("basket_30");
+  if (maxBest >= 100) unlockAward("basket_100");
+}
+
+function renderAwards() {
+  const box = document.getElementById("awards-content");
+  if (!box) return;
+  box.innerHTML = ACHIEVEMENTS.map(a => {
+    const isOpen = unlockedAwards.includes(a.id);
+    return `<div class="award-card ${isOpen ? "unlocked" : ""}">
+      <div style="font-size:2.2rem; margin-bottom:4px;">${a.icon}</div>
+      <div style="font-weight:bold; color:var(--primary-dark);">${a.title}</div>
+      <div style="font-size:0.82rem; color:#555; margin-top:4px;">${a.desc}</div>
+      <div style="margin-top:6px; font-size:0.78rem; font-weight:bold; color:${isOpen ? "var(--success)" : "#888"};">${isOpen ? "✅ Получено" : "🔒 Закрыто"}</div>
+    </div>`;
+  }).join("");
 }
 
 function renderDict() {
@@ -968,27 +1636,36 @@ function renderDict() {
   document.getElementById("dict-content").innerHTML = Object.keys(topics).map(tKey => {
     const tObj = topics[tKey];
     if (tObj.type === "words") {
-      return `<h3>${tObj.title}</h3><table><tr><th>Слово</th><th>Перевод</th><th>Звук</th></tr>${tObj.items.map(w => `<tr><td><b>${w.v1}</b></td><td>${w.tr}</td><td><button class="btn btn-sound" onclick="speak('${w.v1}')">🔊</button></td></tr>`).join("")}</table>`;
+      return `<h3>${tObj.title}</h3><table><tr><th>Слово / выражение</th><th>Перевод</th><th>Звук</th></tr>${tObj.items.map(w => `<tr><td><b>${w.v1}</b></td><td>${w.tr}</td><td><button class="btn btn-sound" onclick="speak('${w.v1}')">🔊</button></td></tr>`).join("")}</table>`;
     }
     return `<h3>${tObj.title}</h3><table><tr><th>V1</th><th>V2</th><th>V3</th><th>Перевод</th><th>Звук</th></tr>${tObj.items.map(v => `<tr><td><b>${v.v1}</b></td><td>${v.v2}</td><td>${v.v3}</td><td>${v.tr}</td><td><button class="btn btn-sound" onclick="speak('${v.v1}, ${v.v2}, ${v.v3}')">🔊</button></td></tr>`).join("")}</table>`;
   }).join("");
 }
 
 function renderStats() {
+  checkAchievements();
+  renderAwards();
   const topics = APP_DATA[currentGrade].topics;
   document.getElementById("stats-content").innerHTML = Object.keys(topics).map(tKey => {
     const tObj = topics[tKey];
     const total = tObj.items.length;
-    return `<div style="margin-bottom:20px; border-bottom:2px solid #EEE; padding-bottom:10px;"><h3>${tObj.title}</h3>${getModesForTopic(tObj).map(m => { const md = getModeData(currentGrade, tKey, m.id); return `<div>${m.name}: <b>${md.mastered.length} / ${total}</b> ${md.completed ? "✅ (Освоено)" : ""}</div>`; }).join("")}</div>`;
+    const campStars = [0, 1, 2, 3].reduce((acc, s) => acc + getNodeStars(currentGrade, tKey, s), 0);
+    return `<div style="margin-bottom:18px; border-bottom:2px solid #EEE; padding-bottom:10px;">
+      <h3>${tObj.title} <span style="font-size:0.9rem; color:var(--primary-dark);">(Карта: ${campStars}/12 ⭐)</span></h3>
+      ${getModesForTopic(tObj).map(m => { const md = getModeData(currentGrade, tKey, m.id); return `<div>${m.name}: <b>${md.mastered.length} / ${total}</b> ${md.completed ? "✅" : ""}</div>`; }).join("")}
+    </div>`;
   }).join("");
 }
 
 function resetProgress() {
-  if (confirm("Точно сбросить весь прогресс?")) {
+  if (confirm("Точно сбросить весь прогресс, звёзды на карте и награды?")) {
     progress = {}; saveProgress();
+    campaignProgress = {}; saveCampaign();
+    unlockedAwards = []; localStorage.removeItem("en_awards_v1");
     localStorage.removeItem("en_game_best_4");
     localStorage.removeItem("en_game_best_5");
     renderStats(); updateGameHUD();
+    if (trainView === "map") renderCampaignMap();
   }
 }
 
