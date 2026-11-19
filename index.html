@@ -17,34 +17,35 @@
   .grade-badge { display: inline-block; background: rgba(255,255,255,0.25); padding: 4px 12px; border-radius: 14px; font-size: 0.9rem; margin-top: 6px; cursor: pointer; font-weight: bold; }
   .sound-toggle { position: absolute; top: 14px; right: 14px; background: rgba(255,255,255,0.25); border: 2px solid white; color: white; border-radius: 50%; width: 42px; height: 42px; font-size: 1.3rem; cursor: pointer; display: flex; align-items: center; justify-content: center; }
 
-  .grade-screen { max-width: 600px; margin: 35px auto; padding: 0 15px; text-align: center; }
-  .grade-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 22px; }
-  .grade-card { background: white; border: 4px solid var(--secondary); border-radius: 24px; padding: 25px 12px; cursor: pointer; box-shadow: var(--shadow); transition: 0.2s; }
+  .grade-screen { max-width: 680px; margin: 35px auto; padding: 0 15px; text-align: center; }
+  .grade-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(185px, 1fr)); gap: 15px; margin-top: 22px; }
+  .grade-card { background: white; border: 4px solid var(--secondary); border-radius: 24px; padding: 22px 12px; cursor: pointer; box-shadow: var(--shadow); transition: 0.2s; }
   .grade-card:hover { transform: translateY(-4px); border-color: var(--primary); background: #FFFDF5; }
-  .grade-card h2 { margin: 10px 0 5px; font-size: 1.5rem; color: var(--primary-dark); }
+  .grade-card h2 { margin: 10px 0 5px; font-size: 1.45rem; color: var(--primary-dark); }
 
   .nav-tabs { display: flex; justify-content: center; gap: 8px; padding: 12px 10px 6px; flex-wrap: wrap; }
   .tab-btn { background: white; border: 3px solid var(--primary); color: var(--primary); padding: 8px 14px; border-radius: 18px; font-weight: bold; cursor: pointer; font-size: 0.95rem; transition: 0.2s; }
   .tab-btn.active { background: var(--primary); color: white; transform: translateY(-2px); }
 
-    .view-switch-wrap { background: #FFFFFF; border: 3px solid #FFE082; border-radius: 20px; padding: 12px; margin-bottom: 16px; box-shadow: 0 4px 0 rgba(0,0,0,0.06); text-align: center; }
+  .view-switch-wrap { background: #FFFFFF; border: 3px solid #FFE082; border-radius: 20px; padding: 12px; margin-bottom: 16px; box-shadow: 0 4px 0 rgba(0,0,0,0.06); text-align: center; }
   .view-switch-bar { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
   .view-btn { background: #FFF8E7; border: 3px solid var(--primary); color: var(--primary-dark); padding: 10px 8px; border-radius: 16px; font-weight: bold; cursor: pointer; font-size: 0.95rem; transition: 0.2s; line-height: 1.25; }
   .view-btn small { display: block; font-size: 0.75rem; font-weight: normal; opacity: 0.9; margin-top: 2px; }
   .view-btn.active { background: var(--secondary); border-color: #369B94; color: white; box-shadow: 0 4px 0 #369B94; transform: translateY(-2px); }
   .view-hint { margin-top: 10px; font-size: 0.85rem; color: #5D4037; background: #FFF3CD; padding: 6px 12px; border-radius: 12px; display: inline-block; font-weight: bold; }
 
-
   .container { max-width: 820px; margin: 0 auto; padding: 0 12px; }
   .card { background: var(--card); border-radius: 24px; padding: 20px 16px; box-shadow: var(--shadow); border: 3px solid #FFE082; margin-bottom: 20px; }
   .campaign-unit { margin-bottom: 28px; position: relative; }
-  .unit-banner { background: linear-gradient(135deg, #4ECDC4, #2BBBAD); color: white; padding: 14px 18px; border-radius: 20px; box-shadow: 0 5px 0 #269A8E; margin-bottom: 22px; display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+  .unit-banner { background: linear-gradient(135deg, #4ECDC4, #2BBBAD); color: white; padding: 14px 18px; border-radius: 20px; box-shadow: 0 5px 0 #269A8E; margin-bottom: 22px; display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; }
   .unit-banner.locked-unit { background: linear-gradient(135deg, #BDC3C7, #95A5A6); box-shadow: 0 5px 0 #7F8C8D; }
   .unit-banner h3 { margin: 0; font-size: 1.15rem; }
   .unit-banner small { opacity: 0.95; font-size: 0.85rem; display: block; margin-top: 2px; }
+  .btn-rule-banner { background: #FFF9E6; color: #8D4900; border: 2px solid white; padding: 6px 12px; border-radius: 14px; font-size: 0.85rem; font-weight: bold; cursor: pointer; box-shadow: 0 3px 0 rgba(0,0,0,0.15); }
+  .btn-rule-banner:active { transform: translateY(2px); }
 
   .path-column { display: flex; flex-direction: column; align-items: center; gap: 22px; position: relative; padding: 6px 0; }
-  .path-node-wrap { display: flex; flex-direction: column; align-items: center; position: relative; z-index: 2; width: 150px; text-align: center; transition: transform 0.2s; }
+  .path-node-wrap { display: flex; flex-direction: column; align-items: center; position: relative; z-index: 2; width: 155px; text-align: center; transition: transform 0.2s; }
   .offset-0 { transform: translateX(0px); }
   .offset-1 { transform: translateX(-44px); }
   .offset-2 { transform: translateX(0px); }
@@ -63,7 +64,7 @@
   .node-label { font-size: 0.85rem; font-weight: bold; color: var(--text); margin-top: 2px; line-height: 1.2; background: rgba(255,255,255,0.85); padding: 2px 8px; border-radius: 10px; }
 
   .page-selector { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
-  .page-btn { flex: 1; min-width: 135px; padding: 10px; border-radius: 14px; border: 3px solid var(--secondary); background: white; cursor: pointer; font-weight: bold; font-size: 0.9rem; }
+  .page-btn { flex: 1; min-width: 145px; padding: 10px; border-radius: 14px; border: 3px solid var(--secondary); background: white; cursor: pointer; font-weight: bold; font-size: 0.9rem; }
   .page-btn.active { background: var(--secondary); color: white; }
   .badge-done { background: var(--success); color: white; font-size: 0.75rem; padding: 2px 7px; border-radius: 10px; display: inline-block; margin-top: 4px; }
 
@@ -79,10 +80,11 @@
 
   .progress-bar-wrap { background: #EEE; border-radius: 12px; height: 18px; overflow: hidden; margin: 10px 0 18px; border: 2px solid #DDD; }
   .progress-bar-fill { background: var(--success); height: 100%; width: 0%; transition: width 0.3s; }
-  .question-title { font-size: 1.55rem; text-align: center; margin: 12px 0; color: var(--primary-dark); }
+  .question-title { font-size: 1.45rem; text-align: center; margin: 12px 0; color: var(--primary-dark); line-height: 1.35; }
+  .ipa-sub { font-size: 1rem; color: #5D6D7E; font-weight: normal; margin-top: 4px; }
   .options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
   @media (max-width: 480px) { .options-grid { grid-template-columns: 1fr; } }
-  .opt-btn { background: #F0F8FF; border: 3px solid #B0E0E6; padding: 14px; border-radius: 16px; font-size: 1.05rem; cursor: pointer; font-weight: bold; color: var(--text); }
+  .opt-btn { background: #F0F8FF; border: 3px solid #B0E0E6; padding: 14px; border-radius: 16px; font-size: 1.02rem; cursor: pointer; font-weight: bold; color: var(--text); }
   .opt-btn.correct { background: #D4EDDA; border-color: var(--success); color: #155724; animation: bounceUp 0.45s ease; }
   .opt-btn.wrong { background: #F8D7DA; border-color: var(--accent); color: #721C24; animation: shakeSide 0.4s ease; }
 
@@ -144,6 +146,20 @@
   table { width: 100%; border-collapse: collapse; margin-bottom: 20px; font-size: 0.95rem; }
   th, td { padding: 8px; border-bottom: 2px solid #EEE; text-align: left; }
   th { background: #FFF3E0; }
+
+  /* Памятка / Правило темы */
+  .rule-box { background: #FFFDF0; border: 3px solid #FFE082; border-radius: 18px; padding: 14px 16px; margin-bottom: 16px; font-size: 0.95rem; line-height: 1.45; }
+  .rule-box h4 { margin: 0 0 8px; color: var(--primary-dark); font-size: 1.05rem; }
+  .rule-box ul { margin: 6px 0 0 18px; padding: 0; }
+  .rule-box li { margin-bottom: 5px; }
+
+  /* Модальное окно правила/словаря */
+  .modal-overlay { position: fixed; inset: 0; background: rgba(44, 62, 80, 0.6); z-index: 9998; display: flex; align-items: center; justify-content: center; padding: 14px; }
+  .modal-card { background: white; border: 4px solid var(--primary); border-radius: 24px; max-width: 680px; width: 100%; max-height: 85vh; display: flex; flex-direction: column; box-shadow: 0 12px 30px rgba(0,0,0,0.25); overflow: hidden; }
+  .modal-header { background: var(--primary); color: white; padding: 14px 18px; display: flex; justify-content: space-between; align-items: center; font-weight: bold; font-size: 1.1rem; }
+  .modal-close { background: rgba(255,255,255,0.25); border: 2px solid white; color: white; border-radius: 50%; width: 34px; height: 34px; font-size: 1rem; cursor: pointer; font-weight: bold; }
+  .modal-body { padding: 16px; overflow-y: auto; }
+
   .hidden { display: none !important; }
 </style>
 </head>
@@ -160,15 +176,20 @@
     <h2>Привет! В каком классе ты учишься?</h2>
     <p>Выбери свой класс, чтобы открыть карту приключений:</p>
     <div class="grade-cards">
+      <div class="grade-card" onclick="selectGrade('1')">
+        <div style="font-size:3.2rem;">🧸</div>
+        <h2>1 класс</h2>
+        <p style="font-size:0.9rem; color:#666;">Базовые слова, транскрипция и произношение</p>
+      </div>
       <div class="grade-card" onclick="selectGrade('4')">
         <div style="font-size:3.2rem;">🎒</div>
         <h2>4 класс</h2>
-        <p style="font-size:0.9rem; color:#666;">Глаголы, слова и Look &amp; Learn</p>
+        <p style="font-size:0.9rem; color:#666;">Глаголы, слова, дни, месяцы и порядок слов</p>
       </div>
       <div class="grade-card" onclick="selectGrade('5')">
         <div style="font-size:3.2rem;">🎓</div>
         <h2>5 класс</h2>
-        <p style="font-size:0.9rem; color:#666;">Неправильные глаголы (стр. 170–172)</p>
+        <p style="font-size:0.9rem; color:#666;">Неправильные глаголы, say/tell/speak и порядок слов</p>
       </div>
     </div>
   </div>
@@ -178,7 +199,7 @@
   <div class="nav-tabs">
     <button class="tab-btn active" onclick="switchTab(this, 'train')">🎯 Обучение</button>
     <button class="tab-btn" onclick="switchTab(this, 'game')">🎮 Игра</button>
-    <button class="tab-btn" onclick="switchTab(this, 'dict')">📖 Словарь</button>
+    <button class="tab-btn" onclick="switchTab(this, 'dict')">📖 Словарь и правила</button>
     <button class="tab-btn" onclick="switchTab(this, 'stats')">🏆 Награды</button>
   </div>
 
@@ -201,16 +222,22 @@
       <div id="campaign-container"></div>
 
       <div class="card hidden" id="free-mode-box">
-        <h3>1. Выбери тему:</h3>
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:10px;">
+          <h3 style="margin:0;">1. Выбери тему:</h3>
+          <button class="btn" style="padding:7px 13px; font-size:0.88rem; background:var(--secondary); box-shadow:0 3px 0 #369B94;" onclick="openRuleModal(currentTopic)">📖 Правило / Словарь темы</button>
+        </div>
         <div class="page-selector" id="page-selector"></div>
         <h3>2. Выбери тренажер:</h3>
         <div class="modes-grid" id="modes-grid"></div>
       </div>
 
       <div class="card hidden" id="exercise-box">
-        <div style="display:flex; justify-content:space-between; align-items:center;">
+        <div style="display:flex; justify-content:space-between; align-items:center; gap:8px; flex-wrap:wrap;">
           <span id="ex-mode-title" style="font-weight:bold; color:var(--primary);"></span>
-          <button class="btn" style="padding:6px 12px; font-size:0.9rem; background:#999; box-shadow:none;" onclick="closeExercise()">✖ Выйти</button>
+          <div style="display:flex; gap:6px; align-items:center;">
+            <button class="btn" style="padding:6px 11px; font-size:0.85rem; background:var(--secondary); box-shadow:none;" onclick="openRuleModal(currentTopic)">💡 Подсказка / Словарь</button>
+            <button class="btn" style="padding:6px 12px; font-size:0.9rem; background:#999; box-shadow:none;" onclick="closeExercise()">✖ Выйти</button>
+          </div>
         </div>
         <div class="progress-bar-wrap"><div class="progress-bar-fill" id="ex-progress-fill"></div></div>
         <div style="text-align:right; font-size:0.9rem; margin-top:-12px; margin-bottom:10px;" id="ex-progress-text"></div>
@@ -242,7 +269,7 @@
 
     <div id="tab-dict" class="hidden">
       <div class="card">
-        <h2>📖 Словарь выбранного класса</h2>
+        <h2>📖 Словарь и грамматические правила</h2>
         <div id="dict-content"></div>
       </div>
     </div>
@@ -258,6 +285,18 @@
     </div>
   </div>
 </div>
+
+<!-- Модальное окно правила/словаря -->
+<div id="rule-modal" class="modal-overlay hidden" onclick="if(event.target===this) closeRuleModal()">
+  <div class="modal-card">
+    <div class="modal-header">
+      <span id="rule-modal-title">📖 Правило / Словарь темы</span>
+      <button class="modal-close" onclick="closeRuleModal()">✖</button>
+    </div>
+    <div class="modal-body" id="rule-modal-body"></div>
+  </div>
+</div>
+
 <div id="award-toast" class="award-toast"></div>
 <script>
 let soundEnabled = localStorage.getItem("en_sound_enabled") !== "false";
@@ -326,12 +365,520 @@ function playSound(type) {
 updateSoundBtn();
 
 const APP_DATA = {
+  "1": {
+    name: "1 класс",
+    topics: {
+      "g1_pers_pron": {
+        title: "Местоимения: личные",
+        type: "words",
+        rule: "Личные местоимения отвечают на вопрос «Кто? Что?» и заменяют существительные. Местоимение «I» (Я) всегда пишется с заглавной буквы.",
+        items: [
+          { v1: "I", ipa: "[aɪ]", rus: "[ай]", tr: "Я", syn: ["я"] },
+          { v1: "You", ipa: "[juː]", rus: "[ю]", tr: "Ты, вы", syn: ["ты", "вы"] },
+          { v1: "He", ipa: "[hiː]", rus: "[хи]", tr: "Он", syn: ["он"] },
+          { v1: "She", ipa: "[ʃiː]", rus: "[ши]", tr: "Она", syn: ["она"] },
+          { v1: "It", ipa: "[ɪt]", rus: "[ит]", tr: "Оно (предметы, животные)", syn: ["оно", "это"] },
+          { v1: "We", ipa: "[wiː]", rus: "[уи]", tr: "Мы", syn: ["мы"] },
+          { v1: "They", ipa: "[ðeɪ]", rus: "[зэй]", tr: "Они", syn: ["они"] }
+        ]
+      },
+      "g1_obj_pron": {
+        title: "Местоимения: объектные",
+        type: "words",
+        rule: "Объектные местоимения стоят после глагола или предлога и отвечают на вопросы «Кого? Кому? Кем? О ком?» (например: help me — помоги мне).",
+        items: [
+          { v1: "Me", ipa: "[miː]", rus: "[ми]", tr: "Меня, мне", syn: ["меня", "мне"] },
+          { v1: "You", ipa: "[juː]", rus: "[ю]", tr: "Тебя, тебе, вас, вам", syn: ["тебя", "тебе", "вас", "вам"] },
+          { v1: "Him", ipa: "[hɪm]", rus: "[хим]", tr: "Его, ему", syn: ["его", "ему"] },
+          { v1: "Her", ipa: "[hɜː]", rus: "[хё]", tr: "Её, ей", syn: ["ее", "ей"] },
+          { v1: "It", ipa: "[ɪt]", rus: "[ит]", tr: "Его, её (предметы)", syn: ["его", "ее"] },
+          { v1: "Us", ipa: "[ʌs]", rus: "[ас]", tr: "Нас, нам", syn: ["нас", "нам"] },
+          { v1: "Them", ipa: "[ðem]", rus: "[зэм]", tr: "Их, им", syn: ["их", "им"] }
+        ]
+      },
+      "g1_poss_pron": {
+        title: "Местоимения: притяжательные",
+        type: "words",
+        rule: "Притяжательные местоимения отвечают на вопрос «Чей?». Первая форма ставится перед существительным (my book), форма в скобках — без существительного (It is mine).",
+        items: [
+          { v1: "My", ipa: "[maɪ] ([maɪn])", rus: "[май] ([майн])", tr: "Мой (форма: Mine)", syn: ["мой", "моя", "мое", "мои"] },
+          { v1: "Your", ipa: "[jɔː] ([jɔːz])", rus: "[ё] ([ёз])", tr: "Твой, ваш (форма: Yours)", syn: ["твой", "ваш", "твоя", "ваша"] },
+          { v1: "His", ipa: "[hɪz]", rus: "[хиз]", tr: "Его", syn: ["его"] },
+          { v1: "Her", ipa: "[hɜː] ([hɜːz])", rus: "[хё] ([хёз])", tr: "Её (форма: Hers)", syn: ["ее"] },
+          { v1: "Its", ipa: "[ɪts]", rus: "[итс]", tr: "Его, её (предметы)", syn: ["его", "ее"] },
+          { v1: "Our", ipa: "[ˈaʊə] ([ˈaʊəz])", rus: "[ауэ] ([ауэз])", tr: "Наш (форма: Ours)", syn: ["наш", "наша", "наше", "наши"] },
+          { v1: "Their", ipa: "[ðeə] ([ðeəz])", rus: "[зэа] ([зэаз])", tr: "Их (форма: Theirs)", syn: ["их"] }
+        ]
+      },
+      "g1_dem_pron": {
+        title: "Местоимения: указательные",
+        type: "words",
+        rule: "This (этот) и These (эти) указывают на предметы рядом. That (тот) и Those (те) — на предметы на расстоянии.",
+        items: [
+          { v1: "This", ipa: "[ðɪs]", rus: "[зис]", tr: "Этот (рядом)", syn: ["этот", "эта", "это"] },
+          { v1: "That", ipa: "[ðæt]", rus: "[зэт]", tr: "Тот (далеко)", syn: ["тот", "та", "то"] },
+          { v1: "These", ipa: "[ðiːz]", rus: "[зиз]", tr: "Эти (рядом)", syn: ["эти"] },
+          { v1: "Those", ipa: "[ðəʊz]", rus: "[зоуз]", tr: "Те (далеко)", syn: ["те"] }
+        ]
+      },
+      "g1_inter_pron": {
+        title: "Местоимения: вопросительные",
+        type: "words",
+        rule: "Вопросительные местоимения ставятся в начале специального вопроса: Who — кто, What — что/какой, Which — который из, Whose — чей.",
+        items: [
+          { v1: "Who", ipa: "[huː]", rus: "[ху]", tr: "Кто", syn: ["кто"] },
+          { v1: "What", ipa: "[wɒt]", rus: "[уот]", tr: "Что, какой", syn: ["что", "какой"] },
+          { v1: "Which", ipa: "[wɪtʃ]", rus: "[уич]", tr: "Который (из выбора)", syn: ["который", "какой"] },
+          { v1: "Whose", ipa: "[huːz]", rus: "[хуз]", tr: "Чей", syn: ["чей", "чья", "чье", "чьи"] }
+        ]
+      },
+      "g1_indef_pron": {
+        title: "Местоимения: неопределенные",
+        type: "words",
+        rule: "Some обычно ставится в утвердительных предложениях, Any — в вопросах и отрицаниях, No (None) — для отрицания.",
+        items: [
+          { v1: "Some", ipa: "[sʌm]", rus: "[сам]", tr: "Несколько", syn: ["несколько", "немного", "некоторые"] },
+          { v1: "Any", ipa: "[ˈeni]", rus: "[эни]", tr: "Любой", syn: ["любой", "какой-нибудь", "сколько-нибудь"] },
+          { v1: "No", ipa: "[nəʊ] ([nʌn])", rus: "[ноу] ([нан])", tr: "Никакой (форма: None)", syn: ["никакой", "нет", "нисколько"] },
+          { v1: "Everyone", ipa: "[ˈevriwʌn]", rus: "[эвриуан]", tr: "Все, каждый", syn: ["все", "каждый"] },
+          { v1: "Someone", ipa: "[ˈsʌmwʌn]", rus: "[самуан]", tr: "Кто-то", syn: ["кто-то", "кто-нибудь"] }
+        ]
+      },
+      "g1_verbs_basic": {
+        title: "Глаголы: базовые",
+        type: "words",
+        rule: "Частица «to» перед глаголом показывает начальную форму (инфинитив: «что делать?»). Модальный глагол «Can» используется без частицы «to».",
+        items: [
+          { v1: "To be", ipa: "[tuː biː]", rus: "[ту би]", tr: "Быть, являться", syn: ["быть", "являться", "находиться"] },
+          { v1: "To have", ipa: "[tuː hæv]", rus: "[ту хэв]", tr: "Иметь", syn: ["иметь", "владеть"] },
+          { v1: "To do", ipa: "[tuː duː]", rus: "[ту ду]", tr: "Делать", syn: ["делать", "выполнять"] },
+          { v1: "To go", ipa: "[tuː ɡəʊ]", rus: "[ту гоу]", tr: "Идти, ехать", syn: ["идти", "ехать", "ходить"] },
+          { v1: "To say", ipa: "[tuː seɪ]", rus: "[ту сэй]", tr: "Сказать", syn: ["сказать", "говорить"] },
+          { v1: "To know", ipa: "[tuː nəʊ]", rus: "[ту ноу]", tr: "Знать", syn: ["знать"] },
+          { v1: "Can", ipa: "[kæn]", rus: "[кэн]", tr: "Мочь, уметь", syn: ["мочь", "уметь"] }
+        ]
+      },
+      "g1_verbs_sense": {
+        title: "Глаголы: восприятие",
+        type: "words",
+        rule: "Глаголы восприятия описывают органы чувств. Обратите внимание на предлоги: look at (смотреть на), listen to (слушать кого-то/что-то).",
+        items: [
+          { v1: "To see", ipa: "[tuː siː]", rus: "[ту си]", tr: "Видеть", syn: ["видеть", "увидеть"] },
+          { v1: "To look", ipa: "[tuː lʊk]", rus: "[ту лук]", tr: "Смотреть (to look at)", syn: ["смотреть", "посмотреть"] },
+          { v1: "To watch", ipa: "[tuː wɒtʃ]", rus: "[ту уоч]", tr: "Наблюдать", syn: ["наблюдать", "смотреть"] },
+          { v1: "To hear", ipa: "[tuː hɪə]", rus: "[ту хиа]", tr: "Слышать", syn: ["слышать", "услышать"] },
+          { v1: "To listen", ipa: "[tuː ˈlɪsn]", rus: "[ту лисн]", tr: "Слушать (to listen to)", syn: ["слушать", "послушать"] },
+          { v1: "To feel", ipa: "[tuː fiːl]", rus: "[ту фил]", tr: "Чувствовать", syn: ["чувствовать", "почувствовать"] },
+          { v1: "To touch", ipa: "[tuː tʌtʃ]", rus: "[ту тач]", tr: "Трогать", syn: ["трогать", "потрогать", "касаться"] },
+          { v1: "To smell", ipa: "[tuː smel]", rus: "[ту смэл]", tr: "Нюхать, пахнуть", syn: ["нюхать", "пахнуть"] },
+          { v1: "To taste", ipa: "[tuː teɪst]", rus: "[ту тэйст]", tr: "Пробовать на вкус", syn: ["пробовать на вкус", "пробовать"] },
+          { v1: "To notice", ipa: "[tuː ˈnəʊtɪs]", rus: "[ту ноутис]", tr: "Замечать", syn: ["замечать", "заметить"] }
+        ]
+      },
+      "g1_verbs_feel": {
+        title: "Глаголы: чувства и мысли",
+        type: "words",
+        rule: "Базовые глаголы эмоций, желаний и умственной деятельности.",
+        items: [
+          { v1: "To love", ipa: "[tuː lʌv]", rus: "[ту лав]", tr: "Любить", syn: ["любить"] },
+          { v1: "To like", ipa: "[tuː laɪk]", rus: "[ту лайк]", tr: "Нравиться", syn: ["нравиться", "любить"] },
+          { v1: "To hate", ipa: "[tuː heɪt]", rus: "[ту хэйт]", tr: "Ненавидеть", syn: ["ненавидеть"] },
+          { v1: "To want", ipa: "[tuː wɒnt]", rus: "[ту уонт]", tr: "Хотеть", syn: ["хотеть", "захотеть"] },
+          { v1: "To need", ipa: "[tuː niːd]", rus: "[ту нид]", tr: "Нуждаться", syn: ["нуждаться", "быть нужным"] },
+          { v1: "To think", ipa: "[tuː θɪŋk]", rus: "[ту синк]", tr: "Думать, считать", syn: ["думать", "считать", "полагать"] },
+          { v1: "To believe", ipa: "[tuː bɪˈliːv]", rus: "[ту билив]", tr: "Верить", syn: ["верить", "поверить"] },
+          { v1: "To remember", ipa: "[tuː rɪˈmembə]", rus: "[ту римэмбэ]", tr: "Помнить", syn: ["помнить", "вспомнить"] },
+          { v1: "To forget", ipa: "[tuː fəˈɡet]", rus: "[ту фогэт]", tr: "Забывать", syn: ["забывать", "забыть"] }
+        ]
+      },
+      "g1_nouns": {
+        title: "Существительные",
+        type: "words",
+        rule: "Базовые существительные. Обратите внимание на исключения множественного числа: Person → People (люди), Man → Men, Woman → Women, Child → Children.",
+        items: [
+          { v1: "Time", ipa: "[taɪm]", rus: "[тайм]", tr: "Время", syn: ["время"] },
+          { v1: "Year", ipa: "[jɪə]", rus: "[йеа]", tr: "Год", syn: ["год"] },
+          { v1: "Day", ipa: "[deɪ]", rus: "[дэй]", tr: "День", syn: ["день"] },
+          { v1: "Person", ipa: "[ˈpɜːsn] ([ˈpiːpl])", rus: "[пёсн] ([пипл])", tr: "Человек (мн. ч.: People)", syn: ["человек", "люди"] },
+          { v1: "Man", ipa: "[mæn]", rus: "[мэн]", tr: "Мужчина", syn: ["мужчина", "человек"] },
+          { v1: "Woman", ipa: "[ˈwʊmən]", rus: "[вумэн]", tr: "Женщина", syn: ["женщина"] },
+          { v1: "Child", ipa: "[tʃaɪld]", rus: "[чайлд]", tr: "Ребёнок", syn: ["ребенок", "дитя"] },
+          { v1: "House", ipa: "[haʊs]", rus: "[хаус]", tr: "Дом", syn: ["дом"] },
+          { v1: "Thing", ipa: "[θɪŋ]", rus: "[синг]", tr: "Вещь", syn: ["вещь", "предмет"] },
+          { v1: "Way", ipa: "[weɪ]", rus: "[уэй]", tr: "Путь, способ", syn: ["путь", "способ", "дорога"] }
+        ]
+      },
+      "g1_adj_prep_conj": {
+        title: "Прилагательные, предлоги и союзы",
+        type: "words",
+        rule: "Антонимы прилагательных (Good–Bad, Big–Small, New–Old, Hot–Cold), основные предлоги места/направления (In, On, At, To) и союзы (And, But, Because).",
+        items: [
+          { v1: "Good", ipa: "[ɡʊd]", rus: "[гуд]", tr: "Хороший", syn: ["хороший", "добрый"] },
+          { v1: "Bad", ipa: "[bæd]", rus: "[бэд]", tr: "Плохой", syn: ["плохой"] },
+          { v1: "Big", ipa: "[bɪɡ]", rus: "[биг]", tr: "Большой", syn: ["большой", "крупный"] },
+          { v1: "Small", ipa: "[smɔːl]", rus: "[смол]", tr: "Маленький", syn: ["маленький"] },
+          { v1: "New", ipa: "[njuː]", rus: "[нью]", tr: "Новый", syn: ["новый"] },
+          { v1: "Old", ipa: "[əʊld]", rus: "[оулд]", tr: "Старый", syn: ["старый"] },
+          { v1: "Hot", ipa: "[hɒt]", rus: "[хот]", tr: "Горячий", syn: ["горячий", "жаркий"] },
+          { v1: "Cold", ipa: "[kəʊld]", rus: "[коулд]", tr: "Холодный", syn: ["холодный"] },
+          { v1: "In", ipa: "[ɪn]", rus: "[ин]", tr: "В", syn: ["в"] },
+          { v1: "On", ipa: "[ɒn]", rus: "[он]", tr: "На", syn: ["на"] },
+          { v1: "At", ipa: "[æt]", rus: "[эт]", tr: "У, в", syn: ["у", "в", "около"] },
+          { v1: "To", ipa: "[tuː]", rus: "[ту]", tr: "К (направление)", syn: ["к", "в", "на"] },
+          { v1: "And", ipa: "[ænd]", rus: "[энд]", tr: "И", syn: ["и"] },
+          { v1: "But", ipa: "[bʌt]", rus: "[бат]", tr: "Но", syn: ["но", "а"] },
+          { v1: "Because", ipa: "[bɪˈkɒz]", rus: "[бикоз]", tr: "Потому что", syn: ["потому что", "так как"] }
+        ]
+      }
+    }
+  },
+
   "4": {
     name: "4 класс",
     topics: {
+      "g4_wh_words": {
+        title: "Специальные вопросительные слова",
+        type: "words",
+        rule: "Специальные вопросительные слова ставятся в самое начале вопроса перед вспомогательным глаголом: What is your name? How many = сколько (исчисляемые), How much = сколько (неисчисляемые).",
+        items: [
+          { v1: "what", ipa: "[wɒt]", rus: "[уот]", tr: "что, какой", syn: ["что", "какой"] },
+          { v1: "where", ipa: "[weə]", rus: "[уэа]", tr: "где, куда", syn: ["где", "куда"] },
+          { v1: "when", ipa: "[wen]", rus: "[уэн]", tr: "когда", syn: ["когда"] },
+          { v1: "why", ipa: "[waɪ]", rus: "[уай]", tr: "почему, зачем", syn: ["почему", "зачем"] },
+          { v1: "who", ipa: "[huː]", rus: "[ху]", tr: "кто", syn: ["кто"] },
+          { v1: "whose", ipa: "[huːz]", rus: "[хуз]", tr: "чей", syn: ["чей", "чья", "чье", "чьи"] },
+          { v1: "which", ipa: "[wɪtʃ]", rus: "[уич]", tr: "который (из)", syn: ["который", "какой"] },
+          { v1: "how", ipa: "[haʊ]", rus: "[хау]", tr: "как", syn: ["как"] },
+          { v1: "how many", ipa: "[haʊ ˈmeni]", rus: "[хау мэни]", tr: "сколько (считаемые)", syn: ["сколько"] },
+          { v1: "how much", ipa: "[haʊ mʌtʃ]", rus: "[хау мач]", tr: "сколько (несчитаемые / цена)", syn: ["сколько"] },
+          { v1: "how old", ipa: "[haʊ əʊld]", rus: "[хау оулд]", tr: "сколько лет", syn: ["сколько лет"] },
+          { v1: "what time", ipa: "[wɒt taɪm]", rus: "[уот тайм]", tr: "в котором часу", syn: ["в котором часу", "во сколько", "который час"] }
+        ]
+      },
+      "g4_months": {
+        title: "Месяцы года",
+        type: "words",
+        rule: "В английском языке названия всех месяцев всегда пишутся с заглавной буквы. С месяцами используется предлог «in» (in May — в мае).",
+        items: [
+          { v1: "January", ipa: "[ˈdʒænjuəri]", rus: "[джэньюэри]", tr: "Январь", syn: ["январь"] },
+          { v1: "February", ipa: "[ˈfebruəri]", rus: "[фэбруэри]", tr: "Февраль", syn: ["февраль"] },
+          { v1: "March", ipa: "[mɑːtʃ]", rus: "[мач]", tr: "Март", syn: ["март"] },
+          { v1: "April", ipa: "[ˈeɪprəl]", rus: "[эйприл]", tr: "Апрель", syn: ["апрель"] },
+          { v1: "May", ipa: "[meɪ]", rus: "[мэй]", tr: "Май", syn: ["май"] },
+          { v1: "June", ipa: "[dʒuːn]", rus: "[джун]", tr: "Июнь", syn: ["июнь"] },
+          { v1: "July", ipa: "[dʒuˈlaɪ]", rus: "[джулай]", tr: "Июль", syn: ["июль"] },
+          { v1: "August", ipa: "[ˈɔːɡəst]", rus: "[огэст]", tr: "Август", syn: ["август"] },
+          { v1: "September", ipa: "[sepˈtembə]", rus: "[сэптэмбэ]", tr: "Сентябрь", syn: ["сентябрь"] },
+          { v1: "October", ipa: "[ɒkˈtəʊbə]", rus: "[октоубэ]", tr: "Октябрь", syn: ["октябрь"] },
+          { v1: "November", ipa: "[nəʊˈvembə]", rus: "[ноувэмбэ]", tr: "Ноябрь", syn: ["ноябрь"] },
+          { v1: "December", ipa: "[dɪˈsembə]", rus: "[дисэмбэ]", tr: "Декабрь", syn: ["декабрь"] }
+        ]
+      },
+      "g4_days": {
+        title: "Дни недели",
+        type: "words",
+        rule: "Названия дней недели всегда пишутся с большой буквы. С днями недели используется предлог «on» (on Monday — в понедельник). Обрати внимание: в слове Wednesday буква d не читается!",
+        items: [
+          { v1: "Monday", ipa: "[ˈmʌndeɪ]", rus: "[мандэй]", tr: "Понедельник", syn: ["понедельник"] },
+          { v1: "Tuesday", ipa: "[ˈtjuːzdeɪ]", rus: "[тьюздей]", tr: "Вторник", syn: ["вторник"] },
+          { v1: "Wednesday", ipa: "[ˈwenzdeɪ]", rus: "[уэнздэй]", tr: "Среда", syn: ["среда"] },
+          { v1: "Thursday", ipa: "[ˈθɜːzdeɪ]", rus: "[сёздэй]", tr: "Четверг", syn: ["четверг"] },
+          { v1: "Friday", ipa: "[ˈfraɪdeɪ]", rus: "[фрайдэй]", tr: "Пятница", syn: ["пятница"] },
+          { v1: "Saturday", ipa: "[ˈsætədeɪ]", rus: "[сэтэдэй]", tr: "Суббота", syn: ["суббота"] },
+          { v1: "Sunday", ipa: "[ˈsʌndeɪ]", rus: "[сандэй]", tr: "Воскресенье", syn: ["воскресенье"] }
+        ]
+      },
+      "g4_word_order_aff": {
+        title: "Порядок слов в утвердительном предложении",
+        type: "grammar_choice",
+        rule: "Схема утверждения (SVOPT): 1. Подлежащее (Кто? Что?) → 2. Сказуемое (Глагол) → 3. Дополнение (Кого? Что?) → 4. Место (Где?) → 5. Время (Когда?). Наречия частоты (always, usually, often, never) ставятся перед смысловым глаголом, но после to be (is/are).",
+        items: [
+          {
+            v1: "Tom plays football every day.",
+            tr: "Том играет в футбол каждый день.",
+            options: ["Tom plays football every day.", "Plays Tom football every day.", "Tom football plays every day.", "Every day plays Tom football."],
+            syn: ["том играет в футбол каждый день"]
+          },
+          {
+            v1: "She reads books in the library.",
+            tr: "Она читает книги в библиотеке.",
+            options: ["She reads books in the library.", "She in the library reads books.", "Reads she books in the library.", "Books she reads in the library."],
+            syn: ["она читает книги в библиотеке"]
+          },
+          {
+            v1: "We go to school in the morning.",
+            tr: "Мы ходим в школу утром.",
+            options: ["We go to school in the morning.", "We to school go in the morning.", "Go we to school in the morning.", "In the morning go we to school."],
+            syn: ["мы ходим в школу утром"]
+          },
+          {
+            v1: "My sister likes apple juice.",
+            tr: "Моя сестра любит яблочный сок.",
+            options: ["My sister likes apple juice.", "Likes my sister apple juice.", "My sister apple juice likes.", "Apple juice likes my sister."],
+            syn: ["моя сестра любит яблочный сок"]
+          },
+          {
+            v1: "They watch TV in the evening.",
+            tr: "Они смотрят телевизор вечером.",
+            options: ["They watch TV in the evening.", "Watch they TV in the evening.", "They TV watch in the evening.", "They in the evening watch TV."],
+            syn: ["они смотрят телевизор вечером"]
+          },
+          {
+            v1: "The dog sleeps under the table.",
+            tr: "Собака спит под столом.",
+            options: ["The dog sleeps under the table.", "Sleeps the dog under the table.", "The dog under the table sleeps.", "Under the table sleeps the dog."],
+            syn: ["собака спит под столом"]
+          }
+        ]
+      },
+      "g4_word_order_q": {
+        title: "Порядок слов в вопросительном предложении",
+        type: "grammar_choice",
+        rule: "Схема вопроса: 1. Вопросительное слово (если есть: Where, What, When) → 2. Вспомогательный глагол (Do, Does, Is, Are, Can) → 3. Подлежащее (you, he, they) → 4. Основной глагол в начальной форме (live, play, swim).",
+        items: [
+          {
+            v1: "Where do you live?",
+            tr: "Где ты живёшь?",
+            options: ["Where do you live?", "Where you live?", "Do where you live?", "Where live you?"],
+            syn: ["где ты живешь"]
+          },
+          {
+            v1: "Does he like ice cream?",
+            tr: "Он любит мороженое?",
+            options: ["Does he like ice cream?", "He does like ice cream?", "Does he likes ice cream?", "Like he ice cream?"],
+            syn: ["он любит мороженое"]
+          },
+          {
+            v1: "Can you swim?",
+            tr: "Ты умеешь плавать?",
+            options: ["Can you swim?", "You can swim?", "Do you can swim?", "Swim can you?"],
+            syn: ["ты умеешь плавать"]
+          },
+          {
+            v1: "How old are you?",
+            tr: "Сколько тебе лет?",
+            options: ["How old are you?", "How old you are?", "Are how old you?", "How many years you are?"],
+            syn: ["сколько тебе лет"]
+          },
+          {
+            v1: "When does she go to the park?",
+            tr: "Когда она ходит в парк?",
+            options: ["When does she go to the park?", "When she goes to the park?", "Does when she go to the park?", "When go she to the park?"],
+            syn: ["когда она ходит в парк"]
+          },
+          {
+            v1: "Are they at school?",
+            tr: "Они сейчас в школе?",
+            options: ["Are they at school?", "They are at school?", "Do they are at school?", "At school are they?"],
+            syn: ["они сейчас в школе"]
+          }
+        ]
+      },
+      "g4_words_1": {
+        title: "Простые слова: Часть 1",
+        type: "words",
+        rule: "Слова времени (always, sometimes, yesterday) и погоды (cloudy, sunny, windy).",
+        items: [
+          { v1: "always", tr: "всегда", syn: ["всегда", "постоянно"] },
+          { v1: "sometimes", tr: "иногда", syn: ["иногда", "порой"] },
+          { v1: "usually", tr: "обычно", syn: ["обычно", "как правило"] },
+          { v1: "often", tr: "часто", syn: ["часто"] },
+          { v1: "never", tr: "никогда", syn: ["никогда"] },
+          { v1: "yesterday", tr: "вчера", syn: ["вчера"] },
+          { v1: "tomorrow", tr: "завтра", syn: ["завтра"] },
+          { v1: "today", tr: "сегодня", syn: ["сегодня"] },
+          { v1: "week", tr: "неделя", syn: ["неделя"] },
+          { v1: "month", tr: "месяц", syn: ["месяц"] },
+          { v1: "year", tr: "год", syn: ["год"] },
+          { v1: "morning", tr: "утро", syn: ["утро", "утром"] },
+          { v1: "evening", tr: "вечер", syn: ["вечер", "вечером"] },
+          { v1: "night", tr: "ночь", syn: ["ночь", "ночью"] },
+          { v1: "weather", tr: "погода", syn: ["погода"] },
+          { v1: "cloudy", tr: "облачно, пасмурно", syn: ["облачно", "пасмурно", "облачный"] },
+          { v1: "sunny", tr: "солнечно, солнечный", syn: ["солнечно", "солнечный"] },
+          { v1: "windy", tr: "ветрено, ветреный", syn: ["ветрено", "ветреный"] },
+          { v1: "rainy", tr: "дождливо, дождливый", syn: ["дождливо", "дождливый"] },
+          { v1: "snowy", tr: "снежно, снежный", syn: ["снежно", "снежный"] }
+        ]
+      },
+      "g4_words_2": {
+        title: "Простые слова: Часть 2",
+        type: "words",
+        rule: "Город, природа и дом: country, city, forest, kitchen, bedroom.",
+        items: [
+          { v1: "country", tr: "страна, деревня", syn: ["страна", "деревня", "сельская местность"] },
+          { v1: "city", tr: "большой город", syn: ["город", "большой город"] },
+          { v1: "street", tr: "улица", syn: ["улица"] },
+          { v1: "bridge", tr: "мост", syn: ["мост"] },
+          { v1: "road", tr: "дорога", syn: ["дорога", "путь"] },
+          { v1: "shop", tr: "магазин", syn: ["магазин", "лавка"] },
+          { v1: "hospital", tr: "больница", syn: ["больница", "госпиталь"] },
+          { v1: "forest", tr: "лес", syn: ["лес"] },
+          { v1: "river", tr: "река", syn: ["река", "речка"] },
+          { v1: "mountain", tr: "гора", syn: ["гора"] },
+          { v1: "field", tr: "поле", syn: ["поле", "луг"] },
+          { v1: "ocean", tr: "океан", syn: ["океан"] },
+          { v1: "garden", tr: "сад", syn: ["сад", "огород"] },
+          { v1: "kitchen", tr: "кухня", syn: ["кухня"] },
+          { v1: "bedroom", tr: "спальня", syn: ["спальня"] },
+          { v1: "bathroom", tr: "ванная комната", syn: ["ванная", "ванная комната"] },
+          { v1: "window", tr: "окно", syn: ["окно"] },
+          { v1: "door", tr: "дверь", syn: ["дверь"] },
+          { v1: "table", tr: "стол", syn: ["стол"] },
+          { v1: "chair", tr: "стул", syn: ["стул"] }
+        ]
+      },
+      "g4_words_3": {
+        title: "Простые слова: Часть 3",
+        type: "words",
+        rule: "Еда, животные и школа. Обрати внимание на слово-исключение sheep (овца / овцы) — во множественном числе окончание -s не добавляется.",
+        items: [
+          { v1: "breakfast", tr: "завтрак", syn: ["завтрак"] },
+          { v1: "lunch", tr: "обед", syn: ["обед", "ланч"] },
+          { v1: "dinner", tr: "ужин", syn: ["ужин", "обед"] },
+          { v1: "bread", tr: "хлеб", syn: ["хлеб"] },
+          { v1: "butter", tr: "сливочное масло", syn: ["масло", "сливочное масло"] },
+          { v1: "cheese", tr: "сыр", syn: ["сыр"] },
+          { v1: "milk", tr: "молоко", syn: ["молоко"] },
+          { v1: "apple", tr: "яблоко", syn: ["яблоко"] },
+          { v1: "sweet", tr: "конфета, сладкий", syn: ["конфета", "сладкий", "сладость"] },
+          { v1: "animal", tr: "животное", syn: ["животное", "зверь"] },
+          { v1: "horse", tr: "лошадь", syn: ["лошадь", "конь"] },
+          { v1: "sheep", tr: "овца", syn: ["овца", "овечка", "баран"] },
+          { v1: "duck", tr: "утка", syn: ["утка", "уточка"] },
+          { v1: "wolf", tr: "волк", syn: ["волк"] },
+          { v1: "whale", tr: "кит", syn: ["кит"] },
+          { v1: "school", tr: "школа", syn: ["школа"] },
+          { v1: "lesson", tr: "урок", syn: ["урок", "занятие"] },
+          { v1: "teacher", tr: "учитель", syn: ["учитель", "учительница", "преподаватель"] },
+          { v1: "pencil", tr: "карандаш", syn: ["карандаш"] },
+          { v1: "question", tr: "вопрос", syn: ["вопрос"] }
+        ]
+      },
+      "g4_words_4": {
+        title: "Простые слова: Часть 4",
+        type: "words",
+        rule: "Семья, праздники и прилагательные-описания: clever, kind, strong, beautiful, interesting.",
+        items: [
+          { v1: "family", tr: "семья", syn: ["семья"] },
+          { v1: "mother", tr: "мама, мать", syn: ["мама", "мать", "мамочка"] },
+          { v1: "father", tr: "папа, отец", syn: ["папа", "отец", "папочка"] },
+          { v1: "sister", tr: "сестра", syn: ["сестра", "сестренка"] },
+          { v1: "brother", tr: "брат", syn: ["брат", "братишка"] },
+          { v1: "friend", tr: "друг, подруга", syn: ["друг", "подруга", "приятель"] },
+          { v1: "holiday", tr: "праздник, каникулы", syn: ["праздник", "каникулы", "отпуск"] },
+          { v1: "present", tr: "подарок", syn: ["подарок", "подарочек"] },
+          { v1: "letter", tr: "письмо, буква", syn: ["письмо", "буква"] },
+          { v1: "postcard", tr: "открытка", syn: ["открытка", "почтовая открытка"] },
+          { v1: "hobby", tr: "хобби, увлечение", syn: ["хобби", "увлечение"] },
+          { v1: "bike", tr: "велосипед", syn: ["велосипед", "велик"] },
+          { v1: "football", tr: "футбол", syn: ["футбол"] },
+          { v1: "music", tr: "музыка", syn: ["музыка"] },
+          { v1: "happy", tr: "счастливый", syn: ["счастливый", "радостный", "веселый"] },
+          { v1: "clever", tr: "умный", syn: ["умный", "сообразительный"] },
+          { v1: "kind", tr: "добрый", syn: ["добрый", "любезный"] },
+          { v1: "strong", tr: "сильный", syn: ["сильный", "крепкий"] },
+          { v1: "beautiful", tr: "красивый", syn: ["красивый", "прекрасный"] },
+          { v1: "interesting", tr: "интересный", syn: ["интересный"] }
+        ]
+      },
+      "g4_look_1": {
+        title: "Look & Learn: Unit 1–2",
+        type: "words",
+        rule: "Устойчивые фразы и предлоги места из учебника (Unit 1–2): in the middle of (в середине), next to (рядом), in the left/right corner (в левом/правом углу).",
+        items: [
+          { v1: "cold", tr: "холодный, холодно", syn: ["холодный", "холодно"] },
+          { v1: "cloudy", tr: "облачный, облачно", syn: ["облачный", "облачно", "пасмурно"] },
+          { v1: "windy", tr: "ветреный, ветрено", syn: ["ветреный", "ветрено"] },
+          { v1: "hot", tr: "горячий, жарко", syn: ["горячий", "жарко", "жаркий"] },
+          { v1: "sunny", tr: "солнечный, солнечно", syn: ["солнечный", "солнечно"] },
+          { v1: "snowy", tr: "снежный, снежно", syn: ["снежный", "снежно"] },
+          { v1: "warm", tr: "тёплый, тепло", syn: ["теплый", "тепло"] },
+          { v1: "rainy", tr: "дождливый, дождливо", syn: ["дождливый", "дождливо"] },
+          { v1: "holiday", tr: "выходной, праздник", syn: ["выходной", "праздник"] },
+          { v1: "holidays", tr: "каникулы", syn: ["каникулы"] },
+          { v1: "to have a picnic", tr: "выезжать на пикник", syn: ["выезжать на пикник", "устроить пикник", "ходить на пикник", "пикник"] },
+          { v1: "to fly a kite", tr: "запускать воздушного змея", syn: ["запускать воздушного змея", "запускать змея"] },
+          { v1: "to play hide-and-seek", tr: "играть в прятки", syn: ["играть в прятки", "прятки"] },
+          { v1: "large", tr: "большой", syn: ["большой", "крупный"] },
+          { v1: "sometimes", tr: "иногда", syn: ["иногда", "порой"] },
+          { v1: "interesting", tr: "интересный", syn: ["интересный", "интересно"] },
+          { v1: "go shopping", tr: "ходить за покупками", syn: ["ходить за покупками", "идти за покупками", "покупать"] },
+          { v1: "in the middle of", tr: "в середине", syn: ["в середине", "посередине"] },
+          { v1: "next to", tr: "рядом", syn: ["рядом", "около", "возле"] },
+          { v1: "under", tr: "под", syn: ["под"] },
+          { v1: "behind", tr: "за", syn: ["за", "позади"] },
+          { v1: "between", tr: "между", syn: ["между"] },
+          { v1: "on", tr: "на", syn: ["на"] },
+          { v1: "above", tr: "над", syn: ["над", "выше"] },
+          { v1: "in the left corner", tr: "в левом углу", syn: ["в левом углу", "левый угол"] },
+          { v1: "in the right corner", tr: "в правом углу", syn: ["в правом углу", "правый угол"] }
+        ]
+      },
+      "g4_look_2": {
+        title: "Look & Learn: Unit 3–4",
+        type: "words",
+        rule: "Лексика Unit 3–4 и пары глаголов в настоящем и прошедшем времени (catch — caught, make — made, come — came).",
+        items: [
+          { v1: "country", tr: "страна; сельская местность (деревня)", syn: ["страна", "деревня", "сельская местность"] },
+          { v1: "in the country", tr: "за городом (в деревне)", syn: ["за городом", "в деревне"] },
+          { v1: "capital", tr: "столица", syn: ["столица"] },
+          { v1: "city", tr: "город", syn: ["город", "большой город"] },
+          { v1: "people", tr: "люди", syn: ["люди", "народ"] },
+          { v1: "take off", tr: "снимать", syn: ["снимать", "снять"] },
+          { v1: "coat", tr: "пальто", syn: ["пальто"] },
+          { v1: "become", tr: "становиться", syn: ["становиться", "стать"] },
+          { v1: "carry", tr: "переносить, нести", syn: ["переносить", "нести", "носить"] },
+          { v1: "thing", tr: "вещь", syn: ["вещь", "предмет"] },
+          { v1: "talk", tr: "разговаривать", syn: ["разговаривать", "говорить", "беседовать"] },
+          { v1: "catch — caught", tr: "ловить — поймал", syn: ["ловить", "поймать", "ловить поймал"] },
+          { v1: "make — made", tr: "делать, мастерить — сделал, смастерил", syn: ["делать", "мастерить", "сделать", "смастерил"] },
+          { v1: "be — was", tr: "быть — был", syn: ["быть", "был", "быть был"] },
+          { v1: "come — came", tr: "приходить — пришёл", syn: ["приходить", "пришел", "прийти"] },
+          { v1: "draw — drew", tr: "рисовать — рисовал", syn: ["рисовать", "рисовал", "нарисовать"] },
+          { v1: "meet — met", tr: "встречать — встретил", syn: ["встречать", "встретил", "встретить"] },
+          { v1: "put — put", tr: "класть, ставить — положил, поставил", syn: ["класть", "ставить", "положил", "поставил"] },
+          { v1: "sing — sang", tr: "петь — пел", syn: ["петь", "пел", "спеть"] },
+          { v1: "tell — told", tr: "рассказывать — рассказал", syn: ["рассказывать", "рассказал", "рассказать", "говорить"] },
+          { v1: "bite — bit", tr: "кусать — укусил", syn: ["кусать", "укусил", "укусить"] },
+          { v1: "read — read", tr: "читать — читал", syn: ["читать", "читал", "прочитать"] },
+          { v1: "write — wrote", tr: "писать — написал", syn: ["писать", "написал", "написать"] },
+          { v1: "think — thought", tr: "думать — подумал", syn: ["думать", "подумал", "подумать"] },
+          { v1: "run — ran", tr: "бегать — побежал", syn: ["бегать", "побежал", "бежать"] }
+        ]
+      },
+      "g4_look_3": {
+        title: "Look & Learn: Unit 5–7",
+        type: "words",
+        rule: "Школьные принадлежности и выражения из Unit 5–7: learn by heart (учить наизусть), put on (надевать), have on (быть одетым в).",
+        items: [
+          { v1: "take a photo of", tr: "фотографировать (кого-либо или что-либо)", syn: ["фотографировать", "сфотографировать", "сделать фото"] },
+          { v1: "watch the stars", tr: "наблюдать за звёздами", syn: ["наблюдать за звездами", "смотреть на звезды"] },
+          { v1: "play puzzles", tr: "собирать пазлы", syn: ["собирать пазлы", "играть в пазлы", "пазлы"] },
+          { v1: "bring — brought", tr: "приносить — принёс", syn: ["приносить", "принес", "принести"] },
+          { v1: "have on", tr: "быть одетым в (что-либо)", syn: ["быть одетым", "быть одетым в", "носить"] },
+          { v1: "put on", tr: "надевать", syn: ["надевать", "надеть", "одевать"] },
+          { v1: "translate from into", tr: "переводить (с ... на ...)", syn: ["переводить", "перевести"] },
+          { v1: "learn by heart", tr: "учить наизусть", syn: ["учить наизусть", "выучить наизусть"] },
+          { v1: "break", tr: "перемена", syn: ["перемена", "перерыв"] },
+          { v1: "during", tr: "во время", syn: ["во время", "в течение"] },
+          { v1: "coloured pencils", tr: "цветные карандаши", syn: ["цветные карандаши", "карандаши"] },
+          { v1: "workbook", tr: "рабочая тетрадь", syn: ["рабочая тетрадь", "тетрадь"] },
+          { v1: "rubber", tr: "ластик, резинка", syn: ["ластик", "резинка", "стерка"] },
+          { v1: "ruler", tr: "линейка", syn: ["линейка"] },
+          { v1: "textbook", tr: "учебник", syn: ["учебник", "книга"] },
+          { v1: "pencil", tr: "карандаш", syn: ["карандаш", "простой карандаш"] },
+          { v1: "pencil box", tr: "пенал", syn: ["пенал"] },
+          { v1: "pencil sharpener", tr: "точилка для карандашей", syn: ["точилка", "точилка для карандашей"] },
+          { v1: "paints", tr: "краски", syn: ["краски", "акварель"] },
+          { v1: "dictionary", tr: "словарь", syn: ["словарь", "словарик"] },
+          { v1: "get good marks", tr: "получать хорошие (плохие) отметки", syn: ["получать хорошие отметки", "получать плохие отметки", "получать отметки", "получать оценки"] }
+        ]
+      },
       "g4_verbs": {
-        title: "Глаголы за 4 класс",
+        title: "Глаголы за 4 класс (3 формы)",
         type: "verbs",
+        rule: "У каждого неправильного глагола есть 3 формы: V1 (Infinitive) — начальная форма (go — идти), V2 (Past Simple) — прошедшее время (went — ходил), V3 (Past Participle) — причастие прошедшего времени (gone).",
         items: [
           { v1: "be", v2: "was / were", v3: "been", tr: "быть, находиться", syn: ["быть", "находиться", "являться", "существовать"] },
           { v1: "begin", v2: "began", v3: "begun", tr: "начинать(ся)", syn: ["начинать", "начинаться", "начать", "приступать"] },
@@ -385,209 +932,141 @@ const APP_DATA = {
           { v1: "wear", v2: "wore", v3: "worn", tr: "носить (одежду)", syn: ["носить", "носить одежду", "одевать", "быть одетым"] },
           { v1: "write", v2: "wrote", v3: "written", tr: "писать", syn: ["писать", "написать", "записывать"] }
         ]
-      },
-      "g4_words_1": {
-        title: "Простые слова: Часть 1",
-        type: "words",
-        items: [
-          { v1: "always", tr: "всегда", syn: ["всегда", "постоянно"] },
-          { v1: "sometimes", tr: "иногда", syn: ["иногда", "порой"] },
-          { v1: "usually", tr: "обычно", syn: ["обычно", "как правило"] },
-          { v1: "often", tr: "часто", syn: ["часто"] },
-          { v1: "never", tr: "никогда", syn: ["никогда"] },
-          { v1: "yesterday", tr: "вчера", syn: ["вчера"] },
-          { v1: "tomorrow", tr: "завтра", syn: ["завтра"] },
-          { v1: "today", tr: "сегодня", syn: ["сегодня"] },
-          { v1: "week", tr: "неделя", syn: ["неделя"] },
-          { v1: "month", tr: "месяц", syn: ["месяц"] },
-          { v1: "year", tr: "год", syn: ["год"] },
-          { v1: "morning", tr: "утро", syn: ["утро", "утром"] },
-          { v1: "evening", tr: "вечер", syn: ["вечер", "вечером"] },
-          { v1: "night", tr: "ночь", syn: ["ночь", "ночью"] },
-          { v1: "weather", tr: "погода", syn: ["погода"] },
-          { v1: "cloudy", tr: "облачно, пасмурно", syn: ["облачно", "пасмурно", "облачный"] },
-          { v1: "sunny", tr: "солнечно, солнечный", syn: ["солнечно", "солнечный"] },
-          { v1: "windy", tr: "ветрено, ветреный", syn: ["ветрено", "ветреный"] },
-          { v1: "rainy", tr: "дождливо, дождливый", syn: ["дождливо", "дождливый"] },
-          { v1: "snowy", tr: "снежно, снежный", syn: ["снежно", "снежный"] }
-        ]
-      },
-      "g4_words_2": {
-        title: "Простые слова: Часть 2",
-        type: "words",
-        items: [
-          { v1: "country", tr: "страна, деревня", syn: ["страна", "деревня", "сельская местность"] },
-          { v1: "city", tr: "большой город", syn: ["город", "большой город"] },
-          { v1: "street", tr: "улица", syn: ["улица"] },
-          { v1: "bridge", tr: "мост", syn: ["мост"] },
-          { v1: "road", tr: "дорога", syn: ["дорога", "путь"] },
-          { v1: "shop", tr: "магазин", syn: ["магазин", "лавка"] },
-          { v1: "hospital", tr: "больница", syn: ["больница", "госпиталь"] },
-          { v1: "forest", tr: "лес", syn: ["лес"] },
-          { v1: "river", tr: "река", syn: ["река", "речка"] },
-          { v1: "mountain", tr: "гора", syn: ["гора"] },
-          { v1: "field", tr: "поле", syn: ["поле", "луг"] },
-          { v1: "ocean", tr: "океан", syn: ["океан"] },
-          { v1: "garden", tr: "сад", syn: ["сад", "огород"] },
-          { v1: "kitchen", tr: "кухня", syn: ["кухня"] },
-          { v1: "bedroom", tr: "спальня", syn: ["спальня"] },
-          { v1: "bathroom", tr: "ванная комната", syn: ["ванная", "ванная комната"] },
-          { v1: "window", tr: "окно", syn: ["окно"] },
-          { v1: "door", tr: "дверь", syn: ["дверь"] },
-          { v1: "table", tr: "стол", syn: ["стол"] },
-          { v1: "chair", tr: "стул", syn: ["стул"] }
-        ]
-      },
-      "g4_words_3": {
-        title: "Простые слова: Часть 3",
-        type: "words",
-        items: [
-          { v1: "breakfast", tr: "завтрак", syn: ["завтрак"] },
-          { v1: "lunch", tr: "обед", syn: ["обед", "ланч"] },
-          { v1: "dinner", tr: "ужин", syn: ["ужин", "обед"] },
-          { v1: "bread", tr: "хлеб", syn: ["хлеб"] },
-          { v1: "butter", tr: "сливочное масло", syn: ["масло", "сливочное масло"] },
-          { v1: "cheese", tr: "сыр", syn: ["сыр"] },
-          { v1: "milk", tr: "молоко", syn: ["молоко"] },
-          { v1: "apple", tr: "яблоко", syn: ["яблоко"] },
-          { v1: "sweet", tr: "конфета, сладкий", syn: ["конфета", "сладкий", "сладость"] },
-          { v1: "animal", tr: "животное", syn: ["животное", "зверь"] },
-          { v1: "horse", tr: "лошадь", syn: ["лошадь", "конь"] },
-          { v1: "sheep", tr: "овца", syn: ["овца", "овечка", "баран"] },
-          { v1: "duck", tr: "утка", syn: ["утка", "уточка"] },
-          { v1: "wolf", tr: "волк", syn: ["волк"] },
-          { v1: "whale", tr: "кит", syn: ["кит"] },
-          { v1: "school", tr: "школа", syn: ["школа"] },
-          { v1: "lesson", tr: "урок", syn: ["урок", "занятие"] },
-          { v1: "teacher", tr: "учитель", syn: ["учитель", "учительница", "преподаватель"] },
-          { v1: "pencil", tr: "карандаш", syn: ["карандаш"] },
-          { v1: "question", tr: "вопрос", syn: ["вопрос"] }
-        ]
-      },
-      "g4_words_4": {
-        title: "Простые слова: Часть 4",
-        type: "words",
-        items: [
-          { v1: "family", tr: "семья", syn: ["семья"] },
-          { v1: "mother", tr: "мама, мать", syn: ["мама", "мать", "мамочка"] },
-          { v1: "father", tr: "папа, отец", syn: ["папа", "отец", "папочка"] },
-          { v1: "sister", tr: "сестра", syn: ["сестра", "сестренка"] },
-          { v1: "brother", tr: "брат", syn: ["брат", "братишка"] },
-          { v1: "friend", tr: "друг, подруга", syn: ["друг", "подруга", "приятель"] },
-          { v1: "holiday", tr: "праздник, каникулы", syn: ["праздник", "каникулы", "отпуск"] },
-          { v1: "present", tr: "подарок", syn: ["подарок", "подарочек"] },
-          { v1: "letter", tr: "письмо, буква", syn: ["письмо", "буква"] },
-          { v1: "postcard", tr: "открытка", syn: ["открытка", "почтовая открытка"] },
-          { v1: "hobby", tr: "хобби, увлечение", syn: ["хобби", "увлечение"] },
-          { v1: "bike", tr: "велосипед", syn: ["велосипед", "велик"] },
-          { v1: "football", tr: "футбол", syn: ["футбол"] },
-          { v1: "music", tr: "музыка", syn: ["музыка"] },
-          { v1: "happy", tr: "счастливый", syn: ["счастливый", "радостный", "веселый"] },
-          { v1: "clever", tr: "умный", syn: ["умный", "сообразительный"] },
-          { v1: "kind", tr: "добрый", syn: ["добрый", "любезный"] },
-          { v1: "strong", tr: "сильный", syn: ["сильный", "крепкий"] },
-          { v1: "beautiful", tr: "красивый", syn: ["красивый", "прекрасный"] },
-          { v1: "interesting", tr: "интересный", syn: ["интересный"] }
-        ]
-      },
-      "g4_look_1": {
-        title: "Слова из раздела учебника Look & Learn: Unit 1–2",
-        type: "words",
-        items: [
-          { v1: "cold", tr: "холодный, холодно", syn: ["холодный", "холодно"] },
-          { v1: "cloudy", tr: "облачный, облачно", syn: ["облачный", "облачно", "пасмурно"] },
-          { v1: "windy", tr: "ветреный, ветрено", syn: ["ветреный", "ветрено"] },
-          { v1: "hot", tr: "горячий, жарко", syn: ["горячий", "жарко", "жаркий"] },
-          { v1: "sunny", tr: "солнечный, солнечно", syn: ["солнечный", "солнечно"] },
-          { v1: "snowy", tr: "снежный, снежно", syn: ["снежный", "снежно"] },
-          { v1: "warm", tr: "тёплый, тепло", syn: ["теплый", "тепло"] },
-          { v1: "rainy", tr: "дождливый, дождливо", syn: ["дождливый", "дождливо"] },
-          { v1: "holiday", tr: "выходной, праздник", syn: ["выходной", "праздник"] },
-          { v1: "holidays", tr: "каникулы", syn: ["каникулы"] },
-          { v1: "to have a picnic", tr: "выезжать на пикник", syn: ["выезжать на пикник", "устроить пикник", "ходить на пикник", "пикник"] },
-          { v1: "to fly a kite", tr: "запускать воздушного змея", syn: ["запускать воздушного змея", "запускать змея"] },
-          { v1: "to play hide-and-seek", tr: "играть в прятки", syn: ["играть в прятки", "прятки"] },
-          { v1: "large", tr: "большой", syn: ["большой", "крупный"] },
-          { v1: "sometimes", tr: "иногда", syn: ["иногда", "порой"] },
-          { v1: "interesting", tr: "интересный", syn: ["интересный", "интересно"] },
-          { v1: "go shopping", tr: "ходить за покупками", syn: ["ходить за покупками", "идти за покупками", "покупать"] },
-          { v1: "in the middle of", tr: "в середине", syn: ["в середине", "посередине"] },
-          { v1: "next to", tr: "рядом", syn: ["рядом", "около", "возле"] },
-          { v1: "under", tr: "под", syn: ["под"] },
-          { v1: "behind", tr: "за", syn: ["за", "позади"] },
-          { v1: "between", tr: "между", syn: ["между"] },
-          { v1: "on", tr: "на", syn: ["на"] },
-          { v1: "above", tr: "над", syn: ["над", "выше"] },
-          { v1: "in the left corner", tr: "в левом углу", syn: ["в левом углу", "левый угол"] },
-          { v1: "in the right corner", tr: "в правом углу", syn: ["в правом углу", "правый угол"] }
-        ]
-      },
-      "g4_look_2": {
-        title: "Слова из раздела учебника Look & Learn: Unit 3–4",
-        type: "words",
-        items: [
-          { v1: "country", tr: "страна; сельская местность (деревня)", syn: ["страна", "деревня", "сельская местность"] },
-          { v1: "in the country", tr: "за городом (в деревне)", syn: ["за городом", "в деревне"] },
-          { v1: "capital", tr: "столица", syn: ["столица"] },
-          { v1: "city", tr: "город", syn: ["город", "большой город"] },
-          { v1: "people", tr: "люди", syn: ["люди", "народ"] },
-          { v1: "take off", tr: "снимать", syn: ["снимать", "снять"] },
-          { v1: "coat", tr: "пальто", syn: ["пальто"] },
-          { v1: "become", tr: "становиться", syn: ["становиться", "стать"] },
-          { v1: "carry", tr: "переносить, нести", syn: ["переносить", "нести", "носить"] },
-          { v1: "thing", tr: "вещь", syn: ["вещь", "предмет"] },
-          { v1: "talk", tr: "разговаривать", syn: ["разговаривать", "говорить", "беседовать"] },
-          { v1: "catch — caught", tr: "ловить — поймал", syn: ["ловить", "поймать", "ловить поймал"] },
-          { v1: "make — made", tr: "делать, мастерить — сделал, смастерил", syn: ["делать", "мастерить", "сделать", "смастерил"] },
-          { v1: "be — was", tr: "быть — был", syn: ["быть", "был", "быть был"] },
-          { v1: "come — came", tr: "приходить — пришёл", syn: ["приходить", "пришел", "прийти"] },
-          { v1: "draw — drew", tr: "рисовать — рисовал", syn: ["рисовать", "рисовал", "нарисовать"] },
-          { v1: "meet — met", tr: "встречать — встретил", syn: ["встречать", "встретил", "встретить"] },
-          { v1: "put — put", tr: "класть, ставить — положил, поставил", syn: ["класть", "ставить", "положил", "поставил"] },
-          { v1: "sing — sang", tr: "петь — пел", syn: ["петь", "пел", "спеть"] },
-          { v1: "tell — told", tr: "рассказывать — рассказал", syn: ["рассказывать", "рассказал", "рассказать", "говорить"] },
-          { v1: "bite — bit", tr: "кусать — укусил", syn: ["кусать", "укусил", "укусить"] },
-          { v1: "read — read", tr: "читать — читал", syn: ["читать", "читал", "прочитать"] },
-          { v1: "write — wrote", tr: "писать — написал", syn: ["писать", "написал", "написать"] },
-          { v1: "think — thought", tr: "думать — подумал", syn: ["думать", "подумал", "подумать"] },
-          { v1: "run — ran", tr: "бегать — побежал", syn: ["бегать", "побежал", "бежать"] }
-        ]
-      },
-      "g4_look_3": {
-        title: "Слова из раздела учебника Look & Learn: Unit 5–7",
-        type: "words",
-        items: [
-          { v1: "take a photo of", tr: "фотографировать (кого-либо или что-либо)", syn: ["фотографировать", "сфотографировать", "сделать фото"] },
-          { v1: "watch the stars", tr: "наблюдать за звёздами", syn: ["наблюдать за звездами", "смотреть на звезды"] },
-          { v1: "play puzzles", tr: "собирать пазлы", syn: ["собирать пазлы", "играть в пазлы", "пазлы"] },
-          { v1: "bring — brought", tr: "приносить — принёс", syn: ["приносить", "принес", "принести"] },
-          { v1: "have on", tr: "быть одетым в (что-либо)", syn: ["быть одетым", "быть одетым в", "носить"] },
-          { v1: "put on", tr: "надевать", syn: ["надевать", "надеть", "одевать"] },
-          { v1: "translate from into", tr: "переводить (с ... на ...)", syn: ["переводить", "перевести"] },
-          { v1: "learn by heart", tr: "учить наизусть", syn: ["учить наизусть", "выучить наизусть"] },
-          { v1: "break", tr: "перемена", syn: ["перемена", "перерыв"] },
-          { v1: "during", tr: "во время", syn: ["во время", "в течение"] },
-          { v1: "coloured pencils", tr: "цветные карандаши", syn: ["цветные карандаши", "карандаши"] },
-          { v1: "workbook", tr: "рабочая тетрадь", syn: ["рабочая тетрадь", "тетрадь"] },
-          { v1: "rubber", tr: "ластик, резинка", syn: ["ластик", "резинка", "стерка"] },
-          { v1: "ruler", tr: "линейка", syn: ["линейка"] },
-          { v1: "textbook", tr: "учебник", syn: ["учебник", "книга"] },
-          { v1: "pencil", tr: "карандаш", syn: ["карандаш", "простой карандаш"] },
-          { v1: "pencil box", tr: "пенал", syn: ["пенал"] },
-          { v1: "pencil sharpener", tr: "точилка для карандашей", syn: ["точилка", "точилка для карандашей"] },
-          { v1: "paints", tr: "краски", syn: ["краски", "акварель"] },
-          { v1: "dictionary", tr: "словарь", syn: ["словарь", "словарик"] },
-          { v1: "get good marks", tr: "получать хорошие (плохие) отметки", syn: ["получать хорошие отметки", "получать плохие отметки", "получать отметки", "получать оценки"] }
-        ]
       }
     }
   },
   "5": {
     name: "5 класс",
     topics: {
+      "g5_say_tell_speak": {
+        title: "Глаголы говорения: say, tell, speak",
+        type: "grammar_choice",
+        rule: "1. SAY (said) — «сказать (что-то)», фокус на самих словах, обычно без адресата (если адресат есть, нужен предлог to: say to me). 2. TELL (told) — «сказать / рассказать (кому-то)», сразу после tell идёт человек БЕЗ предлога to (tell me, tell us, tell a story, tell the truth, tell a lie). 3. SPEAK (spoke) — «говорить на языке (speak English) или беседовать с кем-то (speak to)».",
+        items: [
+          {
+            v1: "speak",
+            prompt: "Do you ___ English or German?",
+            tr: "Ты говоришь по-английски или по-немецки?",
+            options: ["speak", "say", "tell", "tells"],
+            syn: ["говоришь"]
+          },
+          {
+            v1: "tell",
+            prompt: "Please ___ me the truth!",
+            tr: "Пожалуйста, скажи мне правду!",
+            options: ["tell", "say", "speak", "says"],
+            syn: ["скажи"]
+          },
+          {
+            v1: "said",
+            prompt: "She ___ «Goodbye» and left the room.",
+            tr: "Она сказала «До свидания» и вышла из комнаты.",
+            options: ["said", "told", "spoke", "tell"],
+            syn: ["сказала"]
+          },
+          {
+            v1: "tells",
+            prompt: "My grandfather always ___ us interesting stories.",
+            tr: "Мой дедушка всегда рассказывает нам интересные истории.",
+            options: ["tells", "says", "speaks", "say"],
+            syn: ["рассказывает"]
+          },
+          {
+            v1: "speak",
+            prompt: "Can I ___ to Mr. Brown, please?",
+            tr: "Могу я поговорить с мистером Брауном, пожалуйста?",
+            options: ["speak", "say", "tell", "told"],
+            syn: ["поговорить"]
+          },
+          {
+            v1: "say",
+            prompt: "What did he ___ to you yesterday?",
+            tr: "Что он сказал тебе вчера?",
+            options: ["say", "tell", "speak", "told"],
+            syn: ["сказал"]
+          },
+          {
+            v1: "tell",
+            prompt: "Don't ___ a lie! Be honest.",
+            tr: "Не ври! Будь честным.",
+            options: ["tell", "say", "speak", "said"],
+            syn: ["ври"]
+          },
+          {
+            v1: "says",
+            prompt: "Our teacher ___ that the test will be on Friday.",
+            tr: "Наш учитель говорит, что тест будет в пятницу.",
+            options: ["says", "tells", "speaks", "tell"],
+            syn: ["говорит"]
+          }
+        ]
+      },
+      "g5_word_order_aff": {
+        title: "Порядок слов: утверждения",
+        type: "grammar_choice",
+        rule: "Схема утвердительного предложения: Подлежащее + Сказуемое + Дополнение + Место + Время. Наречия частоты (always, usually, often, never) ставятся перед смысловым глаголом, но после глагола to be (am, is, are).",
+        items: [
+          {
+            v1: "We visited an old museum in London last summer.",
+            tr: "Мы посетили старый музей в Лондоне прошлым летом.",
+            options: ["We visited an old museum in London last summer.", "We last summer visited an old museum in London.", "Visited we an old museum in London last summer.", "In London we visited last summer an old museum."],
+            syn: ["мы посетили старый музей в лондоне прошлым летом"]
+          },
+          {
+            v1: "My parents usually drink coffee in the morning.",
+            tr: "Мои родители обычно пьют кофе утром.",
+            options: ["My parents usually drink coffee in the morning.", "My parents drink usually coffee in the morning.", "Usually drink my parents coffee in the morning.", "My parents coffee usually drink in the morning."],
+            syn: ["мои родители обычно пьют кофе утром"]
+          },
+          {
+            v1: "She has already written three letters to her friend.",
+            tr: "Она уже написала три письма своему другу.",
+            options: ["She has already written three letters to her friend.", "She already has written three letters to her friend.", "Has she already written three letters to her friend.", "She has written three letters already to her friend."],
+            syn: ["она уже написала три письма своему другу"]
+          },
+          {
+            v1: "He never forgets to do his homework.",
+            tr: "Он никогда не забывает делать домашнее задание.",
+            options: ["He never forgets to do his homework.", "He forgets never to do his homework.", "Never he forgets to do his homework.", "He to do his homework never forgets."],
+            syn: ["он никогда не забывает делать домашнее задание"]
+          }
+        ]
+      },
+      "g5_word_order_q": {
+        title: "Порядок слов: вопросы",
+        type: "grammar_choice",
+        rule: "Схема вопроса: Вопросительное слово + Вспомогательный глагол (do/does/did/will/was/were) + Подлежащее + Основной глагол? В вопросах с did основной глагол стоит в начальной форме (без -ed и не во 2-й форме). Вопрос к подлежащему (Who...) строится без do/does/did.",
+        items: [
+          {
+            v1: "When did you buy this interesting book?",
+            tr: "Когда ты купил эту интересную книгу?",
+            options: ["When did you buy this interesting book?", "When you bought this interesting book?", "When did you bought this interesting book?", "Did when you buy this interesting book?"],
+            syn: ["когда ты купил эту интересную книгу"]
+          },
+          {
+            v1: "What are the children doing in the garden now?",
+            tr: "Что дети сейчас делают в саду?",
+            options: ["What are the children doing in the garden now?", "What the children are doing in the garden now?", "What doing are the children in the garden now?", "Are what the children doing in the garden now?"],
+            syn: ["что дети сейчас делают в саду"]
+          },
+          {
+            v1: "Who broke the window in the classroom yesterday?",
+            tr: "Кто разбил окно в классе вчера?",
+            options: ["Who broke the window in the classroom yesterday?", "Who did break the window in the classroom yesterday?", "Who was break the window in the classroom yesterday?", "Did who broke the window in the classroom yesterday?"],
+            syn: ["кто разбил окно в классе вчера"]
+          },
+          {
+            v1: "Where will they spend their summer holidays?",
+            tr: "Где они проведут свои летние каникулы?",
+            options: ["Where will they spend their summer holidays?", "Where they will spend their summer holidays?", "Where spend will they their summer holidays?", "Will where they spend their summer holidays?"],
+            syn: ["где они проведут свои летние каникулы"]
+          }
+        ]
+      },
       "170": {
         title: "Страница 170 (be — grow)",
         type: "verbs",
+        rule: "Неправильные глаголы из учебника 5 класса (стр. 170): первая форма (Infinitive), вторая форма (Past Simple) и третья форма (Past Participle).",
         items: [
           { v1: "be", v2: "was / were", v3: "been", tr: "быть, находиться", syn: ["быть", "находиться", "являться", "существовать"] },
           { v1: "beat", v2: "beat", v3: "beaten", tr: "бить", syn: ["бить", "ударить", "побить", "колотить"] },
@@ -625,6 +1104,7 @@ const APP_DATA = {
       "171": {
         title: "Страница 171 (have — sing)",
         type: "verbs",
+        rule: "Неправильные глаголы из учебника 5 класса (стр. 171): от have до sing.",
         items: [
           { v1: "have", v2: "had", v3: "had", tr: "иметь, владеть", syn: ["иметь", "владеть", "обладать"] },
           { v1: "hear", v2: "heard", v3: "heard", tr: "слышать", syn: ["слышать", "услышать"] },
@@ -664,6 +1144,7 @@ const APP_DATA = {
       "172": {
         title: "Страница 172 (sit — write)",
         type: "verbs",
+        rule: "Неправильные глаголы из учебника 5 класса (стр. 172): от sit до write.",
         items: [
           { v1: "sit", v2: "sat", v3: "sat", tr: "сидеть", syn: ["сидеть", "посидеть", "садиться"] },
           { v1: "sleep", v2: "slept", v3: "slept", tr: "спать", syn: ["спать", "поспать", "засыпать"] },
@@ -686,14 +1167,6 @@ const APP_DATA = {
     }
   }
 };
-function moveVerbsToEnd() {
-  const t = APP_DATA["4"].topics;
-  const verbs = t["g4_verbs"];
-  delete t["g4_verbs"];
-  t["g4_verbs"] = verbs;
-}
-moveVerbsToEnd();
-
 let currentGrade = null, currentTopic = null, currentMode = null;
 let trainView = "map";
 let activeCampaignNode = null;
@@ -726,16 +1199,24 @@ function calcStarsByErrors(errCount) {
   return 1;
 }
 
+// Для grammar_choice (порядок слов и say/tell/speak) — строго только выбор ответа без ввода на англ!
+// Для words и verbs — написание английских форм (type_en) поставлено ПОСЛЕДНИМ шагом!
 function getModesForTopic(topicObj) {
+  if (topicObj.type === "grammar_choice") {
+    return [
+      { id: "choice", step: "Шаг 1", name: "Выбери правильный вариант", desc: "4 варианта ответа (без ручного ввода)" }
+    ];
+  }
   const isWords = topicObj.type === "words";
   return [
     { id: "choice", step: "Шаг 1", name: "Выбери перевод", desc: "4 варианта ответа" },
     { id: "pairs", step: "Шаг 2", name: "Найди пару", desc: "Соедини слова" },
     { id: "type_ru", step: "Шаг 3", name: "Ввод перевода", desc: "Напиши по-русски" },
-    { id: "type_en", step: "Шаг 4", name: isWords ? "Ввод на английском" : "Три формы", desc: isWords ? "Напиши слово" : "Напиши V1, V2, V3" },
-    { id: "scramble", step: "Шаг 5", name: "Собери слово", desc: isWords ? "Собери из букв" : "Собери V2 и V3" }
+    { id: "scramble", step: "Шаг 4", name: "Собери слово", desc: isWords ? "Собери из букв" : "Собери V2 и V3" },
+    { id: "type_en", step: "Шаг 5", name: isWords ? "Ввод на английском" : "Написание англ. форм", desc: isWords ? "Напиши слово (финал)" : "Напиши V1, V2, V3 (финал)" }
   ];
 }
+
 function getModeData(grade, topic, mode) {
   const key = grade + "_" + topic;
   if (!progress[key]) progress[key] = {};
@@ -745,12 +1226,39 @@ function getModeData(grade, topic, mode) {
 
 function speak(text) {
   window.speechSynthesis.cancel();
-  const cleanText = text.replace(/\//g, " or ").replace(/—/g, ",");
+  const cleanText = text.replace(/\//g, " or ").replace(/—/g, ",").replace(/___/g, "blank");
   const u = new SpeechSynthesisUtterance(cleanText);
   u.lang = "en-US"; u.rate = 0.85;
   window.speechSynthesis.speak(u);
 }
 
+// Модальное окно правила / словаря темы
+function openRuleModal(tKey) {
+  const topic = APP_DATA[currentGrade].topics[tKey];
+  if (!topic) return;
+  document.getElementById("rule-modal-title").innerText = `📖 ${topic.title}`;
+  let html = "";
+  if (topic.rule) {
+    html += `<div class="rule-box"><h4>💡 Правило / Памятка:</h4><div>${topic.rule}</div></div>`;
+  }
+  if (topic.type !== "grammar_choice") {
+    const isVerbs = topic.type === "verbs";
+    const hasIpa = topic.items.some(i => i.ipa);
+    html += `<table><thead><tr><th>Слово</th>${hasIpa ? "<th>Транскрипция</th>" : ""}<th>Перевод</th><th>🔊</th></tr></thead><tbody>`;
+    topic.items.forEach(item => {
+      const enStr = isVerbs ? `${item.v1} — ${item.v2} — ${item.v3}` : item.v1;
+      const ipaStr = hasIpa ? `<td><small style="color:#0284C7;">${item.ipa || ""}</small> <small style="color:#64748B;">${item.rus || ""}</small></td>` : "";
+      html += `<tr><td><b>${enStr}</b></td>${ipaStr}<td>${item.tr}</td><td><button class="btn btn-sound" style="padding:4px 9px; margin:0;" onclick="speak('${enStr.replace(/'/g, "\\'")}')">🔊</button></td></tr>`;
+    });
+    html += `</tbody></table>`;
+  }
+  document.getElementById("rule-modal-body").innerHTML = html;
+  document.getElementById("rule-modal").classList.remove("hidden");
+}
+
+function closeRuleModal() {
+  document.getElementById("rule-modal").classList.add("hidden");
+}
 function selectGrade(g) {
   currentGrade = g;
   const topics = APP_DATA[g].topics;
@@ -759,7 +1267,8 @@ function selectGrade(g) {
   document.getElementById("main-app").classList.remove("hidden");
   const badge = document.getElementById("header-grade-btn");
   badge.classList.remove("hidden");
-  badge.innerText = (g === "4" ? "🎒 4 класс" : "🎓 5 класс") + " (сменить)";
+  const labels = { "1": "🧸 1 класс", "4": "🎒 4 класс", "5": "🎓 5 класс" };
+  badge.innerText = (labels[g] || g + " класс") + " (сменить)";
   setTrainView("map");
   renderGamePages();
 }
@@ -807,12 +1316,22 @@ function switchTab(btnEl, tab) {
   if (tab === "game") { renderGamePages(); updateGameHUD(); }
 }
 
-const CAMPAIGN_STEPS = [
+const CAMPAIGN_STEPS_WORDS = [
   { idx: 0, icon: "🎯", title: "1. Тренировка" },
   { idx: 1, icon: "🔤", title: "2. Собери слово" },
   { idx: 2, icon: "🍎", title: "3. Игра «Поймай перевод»" },
   { idx: 3, icon: "⚔️", title: "4. Битва с боссом" }
 ];
+
+// Для тем grammar_choice (порядок слов и say/tell/speak) — только выбор без ввода на англ!
+const CAMPAIGN_STEPS_GRAMMAR = [
+  { idx: 0, icon: "🎯", title: "1. Выбор правильного варианта" },
+  { idx: 1, icon: "⚔️", title: "2. Битва с боссом (выбор)" }
+];
+
+function getCampaignStepsForTopic(tObj) {
+  return tObj.type === "grammar_choice" ? CAMPAIGN_STEPS_GRAMMAR : CAMPAIGN_STEPS_WORDS;
+}
 
 function renderCampaignMap() {
   const container = document.getElementById("campaign-container");
@@ -824,17 +1343,22 @@ function renderCampaignMap() {
   topicKeys.forEach((tKey, tIndex) => {
     const tObj = topics[tKey];
     const unitUnlocked = prevCompleted;
+    const stepsList = getCampaignStepsForTopic(tObj);
+
     html += `<div class="campaign-unit">
       <div class="unit-banner ${unitUnlocked ? "" : "locked-unit"}">
         <div>
           <h3>Этап ${tIndex + 1}. ${tObj.title}</h3>
-          <small>${unitUnlocked ? "Пройди 4 испытания по тропинке" : "🔒 Пройди предыдущий этап, чтобы открыть"}</small>
+          <small>${unitUnlocked ? `Пройди ${stepsList.length} испытания по тропинке` : "🔒 Пройди предыдущий этап, чтобы открыть"}</small>
         </div>
-        <div style="font-size:1.7rem;">${unitUnlocked ? "🗺️" : "🔒"}</div>
+        <div style="display:flex; align-items:center; gap:8px;">
+          <button class="btn-rule-banner" onclick="openRuleModal('${tKey}')">📖 Правило / Словарь</button>
+          <div style="font-size:1.7rem;">${unitUnlocked ? "🗺️" : "🔒"}</div>
+        </div>
       </div>
       <div class="path-column">`;
 
-    CAMPAIGN_STEPS.forEach((st, sIdx) => {
+    stepsList.forEach((st, sIdx) => {
       const stars = getNodeStars(currentGrade, tKey, sIdx);
       const isDone = stars > 0;
       const isUnlocked = prevCompleted;
@@ -842,7 +1366,7 @@ function renderCampaignMap() {
       const iconShow = isUnlocked ? st.icon : "🔒";
       const starsHtml = isDone ? ("⭐".repeat(stars) + "☆".repeat(3 - stars)) : (isUnlocked ? "Нажми!" : "");
 
-      html += `<div class="path-node-wrap offset-${sIdx}">
+      html += `<div class="path-node-wrap offset-${sIdx % 4}">
         <div class="node-circle ${stateClass}" onclick="launchCampaignLevel('${tKey}', ${sIdx}, ${isUnlocked})">${iconShow}</div>
         <div class="node-stars">${starsHtml}</div>
         <div class="node-label">${st.title}</div>
@@ -856,7 +1380,6 @@ function renderCampaignMap() {
 
   container.innerHTML = html;
 }
-
 function launchCampaignLevel(tKey, stepIdx, isUnlocked) {
   if (!isUnlocked) {
     playSound("wrong");
@@ -864,15 +1387,24 @@ function launchCampaignLevel(tKey, stepIdx, isUnlocked) {
     return;
   }
   currentTopic = tKey;
+  const tObj = APP_DATA[currentGrade].topics[tKey];
   activeCampaignNode = { grade: currentGrade, topic: tKey, step: stepIdx };
   levelErrors = 0;
+
+  if (tObj.type === "grammar_choice") {
+    document.getElementById("campaign-container").classList.add("hidden");
+    document.getElementById("view-switch-bar").classList.add("hidden");
+    if (stepIdx === 0) startCampaignBatch("choice", "1. Выбор правильного варианта");
+    else startFinalPhase();
+    return;
+  }
 
   if (stepIdx === 2) {
     ["train", "game", "dict", "stats"].forEach(t => document.getElementById("tab-" + t).classList.add("hidden"));
     document.getElementById("tab-game").classList.remove("hidden");
     document.getElementById("game-back-map-btn").classList.remove("hidden");
     document.getElementById("game-page-selector").classList.add("hidden");
-    document.getElementById("game-subtitle").innerText = `Уровень кампании: «${APP_DATA[currentGrade].topics[tKey].title}». Набери 30 очков для победы!`;
+    document.getElementById("game-subtitle").innerText = `Уровень кампании: «${tObj.title}». Набери 30 очков для победы!`;
     startGame();
     return;
   }
@@ -884,6 +1416,7 @@ function launchCampaignLevel(tKey, stepIdx, isUnlocked) {
   else if (stepIdx === 1) startCampaignBatch("scramble", "2. Собери слово");
   else if (stepIdx === 3) startFinalPhase();
 }
+
 let campTotalQ = 0;
 
 function startCampaignBatch(modeId, titleStr) {
@@ -954,7 +1487,6 @@ function startMode(modeId) {
     nextQuestion();
   }
 }
-
 const BOSSES = [
   { icon: "👾", name: "Космический Грамма-Монстр" },
   { icon: "🦖", name: "Тираннозавр Слов" },
@@ -999,18 +1531,20 @@ function launchBossConfetti() {
 
 function startFinalPhase() {
   isFinalPhase = true; finalErrors = 0; playerHearts = 3;
-  const allItems = [...APP_DATA[currentGrade].topics[currentTopic].items];
+  const topicObj = APP_DATA[currentGrade].topics[currentTopic];
+  const allItems = [...topicObj.items];
   shuffle(allItems);
   sessionQueue = activeCampaignNode ? allItems.slice(0, Math.min(10, allItems.length)) : allItems;
   bossMaxHp = sessionQueue.length; bossHp = bossMaxHp;
   currentBoss = BOSSES[Math.floor(Math.random() * BOSSES.length)];
   if (!currentMode) currentMode = "choice";
   document.getElementById("exercise-box").classList.remove("hidden");
-  document.getElementById("ex-mode-title").innerText = "4. Битва с боссом";
+  document.getElementById("ex-mode-title").innerText = topicObj.type === "grammar_choice" ? "2. Битва с боссом" : "4. Битва с боссом";
   document.getElementById("final-banner").classList.remove("hidden");
   renderBossArena();
   nextQuestion();
 }
+
 function closeExercise() {
   document.getElementById("exercise-box").classList.add("hidden");
   document.getElementById("final-banner").classList.add("hidden");
@@ -1030,7 +1564,7 @@ function updateExerciseProgress() {
     txt = `Прогресс уровня: ${done} из ${campTotalQ}`;
   } else {
     pct = Math.round((mData.mastered.length / total) * 100);
-    txt = `Освоено слов: ${mData.mastered.length} из ${total}`;
+    txt = `Освоено: ${mData.mastered.length} из ${total}`;
   }
   document.getElementById("ex-progress-fill").style.width = pct + "%";
   document.getElementById("ex-progress-text").innerText = txt;
@@ -1051,7 +1585,6 @@ function finishCampaignStep(starsCount, titleMsg, descMsg) {
     <button class="btn" onclick="closeExercise()">🗺️ Вернуться на карту</button>
   </div>`;
 }
-
 function nextQuestion() {
   document.getElementById("ex-feedback").classList.add("hidden");
   document.getElementById("ex-next-btn").classList.add("hidden");
@@ -1107,36 +1640,61 @@ function nextQuestion() {
 
   currentWord = sessionQueue.shift();
   const topicObj = APP_DATA[currentGrade].topics[currentTopic];
-  const isWords = topicObj.type === "words";
   const box = document.getElementById("ex-content");
 
+  // Специальный режим для тем grammar_choice (say/tell/speak и порядок слов) — только выбор из 4 вариантов
+  if (topicObj.type === "grammar_choice") {
+    const opts = [...currentWord.options];
+    shuffle(opts);
+    const titleHtml = currentWord.prompt
+      ? `<div>${currentWord.prompt}</div><div class="ipa-sub">${currentWord.tr}</div>`
+      : `<div>Выбери правильное предложение:</div><div class="ipa-sub" style="font-weight:bold; color:#2C3E50;">«${currentWord.tr}»</div>`;
+    box.innerHTML = `<div class="question-title">${titleHtml}</div>
+      <div class="options-grid">${opts.map((opt, idx) => `<button class="opt-btn" data-opt="${encodeURIComponent(opt)}" onclick="checkChoiceGrammar(this)">${opt}</button>`).join("")}</div>`;
+    return;
+  }
+
+  const isWords = topicObj.type === "words";
   const displayEn = isWords ? currentWord.v1 : `${currentWord.v1} — ${currentWord.v2} — ${currentWord.v3}`;
   const speakEn = isWords ? currentWord.v1 : `${currentWord.v1}, ${currentWord.v2}, ${currentWord.v3}`;
+  const ipaHtml = (isWords && currentWord.ipa) ? `<div class="ipa-sub">${currentWord.ipa} ${currentWord.rus || ""}</div>` : "";
 
   if (currentMode === "choice") {
     const allItems = topicObj.items;
     let options = [currentWord.tr];
-    while (options.length < 4) {
+    while (options.length < 4 && options.length < allItems.length) {
       const rnd = allItems[Math.floor(Math.random() * allItems.length)].tr;
       if (!options.includes(rnd)) options.push(rnd);
     }
     shuffle(options);
     speak(speakEn);
-    box.innerHTML = `<div class="question-title">${displayEn} <button class="btn btn-sound" onclick="speak('${speakEn}')">🔊</button></div><div class="options-grid">${options.map(opt => `<button class="opt-btn" onclick="checkChoice(this, '${opt}')">${opt}</button>`).join("")}</div>`;
+    box.innerHTML = `<div class="question-title">${displayEn} <button class="btn btn-sound" onclick="speak('${speakEn.replace(/'/g, "\\'")}')">🔊</button>${ipaHtml}</div>
+      <div class="options-grid">${options.map(opt => `<button class="opt-btn" data-opt="${encodeURIComponent(opt)}" onclick="checkChoice(this)">${opt}</button>`).join("")}</div>`;
   } else if (currentMode === "type_ru") {
     speak(speakEn);
-    box.innerHTML = `<div class="question-title">${displayEn} <button class="btn btn-sound" onclick="speak('${speakEn}')">🔊</button></div><input type="text" id="ru-input" placeholder="Введи перевод на русском..." autocomplete="off"><button class="btn" style="width:100%;" onclick="checkTypeRu()">Проверить</button>`;
+    box.innerHTML = `<div class="question-title">${displayEn} <button class="btn btn-sound" onclick="speak('${speakEn.replace(/'/g, "\\'")}')">🔊</button>${ipaHtml}</div>
+      <input type="text" id="ru-input" placeholder="Введи перевод на русском..." autocomplete="off" onkeydown="if(event.key==='Enter') checkTypeRu()">
+      <button class="btn" style="width:100%;" onclick="checkTypeRu()">Проверить</button>`;
+    setTimeout(() => document.getElementById("ru-input")?.focus(), 80);
   } else if (currentMode === "type_en") {
     if (isWords) {
-      box.innerHTML = `<div class="question-title">${currentWord.tr}</div><input type="text" id="en-v1" placeholder="Напиши слово по-английски..." autocomplete="off"><button class="btn" style="width:100%;" onclick="checkTypeEn(true)">Проверить</button>`;
+      box.innerHTML = `<div class="question-title">${currentWord.tr}</div>
+        <input type="text" id="en-v1" placeholder="Напиши слово по-английски..." autocomplete="off" onkeydown="if(event.key==='Enter') checkTypeEn(true)">
+        <button class="btn" style="width:100%;" onclick="checkTypeEn(true)">Проверить</button>`;
     } else {
-      box.innerHTML = `<div class="question-title">${currentWord.tr}</div><div class="forms-inputs"><input type="text" id="en-v1" placeholder="1-я форма (V1)" autocomplete="off"><input type="text" id="en-v2" placeholder="2-я форма (V2)" autocomplete="off"><input type="text" id="en-v3" placeholder="3-я форма (V3)" autocomplete="off"></div><button class="btn" style="width:100%;" onclick="checkTypeEn(false)">Проверить</button>`;
+      box.innerHTML = `<div class="question-title">${currentWord.tr}</div>
+        <div class="forms-inputs">
+          <input type="text" id="en-v1" placeholder="1-я форма (V1)" autocomplete="off">
+          <input type="text" id="en-v2" placeholder="2-я форма (V2)" autocomplete="off">
+          <input type="text" id="en-v3" placeholder="3-я форма (V3)" autocomplete="off" onkeydown="if(event.key==='Enter') checkTypeEn(false)">
+        </div>
+        <button class="btn" style="width:100%;" onclick="checkTypeEn(false)">Проверить</button>`;
     }
+    setTimeout(() => document.getElementById("en-v1")?.focus(), 80);
   } else if (currentMode === "scramble") {
     renderScramble();
   }
 }
-
 function handleResult(isCorrect, hintText) {
   const exBox = document.getElementById("exercise-box");
   exBox.classList.remove("anim-correct", "anim-wrong");
@@ -1145,7 +1703,8 @@ function handleResult(isCorrect, hintText) {
 
   const fb = document.getElementById("ex-feedback");
   fb.classList.remove("hidden", "ok", "err");
-  const isWords = APP_DATA[currentGrade].topics[currentTopic].type === "words";
+  const topicObj = APP_DATA[currentGrade].topics[currentTopic];
+  const isWords = topicObj.type === "words" || topicObj.type === "grammar_choice";
   const rightEn = isWords ? currentWord.v1 : `${currentWord.v1} — ${currentWord.v2} — ${currentWord.v3}`;
 
   if (isCorrect) {
@@ -1169,7 +1728,10 @@ function handleResult(isCorrect, hintText) {
   } else {
     playSound("wrong");
     levelErrors++;
-    fb.classList.add("err"); fb.innerHTML = `❌ Ошибка! Правильно: <b>${rightEn}</b> (${currentWord.tr})`;
+    fb.classList.add("err");
+    fb.innerHTML = topicObj.type === "grammar_choice"
+      ? `❌ Ошибка! Правильно: <b>${currentWord.v1}</b>`
+      : `❌ Ошибка! Правильно: <b>${rightEn}</b> (${currentWord.tr})`;
     if (isFinalPhase) {
       finalErrors++;
       playerHearts--;
@@ -1186,10 +1748,24 @@ function handleResult(isCorrect, hintText) {
   updateExerciseProgress();
   document.getElementById("ex-next-btn").classList.remove("hidden");
 }
-function checkChoice(btn, selected) {
+
+function checkChoice(btn) {
+  const selected = decodeURIComponent(btn.dataset.opt);
   document.querySelectorAll(".opt-btn").forEach(b => b.disabled = true);
   const isOk = selected === currentWord.tr;
   btn.classList.add(isOk ? "correct" : "wrong");
+  handleResult(isOk);
+}
+
+function checkChoiceGrammar(btn) {
+  const selected = decodeURIComponent(btn.dataset.opt);
+  document.querySelectorAll(".opt-btn").forEach(b => {
+    b.disabled = true;
+    if (decodeURIComponent(b.dataset.opt) === currentWord.v1) b.classList.add("correct");
+  });
+  const isOk = selected === currentWord.v1;
+  if (!isOk) btn.classList.add("wrong");
+  speak(currentWord.prompt ? currentWord.prompt.replace("___", currentWord.v1) : currentWord.v1);
   handleResult(isOk);
 }
 
@@ -1225,13 +1801,12 @@ function isCloseWord(w1, w2) {
   }
   return false;
 }
-
 function checkTypeRu() {
   const raw = document.getElementById("ru-input").value.trim().toLowerCase().replace(/ё/g, "е");
   if (!raw) return;
 
   const cleanTr = currentWord.tr.toLowerCase().replace(/ё/g, "е").replace(/\([^)]*\)/g, "");
-  let validPhrases = [cleanTr, ...currentWord.syn.map(s => s.toLowerCase().replace(/ё/g, "е"))];
+  let validPhrases = [cleanTr, ...(currentWord.syn || []).map(s => s.toLowerCase().replace(/ё/g, "е"))];
 
   validPhrases.forEach(p => {
     SEMANTIC_GROUPS.forEach(group => {
@@ -1249,7 +1824,7 @@ function checkTypeRu() {
     });
   });
 
-  handleResult(isOk, `По учебнику: ${currentWord.tr}`);
+  handleResult(isOk, `По словарю: ${currentWord.tr}`);
 }
 
 function matchForm(input, expected) {
@@ -1266,7 +1841,9 @@ function checkTypeEn(isWords) {
     isOk = matchForm(document.getElementById("en-v1").value, currentWord.v1);
     speak(currentWord.v1);
   } else {
-    isOk = matchForm(document.getElementById("en-v1").value, currentWord.v1) && matchForm(document.getElementById("en-v2").value, currentWord.v2) && matchForm(document.getElementById("en-v3").value, currentWord.v3);
+    isOk = matchForm(document.getElementById("en-v1").value, currentWord.v1) &&
+           matchForm(document.getElementById("en-v2").value, currentWord.v2) &&
+           matchForm(document.getElementById("en-v3").value, currentWord.v3);
     speak(`${currentWord.v1}, ${currentWord.v2}, ${currentWord.v3}`);
   }
   handleResult(isOk);
@@ -1303,7 +1880,6 @@ function renderScramble() {
 
   drawScrambleUI();
 }
-
 function drawScrambleUI() {
   const isWords = APP_DATA[currentGrade].topics[currentTopic].type === "words";
   const box = document.getElementById("ex-content");
@@ -1373,6 +1949,7 @@ function checkScramble() {
   speak(isWords ? currentWord.v1 : `${currentWord.v1}, ${currentWord.v2}, ${currentWord.v3}`);
   handleResult(isOk);
 }
+
 function renderPairsQuestion() {
   const batch = sessionQueue.splice(0, 4);
   matchedCount = 0; selectedPairEn = null; selectedPairRu = null;
@@ -1419,6 +1996,7 @@ function selectPair(el, side) {
       }
     } else {
       playSound("wrong");
+      levelErrors++;
       leftEl.classList.add("anim-wrong"); rightEl.classList.add("anim-wrong");
       if (isFinalPhase) {
         finalErrors++; playerHearts--; renderBossArena(); triggerBossAnim("boss-attack");
@@ -1434,7 +2012,6 @@ function selectPair(el, side) {
     selectedPairEn = null; selectedPairRu = null;
   }
 }
-
 let gameTimer = null, gameScore = 0, gameLives = 3, activeFallingWord = null, fallingY = 0, isNewRecordInSession = false;
 const FRUITS = ["🍎", "🍊", "🍋", "🍐", "🍓", "🍑", "🍒", "🍍"];
 
@@ -1454,6 +2031,7 @@ function renderGamePages() {
   if (!sel) return;
   sel.innerHTML = "";
   Object.keys(topics).forEach(tKey => {
+    if (topics[tKey].type === "grammar_choice") return;
     const btn = document.createElement("button");
     btn.className = "page-btn" + (tKey === currentTopic ? " active" : "");
     btn.innerText = topics[tKey].title;
@@ -1468,6 +2046,11 @@ function renderGamePages() {
 
 function startGame() {
   clearInterval(gameTimer);
+  const topics = APP_DATA[currentGrade].topics;
+  if (topics[currentTopic] && topics[currentTopic].type === "grammar_choice") {
+    const firstWordTopic = Object.keys(topics).find(k => topics[k].type !== "grammar_choice");
+    if (firstWordTopic) currentTopic = firstWordTopic;
+  }
   gameScore = 0; gameLives = 3; isNewRecordInSession = false;
   updateGameHUD();
   spawnWord();
@@ -1519,7 +2102,7 @@ function spawnWord() {
   speak(activeFallingWord.v1);
 
   let choices = [activeFallingWord.tr];
-  while (choices.length < 3) {
+  while (choices.length < 3 && choices.length < items.length) {
     const r = items[Math.floor(Math.random() * items.length)].tr;
     if (!choices.includes(r)) choices.push(r);
   }
@@ -1527,7 +2110,7 @@ function spawnWord() {
 
   const fruit = FRUITS[Math.floor(Math.random() * FRUITS.length)];
   document.getElementById("game-area").innerHTML = `<div class="falling-fruit" id="fall-el" style="left:50%; top:0px;"><div class="fruit-icon">${fruit}</div><div class="fruit-word">${activeFallingWord.v1}</div></div><div class="basket" id="game-basket">🧺</div>`;
-  document.getElementById("game-controls").innerHTML = choices.map(c => `<button class="btn" style="background:var(--secondary); box-shadow:0 4px 0 #369B94;" onclick="catchWord(this, '${c}')">${c}</button>`).join("");
+  document.getElementById("game-controls").innerHTML = choices.map(c => `<button class="btn" style="background:var(--secondary); box-shadow:0 4px 0 #369B94;" data-ans="${encodeURIComponent(c)}" onclick="catchWord(this)">${c}</button>`).join("");
 
   clearInterval(gameTimer);
   gameTimer = setInterval(() => {
@@ -1543,7 +2126,8 @@ function spawnWord() {
   }, 50);
 }
 
-function catchWord(btn, ans) {
+function catchWord(btn) {
+  const ans = decodeURIComponent(btn.dataset.ans);
   clearInterval(gameTimer);
   document.querySelectorAll("#game-controls .btn").forEach(b => b.disabled = true);
   if (ans === activeFallingWord.tr) {
@@ -1607,14 +2191,16 @@ function checkAchievements() {
         totalMastered += md.mastered.length;
         if (md.completed) { anyCompleted = true; modesDoneCount++; }
       });
-      const campStepsDone = [0, 1, 2, 3].every(s => getNodeStars(g, tKey, s) > 0);
+      const stepsLen = getCampaignStepsForTopic(topics[tKey]).length;
+      const campStepsDone = Array.from({ length: stepsLen }, (_, s) => s).every(s => getNodeStars(g, tKey, s) > 0);
       if (modesDoneCount === modes.length || campStepsDone) fullTopicDone = true;
     });
   });
 
+  const best1 = parseInt(localStorage.getItem("en_game_best_1") || "0");
   const best4 = parseInt(localStorage.getItem("en_game_best_4") || "0");
   const best5 = parseInt(localStorage.getItem("en_game_best_5") || "0");
-  const maxBest = Math.max(best4, best5, gameScore);
+  const maxBest = Math.max(best1, best4, best5, gameScore);
 
   if (totalMastered >= 5 || completedNodes >= 1) unlockAward("first_5");
   if (totalMastered >= 25 || completedNodes >= 3) unlockAward("scholar_25");
@@ -1624,59 +2210,84 @@ function checkAchievements() {
   if (maxBest >= 100) unlockAward("basket_100");
 }
 
-function renderAwards() {
-  const box = document.getElementById("awards-content");
-  if (!box) return;
-  box.innerHTML = ACHIEVEMENTS.map(a => {
-    const isOpen = unlockedAwards.includes(a.id);
-    return `<div class="award-card ${isOpen ? "unlocked" : ""}">
-      <div style="font-size:2.2rem; margin-bottom:4px;">${a.icon}</div>
-      <div style="font-weight:bold; color:var(--primary-dark);">${a.title}</div>
-      <div style="font-size:0.82rem; color:#555; margin-top:4px;">${a.desc}</div>
-      <div style="margin-top:6px; font-size:0.78rem; font-weight:bold; color:${isOpen ? "var(--success)" : "#888"};">${isOpen ? "✅ Получено" : "🔒 Закрыто"}</div>
-    </div>`;
-  }).join("");
-}
-
 function renderDict() {
   const topics = APP_DATA[currentGrade].topics;
-  document.getElementById("dict-content").innerHTML = Object.keys(topics).map(tKey => {
+  let html = "";
+  Object.keys(topics).forEach(tKey => {
     const tObj = topics[tKey];
-    if (tObj.type === "words") {
-      return `<h3>${tObj.title}</h3><table><tr><th>Слово / выражение</th><th>Перевод</th><th>Звук</th></tr>${tObj.items.map(w => `<tr><td><b>${w.v1}</b></td><td>${w.tr}</td><td><button class="btn btn-sound" onclick="speak('${w.v1}')">🔊</button></td></tr>`).join("")}</table>`;
+    html += `<h3>${tObj.title}</h3>`;
+    if (tObj.rule) {
+      html += `<div class="rule-box"><h4>💡 Правило / Памятка:</h4><div>${tObj.rule}</div></div>`;
     }
-    return `<h3>${tObj.title}</h3><table><tr><th>V1</th><th>V2</th><th>V3</th><th>Перевод</th><th>Звук</th></tr>${tObj.items.map(v => `<tr><td><b>${v.v1}</b></td><td>${v.v2}</td><td>${v.v3}</td><td>${v.tr}</td><td><button class="btn btn-sound" onclick="speak('${v.v1}, ${v.v2}, ${v.v3}')">🔊</button></td></tr>`).join("")}</table>`;
-  }).join("");
+    if (tObj.type === "grammar_choice") {
+      html += `<table><thead><tr><th>Пример предложения</th><th>Перевод</th></tr></thead><tbody>`;
+      tObj.items.forEach(item => {
+        html += `<tr><td><b>${item.v1}</b></td><td>${item.tr}</td></tr>`;
+      });
+      html += `</tbody></table>`;
+    } else {
+      const isWords = tObj.type === "words";
+      const hasIpa = tObj.items.some(i => i.ipa);
+      html += `<table><thead><tr><th>${isWords ? "Слово" : "Формы (V1 — V2 — V3)"}</th>${hasIpa ? "<th>Транскрипция</th>" : ""}<th>Перевод</th><th>🔊</th></tr></thead><tbody>`;
+      tObj.items.forEach(item => {
+        const enStr = isWords ? item.v1 : `${item.v1} — ${item.v2} — ${item.v3}`;
+        const ipaStr = hasIpa ? `<td><small style="color:#0284C7;">${item.ipa || ""}</small> <small style="color:#64748B;">${item.rus || ""}</small></td>` : "";
+        html += `<tr><td><b>${enStr}</b></td>${ipaStr}<td>${item.tr}</td><td><button class="btn btn-sound" style="padding:4px 9px; margin:0;" onclick="speak('${enStr.replace(/'/g, "\\'")}')">🔊</button></td></tr>`;
+      });
+      html += `</tbody></table>`;
+    }
+  });
+  document.getElementById("dict-content").innerHTML = html;
 }
 
 function renderStats() {
   checkAchievements();
-  renderAwards();
-  const topics = APP_DATA[currentGrade].topics;
-  document.getElementById("stats-content").innerHTML = Object.keys(topics).map(tKey => {
-    const tObj = topics[tKey];
-    const total = tObj.items.length;
-    const campStars = [0, 1, 2, 3].reduce((acc, s) => acc + getNodeStars(currentGrade, tKey, s), 0);
-    return `<div style="margin-bottom:18px; border-bottom:2px solid #EEE; padding-bottom:10px;">
-      <h3>${tObj.title} <span style="font-size:0.9rem; color:var(--primary-dark);">(Карта: ${campStars}/12 ⭐)</span></h3>
-      ${getModesForTopic(tObj).map(m => { const md = getModeData(currentGrade, tKey, m.id); return `<div>${m.name}: <b>${md.mastered.length} / ${total}</b> ${md.completed ? "✅" : ""}</div>`; }).join("")}
-    </div>`;
+  document.getElementById("awards-content").innerHTML = ACHIEVEMENTS.map(a => {
+    const isUnlocked = unlockedAwards.includes(a.id);
+    return `<div class="award-card ${isUnlocked ? "unlocked" : ""}"><div style="font-size:2.2rem;">${isUnlocked ? a.icon : "🔒"}</div><div style="font-weight:bold; margin:4px 0;">${a.title}</div><div style="font-size:0.8rem; color:#555;">${a.desc}</div></div>`;
   }).join("");
+
+  const topics = APP_DATA[currentGrade].topics;
+  let html = "";
+  Object.keys(topics).forEach(tKey => {
+    const tObj = topics[tKey];
+    html += `<h3>${tObj.title}</h3>`;
+    getModesForTopic(tObj).forEach(m => {
+      const mData = getModeData(currentGrade, tKey, m.id);
+      html += `<p>${m.name}: <b>${mData.mastered.length} / ${tObj.items.length}</b> ${mData.completed ? "🏆" : ""}</p>`;
+    });
+  });
+  document.getElementById("stats-content").innerHTML = html;
 }
 
 function resetProgress() {
-  if (confirm("Точно сбросить весь прогресс, звёзды на карте и награды?")) {
-    progress = {}; saveProgress();
-    campaignProgress = {}; saveCampaign();
-    unlockedAwards = []; localStorage.removeItem("en_awards_v1");
+  if (confirm("Точно сбросить весь прогресс и награды?")) {
+    progress = {}; campaignProgress = {}; unlockedAwards = [];
+    saveProgress(); saveCampaign();
+    localStorage.setItem("en_awards_v1", "[]");
+    localStorage.removeItem("en_game_best_1");
     localStorage.removeItem("en_game_best_4");
     localStorage.removeItem("en_game_best_5");
-    renderStats(); updateGameHUD();
-    if (trainView === "map") renderCampaignMap();
+    renderStats();
   }
 }
 
-function shuffle(arr) { for (let i = arr.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [arr[i], arr[j]] = [arr[j], arr[i]]; } }
+function shuffle(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+}
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    const nextBtn = document.getElementById("ex-next-btn");
+    if (nextBtn && !nextBtn.classList.contains("hidden")) {
+      e.preventDefault();
+      nextQuestion();
+    }
+  }
+});
 </script>
 </body>
 </html>
