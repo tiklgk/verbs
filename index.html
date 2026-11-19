@@ -17,1253 +17,1666 @@
   .grade-badge { display: inline-block; background: rgba(255,255,255,0.25); padding: 4px 12px; border-radius: 14px; font-size: 0.9rem; margin-top: 6px; cursor: pointer; font-weight: bold; }
   .sound-toggle { position: absolute; top: 14px; right: 14px; background: rgba(255,255,255,0.25); border: 2px solid white; color: white; border-radius: 50%; width: 42px; height: 42px; font-size: 1.3rem; cursor: pointer; display: flex; align-items: center; justify-content: center; }
 
-  .grade-screen { max-width: 680px; margin: 35px auto; padding: 0 15px; text-align: center; }
-  .grade-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; margin-top: 22px; }
+  .grade-screen { max-width: 600px; margin: 35px auto; padding: 0 15px; text-align: center; }
+  .grade-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 22px; }
   .grade-card { background: white; border: 4px solid var(--secondary); border-radius: 24px; padding: 25px 12px; cursor: pointer; box-shadow: var(--shadow); transition: 0.2s; }
   .grade-card:hover { transform: translateY(-4px); border-color: var(--primary); background: #FFFDF5; }
-  .grade-card h2 { margin: 10px 0 5px; font-size: 1.45rem; color: var(--primary-dark); }
+  .grade-card h2 { margin: 10px 0 5px; font-size: 1.5rem; color: var(--primary-dark); }
 
   .nav-tabs { display: flex; justify-content: center; gap: 8px; padding: 12px 10px 6px; flex-wrap: wrap; }
   .tab-btn { background: white; border: 3px solid var(--primary); color: var(--primary); padding: 8px 14px; border-radius: 18px; font-weight: bold; cursor: pointer; font-size: 0.95rem; transition: 0.2s; }
   .tab-btn.active { background: var(--primary); color: white; transform: translateY(-2px); }
 
-  .view-switch-wrap { background: #FFFFFF; border: 3px solid #FFE082; border-radius: 20px; padding: 12px; margin-bottom: 16px; box-shadow: 0 4px 0 rgba(0,0,0,0.06); text-align: center; }
+    .view-switch-wrap { background: #FFFFFF; border: 3px solid #FFE082; border-radius: 20px; padding: 12px; margin-bottom: 16px; box-shadow: 0 4px 0 rgba(0,0,0,0.06); text-align: center; }
   .view-switch-bar { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
   .view-btn { background: #FFF8E7; border: 3px solid var(--primary); color: var(--primary-dark); padding: 10px 8px; border-radius: 16px; font-weight: bold; cursor: pointer; font-size: 0.95rem; transition: 0.2s; line-height: 1.25; }
   .view-btn small { display: block; font-size: 0.75rem; font-weight: normal; opacity: 0.9; margin-top: 2px; }
   .view-btn.active { background: var(--secondary); border-color: #369B94; color: white; box-shadow: 0 4px 0 #369B94; transform: translateY(-2px); }
   .view-hint { margin-top: 10px; font-size: 0.85rem; color: #5D4037; background: #FFF3CD; padding: 6px 12px; border-radius: 12px; display: inline-block; font-weight: bold; }
 
+
   .container { max-width: 820px; margin: 0 auto; padding: 0 12px; }
   .card { background: var(--card); border-radius: 24px; padding: 20px 16px; box-shadow: var(--shadow); border: 3px solid #FFE082; margin-bottom: 20px; }
   .campaign-unit { margin-bottom: 28px; position: relative; }
-  .unit-banner { background: linear-gradient(135deg, #4ECDC4, #2BBBAD); color: white; padding: 14px 18px; border-radius: 20px; box-shadow: 0 5px 0 #269A8E; margin-bottom: 22px; display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .unit-banner { background: linear-gradient(135deg, #4ECDC4, #2BBBAD); color: white; padding: 14px 18px; border-radius: 20px; box-shadow: 0 5px 0 #269A8E; margin-bottom: 22px; display: flex; justify-content: space-between; align-items: center; gap: 10px; }
   .unit-banner.locked-unit { background: linear-gradient(135deg, #BDC3C7, #95A5A6); box-shadow: 0 5px 0 #7F8C8D; }
   .unit-banner h3 { margin: 0; font-size: 1.15rem; }
   .unit-banner small { opacity: 0.95; font-size: 0.85rem; display: block; margin-top: 2px; }
-  .btn-rule-mini { background: rgba(255,255,255,0.28); border: 2px solid white; color: white; padding: 6px 12px; border-radius: 12px; font-weight: bold; cursor: pointer; font-size: 0.85rem; transition: 0.15s; }
-  .btn-rule-mini:hover { background: rgba(255,255,255,0.45); }
-  .map-path { display: flex; flex-direction: column; align-items: center; gap: 22px; position: relative; padding: 10px 0; }
-  .map-path::before { content: ''; position: absolute; top: 20px; bottom: 20px; width: 8px; background: repeating-linear-gradient(to bottom, #FFD54F 0, #FFD54F 14px, transparent 14px, transparent 24px); z-index: 0; border-radius: 4px; }
-  .map-node-wrap { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; width: 100%; }
-  .map-node-wrap:nth-child(4n+1) { transform: translateX(0px); }
-  .map-node-wrap:nth-child(4n+2) { transform: translateX(-42px); }
-  .map-node-wrap:nth-child(4n+3) { transform: translateX(0px); }
-  .map-node-wrap:nth-child(4n+4) { transform: translateX(42px); }
 
-  .map-node { width: 76px; height: 76px; border-radius: 50%; border: none; font-size: 1.9rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: 0.15s; position: relative; color: white; }
-  .map-node.done { background: var(--success); box-shadow: 0 7px 0 var(--success-dark); }
-  .map-node.current { background: var(--primary); box-shadow: 0 7px 0 var(--primary-dark); animation: pulseNode 1.6s infinite; }
-  .map-node.locked { background: #CFD8DC; box-shadow: 0 7px 0 #90A4AE; color: #78909C; cursor: not-allowed; }
-  .map-node.boss-node { width: 88px; height: 88px; font-size: 2.3rem; }
-  .map-node.boss-node.current { background: #E74C3C; box-shadow: 0 7px 0 #C0392B; }
-  @keyframes pulseNode { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
-  .node-stars { font-size: 0.95rem; margin-top: 6px; letter-spacing: 2px; background: white; padding: 2px 8px; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.08); }
-  .node-label { font-size: 0.85rem; font-weight: bold; color: #444; margin-top: 3px; text-align: center; background: rgba(255,255,255,0.85); padding: 2px 8px; border-radius: 8px; }
+  .path-column { display: flex; flex-direction: column; align-items: center; gap: 22px; position: relative; padding: 6px 0; }
+  .path-node-wrap { display: flex; flex-direction: column; align-items: center; position: relative; z-index: 2; width: 150px; text-align: center; transition: transform 0.2s; }
+  .offset-0 { transform: translateX(0px); }
+  .offset-1 { transform: translateX(-44px); }
+  .offset-2 { transform: translateX(0px); }
+  .offset-3 { transform: translateX(44px); }
 
-  .topic-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
-  .topic-card { background: #FFFDF7; border: 3px solid var(--secondary); border-radius: 20px; padding: 14px; text-align: center; box-shadow: 0 4px 0 rgba(0,0,0,0.08); display: flex; flex-direction: column; justify-content: space-between; }
-  .topic-card h3 { margin: 6px 0; font-size: 1.05rem; color: #2C3E50; }
-  .topic-card p { font-size: 0.85rem; color: #666; margin: 4px 0 10px; }
-  .topic-actions { display: flex; gap: 6px; justify-content: center; flex-wrap: wrap; }
-  .btn-play { background: var(--success); color: white; border: none; padding: 9px 14px; border-radius: 14px; font-size: 0.95rem; font-weight: bold; cursor: pointer; box-shadow: 0 4px 0 var(--success-dark); flex: 1; }
-  .btn-play:active { transform: translateY(3px); box-shadow: none; }
-  .btn-rule-topic { background: #3498DB; color: white; border: none; padding: 9px 12px; border-radius: 14px; font-size: 0.9rem; font-weight: bold; cursor: pointer; box-shadow: 0 4px 0 #21618C; }
+  .node-circle { width: 78px; height: 78px; border-radius: 50%; border: 4px solid white; display: flex; align-items: center; justify-content: center; font-size: 2rem; cursor: pointer; position: relative; transition: 0.15s; user-select: none; }
+  .node-circle:active:not(.locked) { transform: translateY(4px); }
+  .node-circle.unlocked { background: var(--primary); box-shadow: 0 6px 0 var(--primary-dark), 0 0 0 4px #FFE082; animation: pulseNode 2s infinite; }
+  .node-circle.completed { background: var(--success); box-shadow: 0 6px 0 var(--success-dark); }
+  .node-circle.locked { background: #E5E7EB; box-shadow: 0 6px 0 #CBD5E1; color: #9CA3AF; cursor: not-allowed; }
+  @keyframes pulseNode {
+    0%, 100% { box-shadow: 0 6px 0 var(--primary-dark), 0 0 0 4px #FFE082; }
+    50% { box-shadow: 0 6px 0 var(--primary-dark), 0 0 0 9px rgba(255, 140, 0, 0.25); }
+  }
+  .node-stars { font-size: 0.95rem; margin-top: 6px; letter-spacing: 1px; min-height: 20px; }
+  .node-label { font-size: 0.85rem; font-weight: bold; color: var(--text); margin-top: 2px; line-height: 1.2; background: rgba(255,255,255,0.85); padding: 2px 8px; border-radius: 10px; }
 
-  .mode-bar { display: flex; justify-content: center; gap: 8px; margin-bottom: 15px; flex-wrap: wrap; }
-  .mode-pill { background: #EEE; border: 2px solid #CCC; padding: 6px 12px; border-radius: 14px; cursor: pointer; font-weight: bold; font-size: 0.85rem; }
-  .mode-pill.active { background: var(--secondary); color: white; border-color: #369B94; }
+  .page-selector { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+  .page-btn { flex: 1; min-width: 135px; padding: 10px; border-radius: 14px; border: 3px solid var(--secondary); background: white; cursor: pointer; font-weight: bold; font-size: 0.9rem; }
+  .page-btn.active { background: var(--secondary); color: white; }
+  .badge-done { background: var(--success); color: white; font-size: 0.75rem; padding: 2px 7px; border-radius: 10px; display: inline-block; margin-top: 4px; }
 
-  .boss-hud { background: #2C3E50; color: white; border-radius: 18px; padding: 12px 16px; margin-bottom: 14px; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
-  .hp-wrap { flex: 1; }
-  .hp-label { font-size: 0.85rem; font-weight: bold; margin-bottom: 4px; display: flex; justify-content: space-between; }
-  .hp-bar { background: #555; height: 14px; border-radius: 8px; overflow: hidden; border: 2px solid #1A252F; }
-  .hp-fill { height: 100%; transition: width 0.3s; }
-  .hp-boss { background: #E74C3C; }
-  .hp-player { background: #2ECC71; }
-  .boss-avatar { font-size: 2.6rem; text-align: center; }
+  .modes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; }
+  .mode-card { border: 3px solid #E0E0E0; border-radius: 18px; padding: 14px; text-align: center; cursor: pointer; transition: 0.2s; position: relative; background: #FAFAFA; }
+  .mode-card:hover { transform: translateY(-3px); border-color: var(--primary); }
+  .mode-step { position: absolute; top: -10px; left: 14px; background: var(--accent); color: white; padding: 2px 10px; border-radius: 12px; font-size: 0.78rem; font-weight: bold; }
+  .mode-done-banner { background: var(--success); color: white; padding: 4px; border-radius: 10px; font-size: 0.82rem; margin-top: 8px; font-weight: bold; }
+  .btn { background: var(--primary); color: white; border: none; padding: 12px 22px; border-radius: 16px; font-size: 1.05rem; font-weight: bold; cursor: pointer; box-shadow: 0 4px 0 var(--primary-dark); }
+  .btn:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--primary-dark); }
+  .btn-sound { background: var(--secondary); box-shadow: 0 4px 0 #369B94; padding: 8px 13px; font-size: 1rem; margin-left: 6px; }
+  .btn-next { background: var(--success); box-shadow: 0 4px 0 var(--success-dark); margin-top: 14px; width: 100%; }
 
-  .question-box { text-align: center; padding: 16px; background: #F0F9FF; border-radius: 20px; border: 2px dashed #81D4FA; margin-bottom: 18px; }
-  .word-prompt { font-size: 1.75rem; font-weight: bold; color: #1565C0; margin: 8px 0; line-height: 1.35; }
-  .word-prompt.sentence-prompt { font-size: 1.3rem; }
-  .hint-text { color: #666; font-size: 0.92rem; }
-  .options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-  .options-grid.single-col { grid-template-columns: 1fr; }
-  .opt-btn { background: white; border: 3px solid #B0BEC5; border-radius: 16px; padding: 13px 12px; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: 0.15s; color: var(--text); line-height: 1.3; }
-  .opt-btn:hover { border-color: var(--primary); background: #FFF8E1; }
-  .opt-btn.correct { background: var(--success); color: white; border-color: var(--success-dark); }
-  .opt-btn.wrong { background: var(--accent); color: white; border-color: #C0392B; }
-  .input-area { text-align: center; }
-  .text-input { font-size: 1.3rem; padding: 11px; border: 3px solid var(--secondary); border-radius: 16px; width: 85%; max-width: 340px; text-align: center; outline: none; }
-  .btn-check { background: var(--primary); color: white; border: none; padding: 11px 26px; border-radius: 16px; font-size: 1.1rem; font-weight: bold; margin-top: 12px; cursor: pointer; box-shadow: 0 4px 0 var(--primary-dark); }
+  .progress-bar-wrap { background: #EEE; border-radius: 12px; height: 18px; overflow: hidden; margin: 10px 0 18px; border: 2px solid #DDD; }
+  .progress-bar-fill { background: var(--success); height: 100%; width: 0%; transition: width 0.3s; }
+  .question-title { font-size: 1.55rem; text-align: center; margin: 12px 0; color: var(--primary-dark); }
+  .options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  @media (max-width: 480px) { .options-grid { grid-template-columns: 1fr; } }
+  .opt-btn { background: #F0F8FF; border: 3px solid #B0E0E6; padding: 14px; border-radius: 16px; font-size: 1.05rem; cursor: pointer; font-weight: bold; color: var(--text); }
+  .opt-btn.correct { background: #D4EDDA; border-color: var(--success); color: #155724; animation: bounceUp 0.45s ease; }
+  .opt-btn.wrong { background: #F8D7DA; border-color: var(--accent); color: #721C24; animation: shakeSide 0.4s ease; }
 
-  .scramble-slots { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; min-height: 52px; margin: 15px 0; padding: 10px; background: #FFFDE7; border-radius: 16px; border: 2px solid #FFF59D; }
-  .letter-pool { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin-top: 15px; }
-  .letter-tile { width: 44px; height: 48px; background: white; border: 3px solid var(--primary); border-radius: 12px; font-size: 1.4rem; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 3px 0 var(--primary-dark); user-select: none; }
-  .letter-tile.used { opacity: 0.25; pointer-events: none; }
-  .letter-tile.slot { background: var(--secondary); color: white; border-color: #369B94; box-shadow: 0 3px 0 #369B94; }
+  @keyframes bounceUp { 0%, 100% { transform: scale(1); } 40% { transform: translateY(-7px) scale(1.03); } }
+  @keyframes shakeSide { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-7px); } 75% { transform: translateX(7px); } }
+  .anim-correct { animation: bounceUp 0.45s ease; border-color: var(--success) !important; }
+  .anim-wrong { animation: shakeSide 0.4s ease; border-color: var(--accent) !important; }
 
-  .pairs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-  .pair-col { display: flex; flex-direction: column; gap: 10px; }
-  .pair-btn { background: white; border: 3px solid #90CAF9; border-radius: 14px; padding: 12px; font-size: 1.05rem; font-weight: bold; cursor: pointer; min-height: 52px; }
-  .pair-btn.selected { background: #FFF59D; border-color: #FBC02D; transform: scale(1.03); }
-  .pair-btn.matched { background: #C8E6C9; border-color: #81C784; color: #2E7D32; opacity: 0.6; pointer-events: none; }
+  input[type="text"] { width: 100%; padding: 13px; font-size: 1.15rem; border: 3px solid var(--secondary); border-radius: 16px; margin-bottom: 10px; outline: none; }
+  .forms-inputs { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+  .pairs-container { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .pair-col { display: flex; flex-direction: column; gap: 8px; }
+  .pair-item { padding: 11px 8px; border: 3px solid #DDD; border-radius: 14px; text-align: center; cursor: pointer; font-weight: bold; background: white; font-size: 0.95rem; }
+  .pair-item.selected { border-color: var(--primary); background: #FFF3E0; }
+  .pair-item.matched { border-color: var(--success); background: #D4EDDA; opacity: 0.6; pointer-events: none; }
 
-  .game-arena { position: relative; height: 360px; background: linear-gradient(180deg, #E0F7FA 0%, #B2EBF2 100%); border-radius: 20px; border: 3px solid #4DD0E1; overflow: hidden; margin-top: 10px; }
-  .falling-word { position: absolute; background: white; border: 3px solid var(--primary); padding: 8px 14px; border-radius: 20px; font-weight: bold; font-size: 1.1rem; cursor: pointer; box-shadow: 0 4px 0 rgba(0,0,0,0.15); user-select: none; white-space: nowrap; }
-  .game-hud { display: flex; justify-content: space-between; font-size: 1.1rem; font-weight: bold; background: #FFF3E0; padding: 10px 15px; border-radius: 15px; margin-bottom: 10px; flex-wrap: wrap; gap: 8px; }
+  .feedback { padding: 14px; border-radius: 16px; margin-top: 14px; font-weight: bold; text-align: center; font-size: 1.05rem; }
+  .feedback.ok { background: #D4EDDA; color: #155724; }
+  .feedback.err { background: #F8D7DA; color: #721C24; }
 
-  .dict-table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
-  .dict-table th, .dict-table td { border-bottom: 2px solid #EEE; padding: 8px 6px; text-align: left; }
-  .dict-table th { background: #FFF8E1; color: var(--primary-dark); }
-  .speak-mini { background: var(--secondary); color: white; border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; font-size: 0.9rem; }
+  .scramble-row { margin: 10px 0; text-align: center; }
+  .scramble-label { font-size: 0.9rem; font-weight: bold; color: #555; margin-bottom: 5px; }
+  .scramble-slots { display: flex; justify-content: center; flex-wrap: wrap; gap: 5px; min-height: 44px; }
+  .letter-slot { width: 34px; height: 42px; border: 3px dashed #B0E0E6; border-radius: 10px; display: inline-flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: bold; background: #F8FAFC; color: var(--primary-dark); }
+  .letter-slot.filled { border-style: solid; border-color: var(--primary); background: #FFF3E0; }
+  .letters-bank { display: flex; justify-content: center; flex-wrap: wrap; gap: 7px; margin: 15px 0; }
+  .letter-btn { width: 42px; height: 44px; border: 3px solid var(--secondary); border-radius: 12px; background: white; font-size: 1.2rem; font-weight: bold; color: var(--text); cursor: pointer; box-shadow: 0 3px 0 #369B94; }
+  .letter-btn:disabled { opacity: 0.25; cursor: default; box-shadow: none; }
+  .scramble-actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
 
-  .stats-bar { display: flex; justify-content: space-around; background: white; padding: 10px; border-radius: 18px; margin-bottom: 15px; border: 2px solid #FFE082; font-weight: bold; flex-wrap: wrap; gap: 8px; }
-  .badge-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
-  .badge-card { border: 3px solid #DDD; border-radius: 18px; padding: 14px; text-align: center; background: #F9F9F9; opacity: 0.55; }
-  .badge-card.unlocked { border-color: #FFD54F; background: #FFFDF0; opacity: 1; box-shadow: 0 4px 0 #FFE082; }
-  .badge-icon { font-size: 2.5rem; }
-  .award-toast { position: fixed; bottom: 20px; right: 20px; background: #2C3E50; color: white; padding: 14px 20px; border-radius: 18px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); border: 3px solid #FFD54F; z-index: 999; display: none; font-weight: bold; max-width: 320px; }
+  .boss-arena { background: linear-gradient(135deg, #2D1B4E, #4A1C40); color: white; border-radius: 18px; padding: 12px 14px; margin-bottom: 14px; border: 3px solid #F59E0B; }
+  .boss-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; font-weight: bold; font-size: 0.95rem; }
+  .boss-stage { display: flex; align-items: center; gap: 12px; }
+  .boss-avatar { font-size: 3.1rem; line-height: 1; }
+  .boss-hit { animation: bossHitAnim 0.45s ease; }
+  .boss-attack { animation: bossAttackAnim 0.45s ease; }
+  @keyframes bossHitAnim { 25% { transform: scale(0.8) rotate(-14deg); filter: brightness(2.2); } 60% { transform: scale(1.12) rotate(10deg); } }
+  @keyframes bossAttackAnim { 40% { transform: translateY(10px) scale(1.25); } }
+  .boss-hp-wrap { flex: 1; }
+  .boss-hp-bar { background: rgba(255,255,255,0.2); height: 16px; border-radius: 10px; overflow: hidden; border: 2px solid #FBBF24; }
+  .boss-hp-fill { background: linear-gradient(90deg, #EF4444, #F97316); height: 100%; width: 100%; transition: width 0.35s ease; }
+  .confetti-piece { position: fixed; top: -15px; width: 10px; height: 14px; z-index: 9999; pointer-events: none; border-radius: 3px; animation: confettiFall linear forwards; }
+  @keyframes confettiFall { 100% { transform: translateY(105vh) rotate(720deg); opacity: 0; } }
 
-  .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 1000; display: none; align-items: center; justify-content: center; padding: 14px; }
-  .modal-box { background: white; border-radius: 24px; border: 4px solid var(--secondary); max-width: 680px; width: 100%; max-height: 85vh; overflow-y: auto; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
-  .modal-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #EEE; padding-bottom: 10px; margin-bottom: 14px; }
-  .modal-close { background: var(--accent); color: white; border: none; border-radius: 50%; width: 36px; height: 36px; font-size: 1.2rem; font-weight: bold; cursor: pointer; }
-  .rule-box { background: #F0F9FF; border-left: 5px solid #3498DB; padding: 12px 14px; border-radius: 12px; margin-bottom: 14px; font-size: 0.95rem; line-height: 1.5; }
-  .rule-box code { background: #E1F5FE; padding: 2px 6px; border-radius: 6px; font-weight: bold; color: #0277BD; }
+  .game-area { position: relative; height: 300px; background: #E0F7FA; border-radius: 20px; overflow: hidden; border: 3px solid var(--secondary); }
+  .falling-fruit { position: absolute; text-align: center; user-select: none; transform: translateX(-50%); }
+  .fruit-icon { font-size: 2.5rem; line-height: 1; }
+  .fruit-word { background: white; color: var(--text); padding: 3px 11px; border-radius: 12px; font-weight: bold; font-size: 1rem; border: 2px solid var(--primary); margin-top: -6px; white-space: nowrap; }
+  .basket { position: absolute; bottom: 5px; left: 50%; transform: translateX(-50%); font-size: 3.3rem; line-height: 1; transition: transform 0.15s; z-index: 2; }
+  .basket.catch-anim { transform: translateX(-50%) scale(1.25); }
+  .game-controls { display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap; justify-content: center; }
+
+  .awards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 10px; margin: 14px 0 22px; }
+  .award-card { border: 3px solid #E0E0E0; border-radius: 18px; padding: 12px; text-align: center; background: #F9F9F9; opacity: 0.55; filter: grayscale(1); }
+  .award-card.unlocked { opacity: 1; filter: none; border-color: #FFD700; background: #FFFDF0; }
+  .award-toast { position: fixed; top: 18px; left: 50%; transform: translateX(-50%) translateY(-140%); background: linear-gradient(135deg, #FFD700, #FFA500); color: #3E2723; padding: 12px 20px; border-radius: 18px; font-weight: bold; box-shadow: 0 8px 20px rgba(0,0,0,0.25); z-index: 9999; transition: transform 0.45s ease; border: 3px solid white; text-align: center; max-width: 90%; }
+  .award-toast.show { transform: translateX(-50%) translateY(0); }
+
+  table { width: 100%; border-collapse: collapse; margin-bottom: 20px; font-size: 0.95rem; }
+  th, td { padding: 8px; border-bottom: 2px solid #EEE; text-align: left; }
+  th { background: #FFF3E0; }
   .hidden { display: none !important; }
 </style>
 </head>
 <body>
 
 <header>
-  <h1>🗺️ Путешествие в английский</h1>
-  <div id="gradeBadge" class="grade-badge hidden" onclick="resetGrade()">🎓 <span id="gradeBadgeText"></span> (сменить)</div>
-  <button class="sound-toggle" id="soundToggleBtn" onclick="toggleSound()" title="Звуки">🔊</button>
+  <h1>🚀 Тренажер английского языка</h1>
+  <div id="header-grade-btn" class="grade-badge hidden" onclick="showGradeSelect()">🎒 4 класс (сменить)</div>
+  <button id="sound-toggle" class="sound-toggle" onclick="toggleSound()">🔈</button>
 </header>
 
-<div id="gradeScreen" class="grade-screen">
+<div id="grade-select-screen" class="grade-screen">
   <div class="card">
-    <div style="font-size:3rem;">🎒🚀</div>
-    <h2 style="margin:8px 0;">Выбери свой класс!</h2>
-    <p style="color:#666;">Открой карту приключений и пройди все испытания!</p>
+    <h2>Привет! В каком классе ты учишься?</h2>
+    <p>Выбери свой класс, чтобы открыть карту приключений:</p>
     <div class="grade-cards">
-      <div class="grade-card" onclick="selectGrade(1)">
-        <div style="font-size:2.8rem;">🐣</div>
-        <h2>1 класс</h2>
-        <p style="color:#666; font-size:0.88rem;">Базовый старт: главные слова, глаголы и местоимения</p>
-      </div>
-      <div class="grade-card" onclick="selectGrade(4)">
-        <div style="font-size:2.8rem;">🦊</div>
+      <div class="grade-card" onclick="selectGrade('4')">
+        <div style="font-size:3.2rem;">🎒</div>
         <h2>4 класс</h2>
-        <p style="color:#666; font-size:0.88rem;">Времена, глаголы, вопросы и порядок слов</p>
+        <p style="font-size:0.9rem; color:#666;">Глаголы, слова и Look &amp; Learn</p>
       </div>
-      <div class="grade-card" onclick="selectGrade(5)">
-        <div style="font-size:2.8rem;">🦁</div>
+      <div class="grade-card" onclick="selectGrade('5')">
+        <div style="font-size:3.2rem;">🎓</div>
         <h2>5 класс</h2>
-        <p style="color:#666; font-size:0.88rem;">Семья, дом, одежда, еда и глаголы речи</p>
+        <p style="font-size:0.9rem; color:#666;">Неправильные глаголы (стр. 170–172)</p>
       </div>
     </div>
   </div>
 </div>
 
-<div id="mainApp" class="hidden">
+<div id="main-app" class="hidden">
   <div class="nav-tabs">
-    <button class="tab-btn active" id="tabLearn" onclick="switchTab('learn')">🗺️ Обучение</button>
-    <button class="tab-btn" id="tabGame" onclick="switchTab('game')">🎮 Игра «Лови слово»</button>
-    <button class="tab-btn" id="tabDict" onclick="switchTab('dict')">📖 Словарь и правила</button>
-    <button class="tab-btn" id="tabAwards" onclick="switchTab('awards')">🏆 Награды (<span id="badgeCount">0</span>/8)</button>
+    <button class="tab-btn active" onclick="switchTab(this, 'train')">🎯 Обучение</button>
+    <button class="tab-btn" onclick="switchTab(this, 'game')">🎮 Игра</button>
+    <button class="tab-btn" onclick="switchTab(this, 'dict')">📖 Словарь</button>
+    <button class="tab-btn" onclick="switchTab(this, 'stats')">🏆 Награды</button>
   </div>
 
   <div class="container">
-    <div class="stats-bar">
-      <span>⭐ Звёзды: <b id="starCount">0</b></span>
-      <span>🔥 Серия: <b id="streakCount">0</b></span>
-      <span>👑 Боссы: <b id="bossCount">0</b></span>
-    </div>
-
-    <div id="viewLearn">
-      <div id="topicSelectArea" class="card">
-        <div class="view-switch-wrap">
-          <div class="view-switch-bar">
-            <button class="view-btn active" id="btnViewMap" onclick="setLearnView('map')">
-              🗺️ Карта приключений
-              <small>Уровни по шагам + Босс</small>
-            </button>
-            <button class="view-btn" id="btnViewList" onclick="setLearnView('list')">
-              📚 Свободный выбор тем
-              <small>Любая тема сразу</small>
-            </button>
-          </div>
-          <div class="view-hint" id="viewHintText">👇 Нажимай на кружки на карте по порядку!</div>
+    <div id="tab-train">
+      <div class="view-switch-wrap" id="view-switch-bar">
+        <div class="view-switch-bar">
+          <button class="view-btn active" id="vbtn-map" onclick="setTrainView('map')">
+            🗺️ Карта кампании
+            <small>прохождение по шагам</small>
+          </button>
+          <button class="view-btn" id="vbtn-free" onclick="setTrainView('free')">
+            🔓 Все темы списком
+            <small>свободный выбор без замков</small>
+          </button>
         </div>
-        <div id="campaignMapArea"></div>
-        <div id="topicListArea" class="hidden">
-          <div class="topic-grid" id="topicGrid"></div>
-        </div>
+        <div class="view-hint">💡 Хочешь учить любую тему сразу? Нажми «Все темы списком»!</div>
       </div>
-      <div id="exerciseArea" class="card hidden">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; flex-wrap:wrap; gap:6px;">
-          <button class="tab-btn" onclick="backToTopics()">← Назад</button>
-          <span id="currentTopicTitle" style="font-weight:bold; color:var(--primary-dark); font-size:1.05rem;"></span>
-          <div style="display:flex; gap:6px; align-items:center;">
-            <button class="btn-rule-topic" style="padding:5px 10px; font-size:0.85rem;" onclick="openRuleModal(currentTopicKey)">📖 Правило</button>
-            <span id="stepProgress" style="font-weight:bold; color:#666;">1 / 10</span>
-          </div>
-        </div>
 
-        <div id="bossHud" class="boss-hud hidden">
-          <div class="hp-wrap">
-            <div class="hp-label"><span>🧑 Герой</span><span id="playerHpText">3/3 ❤️</span></div>
-            <div class="hp-bar"><div class="hp-fill hp-player" id="playerHpBar" style="width:100%"></div></div>
-          </div>
-          <div class="boss-avatar" id="bossAvatar">🐉</div>
-          <div class="hp-wrap">
-            <div class="hp-label"><span>Босс</span><span id="bossHpText">8/8 💀</span></div>
-            <div class="hp-bar"><div class="hp-fill hp-boss" id="bossHpBar" style="width:100%"></div></div>
-          </div>
-        </div>
+      <div id="campaign-container"></div>
 
-        <div class="mode-bar" id="modeBar">
-          <button class="mode-pill active" id="mode_choice" onclick="setMode('choice')">👀 Выбор</button>
-          <button class="mode-pill" id="mode_listen" onclick="setMode('listen')">👂 На слух</button>
-          <button class="mode-pill" id="mode_pairs" onclick="setMode('pairs')">🧩 Пары</button>
-          <button class="mode-pill" id="mode_scramble" onclick="setMode('scramble')">🔤 Собери</button>
-          <button class="mode-pill" id="mode_type" onclick="setMode('type')">⌨️ Впиши</button>
-          <button class="mode-pill" id="mode_boss" onclick="setMode('boss')">👑 Босс</button>
-        </div>
+      <div class="card hidden" id="free-mode-box">
+        <h3>1. Выбери тему:</h3>
+        <div class="page-selector" id="page-selector"></div>
+        <h3>2. Выбери тренажер:</h3>
+        <div class="modes-grid" id="modes-grid"></div>
+      </div>
 
-        <div id="exerciseContent"></div>
-        <div id="feedbackMsg" style="text-align:center; font-size:1.25rem; font-weight:bold; margin-top:15px; min-height:32px;"></div>
+      <div class="card hidden" id="exercise-box">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <span id="ex-mode-title" style="font-weight:bold; color:var(--primary);"></span>
+          <button class="btn" style="padding:6px 12px; font-size:0.9rem; background:#999; box-shadow:none;" onclick="closeExercise()">✖ Выйти</button>
+        </div>
+        <div class="progress-bar-wrap"><div class="progress-bar-fill" id="ex-progress-fill"></div></div>
+        <div style="text-align:right; font-size:0.9rem; margin-top:-12px; margin-bottom:10px;" id="ex-progress-text"></div>
+        <div id="final-banner" class="boss-arena hidden"></div>
+        <div id="ex-content"></div>
+        <div id="ex-feedback" class="feedback hidden"></div>
+        <button id="ex-next-btn" class="btn btn-next hidden" onclick="nextQuestion()">Следующий вопрос ➔</button>
       </div>
     </div>
 
-    <div id="viewGame" class="card hidden">
-      <div style="text-align:center;">
-        <h2 style="margin-top:0; color:var(--primary-dark);">🎈 Игра «Лови правильный перевод!»</h2>
-        <p style="font-size:0.9rem; color:#666;">Выбери тему и лови падающие шарики с переводом:</p>
-        <div style="margin-bottom:10px; display:flex; justify-content:center; gap:8px; flex-wrap:wrap;">
-          <select id="gameTopicSelect" style="padding:8px 12px; border-radius:12px; border:2px solid var(--secondary); font-size:0.95rem;"></select>
-          <button class="btn-play" style="flex:none;" onclick="startGame()">▶ Начать игру</button>
+    <div id="tab-game" class="hidden">
+      <div class="card">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+          <h2 style="margin:0;">🎮 Игра «Поймай перевод»</h2>
+          <button id="game-back-map-btn" class="btn hidden" style="padding:6px 12px; font-size:0.85rem; background:#6B7280; box-shadow:none;" onclick="exitGameToMap()">⬅ На карту</button>
+        </div>
+        <p id="game-subtitle">Выбери тему и лови падающие фрукты со словами в корзинку!</p>
+        <div class="page-selector" id="game-page-selector"></div>
+        <div style="display:flex; justify-content:space-between; font-weight:bold; font-size:1.1rem; margin-bottom:10px;">
+          <span>Очки: <span id="game-score">0</span> | 🏆 Рекорд: <span id="game-best">0</span></span>
+          <span>Жизни: <span id="game-lives">❤️❤️❤️</span></span>
+        </div>
+        <div class="game-area" id="game-area"></div>
+        <div class="game-controls" id="game-controls">
+          <button class="btn" onclick="startGame()">▶ Начать игру</button>
         </div>
       </div>
-      <div class="game-hud">
-        <span>🎯 Ищем: <b id="gameTargetWord" style="color:#D84315; font-size:1.2rem;">---</b></span>
-        <span>🏆 Очки: <b id="gameScore">0</b> | ❤️ <b id="gameLives">3</b></span>
+    </div>
+
+    <div id="tab-dict" class="hidden">
+      <div class="card">
+        <h2>📖 Словарь выбранного класса</h2>
+        <div id="dict-content"></div>
       </div>
-      <div class="game-arena" id="gameArena"></div>
     </div>
 
-    <div id="viewDict" class="card hidden">
-      <h2 style="margin-top:0; color:var(--primary-dark);">📖 Словарь и правила класса</h2>
-      <div id="dictContainer"></div>
-    </div>
-
-    <div id="viewAwards" class="card hidden">
-      <h2 style="margin-top:0; color:var(--primary-dark);">🏆 Мои награды и достижения</h2>
-      <p style="color:#666; font-size:0.95rem;">Побеждай боссов на карте, собирай звёзды и открывай значки!</p>
-      <div class="badge-grid" id="badgeGrid"></div>
+    <div id="tab-stats" class="hidden">
+      <div class="card">
+        <h2>🏅 Мои награды</h2>
+        <div class="awards-grid" id="awards-content"></div>
+        <h2>🏆 Прогресс по темам</h2>
+        <div id="stats-content"></div>
+        <button class="btn" style="background:var(--accent); box-shadow:0 4px 0 #C0392B; margin-top:20px;" onclick="resetProgress()">Сбросить весь прогресс</button>
+      </div>
     </div>
   </div>
 </div>
-
-<div class="modal-overlay" id="ruleModal" onclick="if(event.target===this) closeRuleModal()">
-  <div class="modal-box">
-    <div class="modal-header">
-      <h3 id="ruleModalTitle" style="margin:0; color:var(--primary-dark);">📖 Правило и слова</h3>
-      <button class="modal-close" onclick="closeRuleModal()">✕</button>
-    </div>
-    <div id="ruleModalBody"></div>
-  </div>
-</div>
-
-<div class="award-toast" id="awardToast"></div>
-
+<div id="award-toast" class="award-toast"></div>
 <script>
-const DATA = {
-  1: {
-    title: "1 класс — Базовый старт",
+let soundEnabled = localStorage.getItem("en_sound_enabled") !== "false";
+let audioCtx = null;
+
+function updateSoundBtn() {
+  const btn = document.getElementById("sound-toggle");
+  if (btn) btn.innerText = soundEnabled ? "🔈" : "🔇";
+}
+
+function toggleSound() {
+  soundEnabled = !soundEnabled;
+  localStorage.setItem("en_sound_enabled", soundEnabled);
+  updateSoundBtn();
+  if (soundEnabled) playSound("correct");
+}
+
+function playSound(type) {
+  if (!soundEnabled) return;
+  try {
+    if (!audioCtx) {
+      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      audioCtx = new AudioContext();
+    }
+    if (audioCtx.state === "suspended") audioCtx.resume();
+    const now = audioCtx.currentTime;
+
+    if (type === "correct") {
+      [587.33, 880].forEach((freq, idx) => {
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = "sine";
+        osc.frequency.setValueAtTime(freq, now + idx * 0.08);
+        gain.gain.setValueAtTime(0.001, now + idx * 0.08);
+        gain.gain.exponentialRampToValueAtTime(0.18, now + idx * 0.08 + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.08 + 0.25);
+        osc.connect(gain); gain.connect(audioCtx.destination);
+        osc.start(now + idx * 0.08); osc.stop(now + idx * 0.08 + 0.26);
+      });
+    } else if (type === "wrong") {
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = "triangle";
+      osc.frequency.setValueAtTime(175, now);
+      osc.frequency.exponentialRampToValueAtTime(105, now + 0.28);
+      gain.gain.setValueAtTime(0.001, now);
+      gain.gain.exponentialRampToValueAtTime(0.24, now + 0.02);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.3);
+      osc.connect(gain); gain.connect(audioCtx.destination);
+      osc.start(now); osc.stop(now + 0.31);
+    } else if (type === "win") {
+      [{ f: 523.25, t: 0, d: 0.12 }, { f: 659.25, t: 0.11, d: 0.12 }, { f: 783.99, t: 0.22, d: 0.12 }, { f: 1046.50, t: 0.33, d: 0.38 }].forEach(n => {
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = "sine";
+        osc.frequency.setValueAtTime(n.f, now + n.t);
+        gain.gain.setValueAtTime(0.001, now + n.t);
+        gain.gain.exponentialRampToValueAtTime(0.2, now + n.t + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + n.t + n.d);
+        osc.connect(gain); gain.connect(audioCtx.destination);
+        osc.start(now + n.t); osc.stop(now + n.t + n.d + 0.02);
+      });
+    }
+  } catch (e) {}
+}
+updateSoundBtn();
+
+const APP_DATA = {
+  "4": {
+    name: "4 класс",
     topics: {
-      base_pronouns: {
-        title: "Местоимения (Pronouns)",
-        icon: "👤",
-        desc: "Я, ты, он, она, мы, они, этот...",
-        boss: "🧙‍♂️",
-        rule: `<b>Базовые местоимения:</b><br>В английском <code>I</code> (я) всегда пишется с заглавной буквы. Слово <code>you</code> означает и «ты», и «вы».`,
-        words: [
-          {en:"I", tr:"[aɪ]", ruTr:"[ай]", ru:"я"},
-          {en:"you", tr:"[juː]", ruTr:"[ю]", ru:"ты, вы"},
-          {en:"he", tr:"[hiː]", ruTr:"[хи]", ru:"он"},
-          {en:"she", tr:"[ʃiː]", ruTr:"[ши]", ru:"она"},
-          {en:"it", tr:"[ɪt]", ruTr:"[ит]", ru:"оно, это"},
-          {en:"we", tr:"[wiː]", ruTr:"[ви]", ru:"мы"},
-          {en:"they", tr:"[ðeɪ]", ruTr:"[зэй]", ru:"они"},
-          {en:"this", tr:"[ðɪs]", ruTr:"[зис]", ru:"этот, эта, это"},
-          {en:"that", tr:"[ðæt]", ruTr:"[зэт]", ru:"тот, та, то"},
-          {en:"everything", tr:"[ˈev.ri.θɪŋ]", ruTr:"[эврисин]", ru:"всё"}
+      "g4_verbs": {
+        title: "Глаголы за 4 класс",
+        type: "verbs",
+        items: [
+          { v1: "be", v2: "was / were", v3: "been", tr: "быть, находиться", syn: ["быть", "находиться", "являться", "существовать"] },
+          { v1: "begin", v2: "began", v3: "begun", tr: "начинать(ся)", syn: ["начинать", "начинаться", "начать", "приступать"] },
+          { v1: "break", v2: "broke", v3: "broken", tr: "ломать", syn: ["ломать", "сломать", "разбить", "разбивать"] },
+          { v1: "bring", v2: "brought", v3: "brought", tr: "приносить", syn: ["приносить", "приводить", "принести", "привести"] },
+          { v1: "buy", v2: "bought", v3: "bought", tr: "покупать", syn: ["покупать", "купить", "приобретать"] },
+          { v1: "choose", v2: "chose", v3: "chosen", tr: "выбирать", syn: ["выбирать", "выбрать", "избирать"] },
+          { v1: "come", v2: "came", v3: "come", tr: "приходить, приезжать", syn: ["приходить", "приезжать", "прийти", "приехать", "являться"] },
+          { v1: "cut", v2: "cut", v3: "cut", tr: "резать", syn: ["резать", "рубить", "разрезать", "отрезать", "стричь"] },
+          { v1: "do", v2: "did", v3: "done", tr: "делать", syn: ["делать", "поступать", "выполнять", "сделать"] },
+          { v1: "draw", v2: "drew", v3: "drawn", tr: "рисовать", syn: ["рисовать", "чертить", "нарисовать"] },
+          { v1: "drink", v2: "drank", v3: "drunk", tr: "пить", syn: ["пить", "выпить"] },
+          { v1: "eat", v2: "ate", v3: "eaten", tr: "есть, кушать", syn: ["есть", "кушать", "съесть", "поесть"] },
+          { v1: "fall", v2: "fell", v3: "fallen", tr: "падать", syn: ["падать", "упасть", "опадать"] },
+          { v1: "feed", v2: "fed", v3: "fed", tr: "кормить", syn: ["кормить", "покормить", "питать"] },
+          { v1: "find", v2: "found", v3: "found", tr: "находить", syn: ["находить", "найти", "обнаружить"] },
+          { v1: "fly", v2: "flew", v3: "flown", tr: "летать", syn: ["летать", "лететь", "полететь"] },
+          { v1: "forget", v2: "forgot", v3: "forgotten", tr: "забывать", syn: ["забывать", "забыть"] },
+          { v1: "get", v2: "got", v3: "got", tr: "получать", syn: ["получать", "добираться", "получить", "стать", "достать"] },
+          { v1: "give", v2: "gave", v3: "given", tr: "давать", syn: ["давать", "дать", "подарить"] },
+          { v1: "go", v2: "went", v3: "gone", tr: "идти, ходить, ехать", syn: ["идти", "ходить", "ехать", "пойти", "уходить"] },
+          { v1: "have", v2: "had", v3: "had", tr: "иметь", syn: ["иметь", "владеть", "обладать"] },
+          { v1: "hear", v2: "heard", v3: "heard", tr: "слышать", syn: ["слышать", "услышать"] },
+          { v1: "hurt", v2: "hurt", v3: "hurt", tr: "ушибить, ушибиться", syn: ["ушибить", "ушибиться", "обидеть", "ранить", "болеть"] },
+          { v1: "know", v2: "knew", v3: "known", tr: "знать", syn: ["знать", "узнать", "ведать"] },
+          { v1: "lay", v2: "laid", v3: "laid", tr: "класть, накрывать (на стол)", syn: ["класть", "положить", "накрывать", "накрывать на стол"] },
+          { v1: "learn", v2: "learned / learnt", v3: "learned / learnt", tr: "учить (что-то), узнавать", syn: ["учить", "узнавать", "учиться", "изучать"] },
+          { v1: "let", v2: "let", v3: "let", tr: "позволять", syn: ["позволять", "разрешать", "пускать"] },
+          { v1: "make", v2: "made", v3: "made", tr: "делать, заставлять", syn: ["делать", "заставлять", "создавать", "сделать"] },
+          { v1: "meet", v2: "met", v3: "met", tr: "встречать, встречаться", syn: ["встречать", "встречаться", "познакомиться", "встретить"] },
+          { v1: "pay", v2: "paid", v3: "paid", tr: "платить", syn: ["платить", "заплатить", "оплачивать"] },
+          { v1: "put", v2: "put", v3: "put", tr: "класть, ставить", syn: ["класть", "ставить", "положить", "поставить"] },
+          { v1: "read", v2: "read", v3: "read", tr: "читать", syn: ["читать", "прочитать", "прочесть"] },
+          { v1: "run", v2: "ran", v3: "run", tr: "бежать, бегать", syn: ["бежать", "бегать", "побежать"] },
+          { v1: "say", v2: "said", v3: "said", tr: "говорить, сказать (что-то)", syn: ["говорить", "сказать", "произносить"] },
+          { v1: "see", v2: "saw", v3: "seen", tr: "видеть", syn: ["видеть", "увидеть", "смотреть"] },
+          { v1: "send", v2: "sent", v3: "sent", tr: "посылать", syn: ["посылать", "отправлять", "послать", "отправить"] },
+          { v1: "show", v2: "showed", v3: "shown", tr: "показывать", syn: ["показывать", "показать", "демонстрировать"] },
+          { v1: "sing", v2: "sang", v3: "sung", tr: "петь", syn: ["петь", "спеть", "напевать"] },
+          { v1: "sit", v2: "sat", v3: "sat", tr: "сидеть", syn: ["сидеть", "посидеть", "садиться"] },
+          { v1: "sleep", v2: "slept", v3: "slept", tr: "спать", syn: ["спать", "поспать", "засыпать"] },
+          { v1: "smell", v2: "smelt", v3: "smelt", tr: "нюхать, пахнуть", syn: ["нюхать", "пахнуть", "понюхать", "чувствовать запах"] },
+          { v1: "speak", v2: "spoke", v3: "spoken", tr: "говорить, разговаривать", syn: ["говорить", "разговаривать", "сказать", "беседовать"] },
+          { v1: "stand", v2: "stood", v3: "stood", tr: "стоять", syn: ["стоять", "постоять", "вставать"] },
+          { v1: "swim", v2: "swam", v3: "swum", tr: "плавать", syn: ["плавать", "плыть", "поплавать"] },
+          { v1: "take", v2: "took", v3: "taken", tr: "брать, взять", syn: ["брать", "взять", "забирать", "принимать"] },
+          { v1: "teach", v2: "taught", v3: "taught", tr: "учить (кого-то)", syn: ["учить", "обучать", "научить", "преподавать"] },
+          { v1: "tell", v2: "told", v3: "told", tr: "сказать (кому-то что-то), рассказать", syn: ["сказать", "рассказать", "говорить", "рассказывать"] },
+          { v1: "think", v2: "thought", v3: "thought", tr: "думать", syn: ["думать", "полагать", "подумать", "считать", "мыслить"] },
+          { v1: "understand", v2: "understood", v3: "understood", tr: "понимать", syn: ["понимать", "предполагать", "понять"] },
+          { v1: "wear", v2: "wore", v3: "worn", tr: "носить (одежду)", syn: ["носить", "носить одежду", "одевать", "быть одетым"] },
+          { v1: "write", v2: "wrote", v3: "written", tr: "писать", syn: ["писать", "написать", "записывать"] }
         ]
       },
-      base_verbs1: {
-        title: "Главные глаголы (Часть 1)",
-        icon: "⚡",
-        desc: "Быть, иметь, делать, идти, хотеть...",
-        boss: "🤖",
-        rule: `<b>Главные глаголы действия:</b><br>Частица <code>to</code> перед глаголом показывает начальную форму (отвечает на вопрос <i>«что делать?»</i>). Например: <code>to be</code> — быть.`,
-        words: [
-          {en:"to be", tr:"[tə biː]", ruTr:"[ту би]", ru:"быть"},
-          {en:"to have", tr:"[tə hæv]", ruTr:"[ту хэв]", ru:"иметь"},
-          {en:"to do", tr:"[tə duː]", ruTr:"[ту ду]", ru:"делать"},
-          {en:"to go", tr:"[tə ɡəʊ]", ruTr:"[ту гоу]", ru:"идти"},
-          {en:"to come", tr:"[tə kʌm]", ruTr:"[ту кам]", ru:"приходить"},
-          {en:"to make", tr:"[tə meɪk]", ruTr:"[ту мэйк]", ru:"делать, создавать"},
-          {en:"to take", tr:"[tə teɪk]", ruTr:"[ту тэйк]", ru:"брать"},
-          {en:"to give", tr:"[tə ɡɪv]", ruTr:"[ту гив]", ru:"давать"},
-          {en:"to want", tr:"[tə wɒnt]", ruTr:"[ту вонт]", ru:"хотеть"},
-          {en:"to need", tr:"[tə niːd]", ruTr:"[ту нид]", ru:"нуждаться"},
-          {en:"can", tr:"[kæn]", ruTr:"[кэн]", ru:"мочь"}
+      "g4_words_1": {
+        title: "Простые слова: Часть 1",
+        type: "words",
+        items: [
+          { v1: "always", tr: "всегда", syn: ["всегда", "постоянно"] },
+          { v1: "sometimes", tr: "иногда", syn: ["иногда", "порой"] },
+          { v1: "usually", tr: "обычно", syn: ["обычно", "как правило"] },
+          { v1: "often", tr: "часто", syn: ["часто"] },
+          { v1: "never", tr: "никогда", syn: ["никогда"] },
+          { v1: "yesterday", tr: "вчера", syn: ["вчера"] },
+          { v1: "tomorrow", tr: "завтра", syn: ["завтра"] },
+          { v1: "today", tr: "сегодня", syn: ["сегодня"] },
+          { v1: "week", tr: "неделя", syn: ["неделя"] },
+          { v1: "month", tr: "месяц", syn: ["месяц"] },
+          { v1: "year", tr: "год", syn: ["год"] },
+          { v1: "morning", tr: "утро", syn: ["утро", "утром"] },
+          { v1: "evening", tr: "вечер", syn: ["вечер", "вечером"] },
+          { v1: "night", tr: "ночь", syn: ["ночь", "ночью"] },
+          { v1: "weather", tr: "погода", syn: ["погода"] },
+          { v1: "cloudy", tr: "облачно, пасмурно", syn: ["облачно", "пасмурно", "облачный"] },
+          { v1: "sunny", tr: "солнечно, солнечный", syn: ["солнечно", "солнечный"] },
+          { v1: "windy", tr: "ветрено, ветреный", syn: ["ветрено", "ветреный"] },
+          { v1: "rainy", tr: "дождливо, дождливый", syn: ["дождливо", "дождливый"] },
+          { v1: "snowy", tr: "снежно, снежный", syn: ["снежно", "снежный"] }
         ]
       },
-      base_verbs2: {
-        title: "Чувства и мысли (Часть 2)",
-        icon: "💭",
-        desc: "Знать, думать, видеть, любить, жить...",
-        boss: "🦉",
-        rule: `<b>Глаголы чувств, восприятия и жизни:</b><br>Запомни чтение немых букв: в слове <code>know</code> первая буква <b>k</b> не читается — <code>[ноу]</code>.`,
-        words: [
-          {en:"to know", tr:"[tə nəʊ]", ruTr:"[ту ноу]", ru:"знать"},
-          {en:"to think", tr:"[tə θɪŋk]", ruTr:"[ту синк]", ru:"думать"},
-          {en:"to see", tr:"[tə siː]", ruTr:"[ту си]", ru:"видеть"},
-          {en:"to look", tr:"[tə lʊk]", ruTr:"[ту лук]", ru:"смотреть"},
-          {en:"to hear", tr:"[tə hɪə]", ruTr:"[ту хиа]", ru:"слышать"},
-          {en:"to say", tr:"[tə seɪ]", ruTr:"[ту сэй]", ru:"говорить, сказать"},
-          {en:"to tell", tr:"[tə tel]", ruTr:"[ту тэл]", ru:"рассказывать"},
-          {en:"to like", tr:"[tə laɪk]", ruTr:"[ту лайк]", ru:"нравиться"},
-          {en:"to love", tr:"[tə lʌv]", ruTr:"[ту лав]", ru:"любить"},
-          {en:"to live", tr:"[tə lɪv]", ruTr:"[ту лив]", ru:"жить"},
-          {en:"to work", tr:"[tə wɜːk]", ruTr:"[ту вёк]", ru:"работать"}
+      "g4_words_2": {
+        title: "Простые слова: Часть 2",
+        type: "words",
+        items: [
+          { v1: "country", tr: "страна, деревня", syn: ["страна", "деревня", "сельская местность"] },
+          { v1: "city", tr: "большой город", syn: ["город", "большой город"] },
+          { v1: "street", tr: "улица", syn: ["улица"] },
+          { v1: "bridge", tr: "мост", syn: ["мост"] },
+          { v1: "road", tr: "дорога", syn: ["дорога", "путь"] },
+          { v1: "shop", tr: "магазин", syn: ["магазин", "лавка"] },
+          { v1: "hospital", tr: "больница", syn: ["больница", "госпиталь"] },
+          { v1: "forest", tr: "лес", syn: ["лес"] },
+          { v1: "river", tr: "река", syn: ["река", "речка"] },
+          { v1: "mountain", tr: "гора", syn: ["гора"] },
+          { v1: "field", tr: "поле", syn: ["поле", "луг"] },
+          { v1: "ocean", tr: "океан", syn: ["океан"] },
+          { v1: "garden", tr: "сад", syn: ["сад", "огород"] },
+          { v1: "kitchen", tr: "кухня", syn: ["кухня"] },
+          { v1: "bedroom", tr: "спальня", syn: ["спальня"] },
+          { v1: "bathroom", tr: "ванная комната", syn: ["ванная", "ванная комната"] },
+          { v1: "window", tr: "окно", syn: ["окно"] },
+          { v1: "door", tr: "дверь", syn: ["дверь"] },
+          { v1: "table", tr: "стол", syn: ["стол"] },
+          { v1: "chair", tr: "стул", syn: ["стул"] }
         ]
       },
-      base_words3: {
-        title: "Вещи, время и описания",
-        icon: "🌍",
-        desc: "Человек, время, дом, большой, новый, в/на...",
-        boss: "🐲",
-        rule: `<b>Существительные, прилагательные и предлоги:</b><br><code>in</code> — внутри чего-то (в коробке), <code>on</code> — на поверхности (на столе), <code>at</code> — у/в точке (в школе, в 5 часов).`,
-        words: [
-          {en:"person", tr:"[ˈpɜː.sən]", ruTr:"[пёсэн]", ru:"человек"},
-          {en:"time", tr:"[taɪm]", ruTr:"[тайм]", ru:"время"},
-          {en:"day", tr:"[deɪ]", ruTr:"[дэй]", ru:"день"},
-          {en:"house", tr:"[haʊs]", ruTr:"[хаус]", ru:"дом"},
-          {en:"thing", tr:"[θɪŋ]", ruTr:"[синг]", ru:"вещь"},
-          {en:"good", tr:"[ɡʊd]", ruTr:"[гуд]", ru:"хороший"},
-          {en:"new", tr:"[njuː]", ruTr:"[нью]", ru:"новый"},
-          {en:"big", tr:"[bɪɡ]", ruTr:"[биг]", ru:"большой"},
-          {en:"in", tr:"[ɪn]", ruTr:"[ин]", ru:"в"},
-          {en:"on", tr:"[ɒn]", ruTr:"[он]", ru:"на"},
-          {en:"at", tr:"[æt]", ruTr:"[эт]", ru:"в, у, на"},
-          {en:"with", tr:"[wɪð]", ruTr:"[виз]", ru:"с"},
-          {en:"and", tr:"[ænd]", ruTr:"[энд]", ru:"и"},
-          {en:"but", tr:"[bʌt]", ruTr:"[бат]", ru:"но"}
+      "g4_words_3": {
+        title: "Простые слова: Часть 3",
+        type: "words",
+        items: [
+          { v1: "breakfast", tr: "завтрак", syn: ["завтрак"] },
+          { v1: "lunch", tr: "обед", syn: ["обед", "ланч"] },
+          { v1: "dinner", tr: "ужин", syn: ["ужин", "обед"] },
+          { v1: "bread", tr: "хлеб", syn: ["хлеб"] },
+          { v1: "butter", tr: "сливочное масло", syn: ["масло", "сливочное масло"] },
+          { v1: "cheese", tr: "сыр", syn: ["сыр"] },
+          { v1: "milk", tr: "молоко", syn: ["молоко"] },
+          { v1: "apple", tr: "яблоко", syn: ["яблоко"] },
+          { v1: "sweet", tr: "конфета, сладкий", syn: ["конфета", "сладкий", "сладость"] },
+          { v1: "animal", tr: "животное", syn: ["животное", "зверь"] },
+          { v1: "horse", tr: "лошадь", syn: ["лошадь", "конь"] },
+          { v1: "sheep", tr: "овца", syn: ["овца", "овечка", "баран"] },
+          { v1: "duck", tr: "утка", syn: ["утка", "уточка"] },
+          { v1: "wolf", tr: "волк", syn: ["волк"] },
+          { v1: "whale", tr: "кит", syn: ["кит"] },
+          { v1: "school", tr: "школа", syn: ["школа"] },
+          { v1: "lesson", tr: "урок", syn: ["урок", "занятие"] },
+          { v1: "teacher", tr: "учитель", syn: ["учитель", "учительница", "преподаватель"] },
+          { v1: "pencil", tr: "карандаш", syn: ["карандаш"] },
+          { v1: "question", tr: "вопрос", syn: ["вопрос"] }
+        ]
+      },
+      "g4_words_4": {
+        title: "Простые слова: Часть 4",
+        type: "words",
+        items: [
+          { v1: "family", tr: "семья", syn: ["семья"] },
+          { v1: "mother", tr: "мама, мать", syn: ["мама", "мать", "мамочка"] },
+          { v1: "father", tr: "папа, отец", syn: ["папа", "отец", "папочка"] },
+          { v1: "sister", tr: "сестра", syn: ["сестра", "сестренка"] },
+          { v1: "brother", tr: "брат", syn: ["брат", "братишка"] },
+          { v1: "friend", tr: "друг, подруга", syn: ["друг", "подруга", "приятель"] },
+          { v1: "holiday", tr: "праздник, каникулы", syn: ["праздник", "каникулы", "отпуск"] },
+          { v1: "present", tr: "подарок", syn: ["подарок", "подарочек"] },
+          { v1: "letter", tr: "письмо, буква", syn: ["письмо", "буква"] },
+          { v1: "postcard", tr: "открытка", syn: ["открытка", "почтовая открытка"] },
+          { v1: "hobby", tr: "хобби, увлечение", syn: ["хобби", "увлечение"] },
+          { v1: "bike", tr: "велосипед", syn: ["велосипед", "велик"] },
+          { v1: "football", tr: "футбол", syn: ["футбол"] },
+          { v1: "music", tr: "музыка", syn: ["музыка"] },
+          { v1: "happy", tr: "счастливый", syn: ["счастливый", "радостный", "веселый"] },
+          { v1: "clever", tr: "умный", syn: ["умный", "сообразительный"] },
+          { v1: "kind", tr: "добрый", syn: ["добрый", "любезный"] },
+          { v1: "strong", tr: "сильный", syn: ["сильный", "крепкий"] },
+          { v1: "beautiful", tr: "красивый", syn: ["красивый", "прекрасный"] },
+          { v1: "interesting", tr: "интересный", syn: ["интересный"] }
+        ]
+      },
+      "g4_look_1": {
+        title: "Слова из раздела учебника Look & Learn: Unit 1–2",
+        type: "words",
+        items: [
+          { v1: "cold", tr: "холодный, холодно", syn: ["холодный", "холодно"] },
+          { v1: "cloudy", tr: "облачный, облачно", syn: ["облачный", "облачно", "пасмурно"] },
+          { v1: "windy", tr: "ветреный, ветрено", syn: ["ветреный", "ветрено"] },
+          { v1: "hot", tr: "горячий, жарко", syn: ["горячий", "жарко", "жаркий"] },
+          { v1: "sunny", tr: "солнечный, солнечно", syn: ["солнечный", "солнечно"] },
+          { v1: "snowy", tr: "снежный, снежно", syn: ["снежный", "снежно"] },
+          { v1: "warm", tr: "тёплый, тепло", syn: ["теплый", "тепло"] },
+          { v1: "rainy", tr: "дождливый, дождливо", syn: ["дождливый", "дождливо"] },
+          { v1: "holiday", tr: "выходной, праздник", syn: ["выходной", "праздник"] },
+          { v1: "holidays", tr: "каникулы", syn: ["каникулы"] },
+          { v1: "to have a picnic", tr: "выезжать на пикник", syn: ["выезжать на пикник", "устроить пикник", "ходить на пикник", "пикник"] },
+          { v1: "to fly a kite", tr: "запускать воздушного змея", syn: ["запускать воздушного змея", "запускать змея"] },
+          { v1: "to play hide-and-seek", tr: "играть в прятки", syn: ["играть в прятки", "прятки"] },
+          { v1: "large", tr: "большой", syn: ["большой", "крупный"] },
+          { v1: "sometimes", tr: "иногда", syn: ["иногда", "порой"] },
+          { v1: "interesting", tr: "интересный", syn: ["интересный", "интересно"] },
+          { v1: "go shopping", tr: "ходить за покупками", syn: ["ходить за покупками", "идти за покупками", "покупать"] },
+          { v1: "in the middle of", tr: "в середине", syn: ["в середине", "посередине"] },
+          { v1: "next to", tr: "рядом", syn: ["рядом", "около", "возле"] },
+          { v1: "under", tr: "под", syn: ["под"] },
+          { v1: "behind", tr: "за", syn: ["за", "позади"] },
+          { v1: "between", tr: "между", syn: ["между"] },
+          { v1: "on", tr: "на", syn: ["на"] },
+          { v1: "above", tr: "над", syn: ["над", "выше"] },
+          { v1: "in the left corner", tr: "в левом углу", syn: ["в левом углу", "левый угол"] },
+          { v1: "in the right corner", tr: "в правом углу", syn: ["в правом углу", "правый угол"] }
+        ]
+      },
+      "g4_look_2": {
+        title: "Слова из раздела учебника Look & Learn: Unit 3–4",
+        type: "words",
+        items: [
+          { v1: "country", tr: "страна; сельская местность (деревня)", syn: ["страна", "деревня", "сельская местность"] },
+          { v1: "in the country", tr: "за городом (в деревне)", syn: ["за городом", "в деревне"] },
+          { v1: "capital", tr: "столица", syn: ["столица"] },
+          { v1: "city", tr: "город", syn: ["город", "большой город"] },
+          { v1: "people", tr: "люди", syn: ["люди", "народ"] },
+          { v1: "take off", tr: "снимать", syn: ["снимать", "снять"] },
+          { v1: "coat", tr: "пальто", syn: ["пальто"] },
+          { v1: "become", tr: "становиться", syn: ["становиться", "стать"] },
+          { v1: "carry", tr: "переносить, нести", syn: ["переносить", "нести", "носить"] },
+          { v1: "thing", tr: "вещь", syn: ["вещь", "предмет"] },
+          { v1: "talk", tr: "разговаривать", syn: ["разговаривать", "говорить", "беседовать"] },
+          { v1: "catch — caught", tr: "ловить — поймал", syn: ["ловить", "поймать", "ловить поймал"] },
+          { v1: "make — made", tr: "делать, мастерить — сделал, смастерил", syn: ["делать", "мастерить", "сделать", "смастерил"] },
+          { v1: "be — was", tr: "быть — был", syn: ["быть", "был", "быть был"] },
+          { v1: "come — came", tr: "приходить — пришёл", syn: ["приходить", "пришел", "прийти"] },
+          { v1: "draw — drew", tr: "рисовать — рисовал", syn: ["рисовать", "рисовал", "нарисовать"] },
+          { v1: "meet — met", tr: "встречать — встретил", syn: ["встречать", "встретил", "встретить"] },
+          { v1: "put — put", tr: "класть, ставить — положил, поставил", syn: ["класть", "ставить", "положил", "поставил"] },
+          { v1: "sing — sang", tr: "петь — пел", syn: ["петь", "пел", "спеть"] },
+          { v1: "tell — told", tr: "рассказывать — рассказал", syn: ["рассказывать", "рассказал", "рассказать", "говорить"] },
+          { v1: "bite — bit", tr: "кусать — укусил", syn: ["кусать", "укусил", "укусить"] },
+          { v1: "read — read", tr: "читать — читал", syn: ["читать", "читал", "прочитать"] },
+          { v1: "write — wrote", tr: "писать — написал", syn: ["писать", "написал", "написать"] },
+          { v1: "think — thought", tr: "думать — подумал", syn: ["думать", "подумал", "подумать"] },
+          { v1: "run — ran", tr: "бегать — побежал", syn: ["бегать", "побежал", "бежать"] }
+        ]
+      },
+      "g4_look_3": {
+        title: "Слова из раздела учебника Look & Learn: Unit 5–7",
+        type: "words",
+        items: [
+          { v1: "take a photo of", tr: "фотографировать (кого-либо или что-либо)", syn: ["фотографировать", "сфотографировать", "сделать фото"] },
+          { v1: "watch the stars", tr: "наблюдать за звёздами", syn: ["наблюдать за звездами", "смотреть на звезды"] },
+          { v1: "play puzzles", tr: "собирать пазлы", syn: ["собирать пазлы", "играть в пазлы", "пазлы"] },
+          { v1: "bring — brought", tr: "приносить — принёс", syn: ["приносить", "принес", "принести"] },
+          { v1: "have on", tr: "быть одетым в (что-либо)", syn: ["быть одетым", "быть одетым в", "носить"] },
+          { v1: "put on", tr: "надевать", syn: ["надевать", "надеть", "одевать"] },
+          { v1: "translate from into", tr: "переводить (с ... на ...)", syn: ["переводить", "перевести"] },
+          { v1: "learn by heart", tr: "учить наизусть", syn: ["учить наизусть", "выучить наизусть"] },
+          { v1: "break", tr: "перемена", syn: ["перемена", "перерыв"] },
+          { v1: "during", tr: "во время", syn: ["во время", "в течение"] },
+          { v1: "coloured pencils", tr: "цветные карандаши", syn: ["цветные карандаши", "карандаши"] },
+          { v1: "workbook", tr: "рабочая тетрадь", syn: ["рабочая тетрадь", "тетрадь"] },
+          { v1: "rubber", tr: "ластик, резинка", syn: ["ластик", "резинка", "стерка"] },
+          { v1: "ruler", tr: "линейка", syn: ["линейка"] },
+          { v1: "textbook", tr: "учебник", syn: ["учебник", "книга"] },
+          { v1: "pencil", tr: "карандаш", syn: ["карандаш", "простой карандаш"] },
+          { v1: "pencil box", tr: "пенал", syn: ["пенал"] },
+          { v1: "pencil sharpener", tr: "точилка для карандашей", syn: ["точилка", "точилка для карандашей"] },
+          { v1: "paints", tr: "краски", syn: ["краски", "акварель"] },
+          { v1: "dictionary", tr: "словарь", syn: ["словарь", "словарик"] },
+          { v1: "get good marks", tr: "получать хорошие (плохие) отметки", syn: ["получать хорошие отметки", "получать плохие отметки", "получать отметки", "получать оценки"] }
         ]
       }
     }
   },
-  4: {
-    title: "4 класс",
+  "5": {
+    name: "5 класс",
     topics: {
-      time: {
-        title: "Слова-маркеры времени",
-        icon: "⏰",
-        desc: "Когда происходит действие?",
-        boss: "⏳",
-        rule: `<b>Слова-маркеры времени:</b><br>Помогают понять, в каком времени стоит предложение.<br>• <code>usually, often, always, every day</code> — регулярное действие (Present Simple).<br>• <code>now</code> — прямо сейчас (Present Continuous).<br>• <code>yesterday</code> — вчера (Past Simple).`,
-        words: [
-          {en:"yesterday", tr:"[ˈjestədeɪ]", ru:"вчера"},
-          {en:"usually", tr:"[ˈjuːʒuəli]", ru:"обычно"},
-          {en:"every day", tr:"[ˈevri deɪ]", ru:"каждый день"},
-          {en:"sometimes", tr:"[ˈsʌmtaɪmz]", ru:"иногда"},
-          {en:"often", tr:"[ˈɒfn]", ru:"часто"},
-          {en:"always", tr:"[ˈɔːlweɪz]", ru:"всегда"},
-          {en:"never", tr:"[ˈnevə]", ru:"никогда"},
-          {en:"now", tr:"[naʊ]", ru:"сейчас"}
+      "170": {
+        title: "Страница 170 (be — grow)",
+        type: "verbs",
+        items: [
+          { v1: "be", v2: "was / were", v3: "been", tr: "быть, находиться", syn: ["быть", "находиться", "являться", "существовать"] },
+          { v1: "beat", v2: "beat", v3: "beaten", tr: "бить", syn: ["бить", "ударить", "побить", "колотить"] },
+          { v1: "become", v2: "became", v3: "become", tr: "становиться", syn: ["становиться", "стать", "сделаться"] },
+          { v1: "begin", v2: "began", v3: "begun", tr: "начинать(ся)", syn: ["начинать", "начинаться", "начать", "приступать"] },
+          { v1: "bite", v2: "bit", v3: "bitten", tr: "кусать(ся)", syn: ["кусать", "укусить", "кусаться"] },
+          { v1: "break", v2: "broke", v3: "broken", tr: "ломать", syn: ["ломать", "сломать", "разбить", "разбивать"] },
+          { v1: "bring", v2: "brought", v3: "brought", tr: "приносить, приводить", syn: ["приносить", "приводить", "принести", "привести"] },
+          { v1: "build", v2: "built", v3: "built", tr: "строить", syn: ["строить", "построить", "сооружать"] },
+          { v1: "buy", v2: "bought", v3: "bought", tr: "покупать", syn: ["покупать", "купить", "приобретать"] },
+          { v1: "catch", v2: "caught", v3: "caught", tr: "ловить, поймать", syn: ["ловить", "поймать", "схватить"] },
+          { v1: "choose", v2: "chose", v3: "chosen", tr: "выбирать", syn: ["выбирать", "выбрать", "избирать"] },
+          { v1: "come", v2: "came", v3: "come", tr: "приходить, приезжать", syn: ["приходить", "приезжать", "прийти", "приехать", "являться"] },
+          { v1: "cost", v2: "cost", v3: "cost", tr: "стоить", syn: ["стоить", "оцениваться"] },
+          { v1: "cut", v2: "cut", v3: "cut", tr: "резать, рубить", syn: ["резать", "рубить", "разрезать", "отрезать", "стричь"] },
+          { v1: "do", v2: "did", v3: "done", tr: "делать, выполнять", syn: ["делать", "поступать", "выполнять", "сделать"] },
+          { v1: "draw", v2: "drew", v3: "drawn", tr: "рисовать, чертить", syn: ["рисовать", "чертить", "нарисовать", "тащить"] },
+          { v1: "dream", v2: "dreamed / dreamt", v3: "dreamed / dreamt", tr: "мечтать, видеть сны", syn: ["мечтать", "видеть сны", "сниться", "помечтать"] },
+          { v1: "drink", v2: "drank", v3: "drunk", tr: "пить", syn: ["пить", "выпить"] },
+          { v1: "drive", v2: "drove", v3: "driven", tr: "вести машину", syn: ["вести машину", "водить", "ехать", "гнать", "управлять"] },
+          { v1: "eat", v2: "ate", v3: "eaten", tr: "есть, кушать", syn: ["есть", "кушать", "съесть", "поесть"] },
+          { v1: "fall", v2: "fell", v3: "fallen", tr: "падать", syn: ["падать", "упасть", "опадать"] },
+          { v1: "feed", v2: "fed", v3: "fed", tr: "кормить", syn: ["кормить", "покормить", "питать"] },
+          { v1: "feel", v2: "felt", v3: "felt", tr: "чувствовать", syn: ["чувствовать", "почувствовать", "ощущать"] },
+          { v1: "fight", v2: "fought", v3: "fought", tr: "сражаться, драться", syn: ["сражаться", "драться", "бороться", "воевать"] },
+          { v1: "find", v2: "found", v3: "found", tr: "находить", syn: ["находить", "найти", "обнаружить"] },
+          { v1: "fly", v2: "flew", v3: "flown", tr: "летать", syn: ["летать", "лететь", "полететь"] },
+          { v1: "forget", v2: "forgot", v3: "forgotten", tr: "забывать", syn: ["забывать", "забыть"] },
+          { v1: "get", v2: "got", v3: "got", tr: "получать, добираться", syn: ["получать", "добираться", "получить", "стать", "достать"] },
+          { v1: "give", v2: "gave", v3: "given", tr: "давать", syn: ["давать", "дать", "подарить"] },
+          { v1: "go", v2: "went", v3: "gone", tr: "ходить, идти, ехать", syn: ["ходить", "идти", "ехать", "пойти", "уходить"] },
+          { v1: "grow", v2: "grew", v3: "grown", tr: "расти, выращивать", syn: ["расти", "выращивать", "вырасти", "становиться"] }
         ]
       },
-      verbs_reg: {
-        title: "Глаголы действия",
-        icon: "🏃",
-        desc: "Движение, игра и помощь",
-        boss: "🦖",
-        rule: `<b>Правильные глаголы действия:</b><br>В прошедшем времени (Past Simple) к этим глаголам добавляется окончание <code>-ed</code>: <i>play → played, help → helped, jump → jumped</i>.`,
-        words: [
-          {en:"jump", tr:"[dʒʌmp]", ru:"прыгать"},
-          {en:"help", tr:"[help]", ru:"помогать"},
-          {en:"play", tr:"[pleɪ]", ru:"играть"},
-          {en:"walk", tr:"[wɔːk]", ru:"гулять"},
-          {en:"listen", tr:"[ˈlɪsn]", ru:"слушать"},
-          {en:"watch", tr:"[wɒtʃ]", ru:"смотреть"},
-          {en:"wash", tr:"[wɒʃ]", ru:"мыть"},
-          {en:"clean", tr:"[kliːn]", ru:"убирать, чистить"},
-          {en:"open", tr:"[ˈəʊpən]", ru:"открывать"},
-          {en:"close", tr:"[kləʊz]", ru:"закрывать"}
+      "171": {
+        title: "Страница 171 (have — sing)",
+        type: "verbs",
+        items: [
+          { v1: "have", v2: "had", v3: "had", tr: "иметь, владеть", syn: ["иметь", "владеть", "обладать"] },
+          { v1: "hear", v2: "heard", v3: "heard", tr: "слышать", syn: ["слышать", "услышать"] },
+          { v1: "hold", v2: "held", v3: "held", tr: "держать", syn: ["держать", "удерживать", "проводить"] },
+          { v1: "hurt", v2: "hurt", v3: "hurt", tr: "ушибить(ся), обидеть", syn: ["ушибить", "ушибиться", "обидеть", "ранить", "болеть"] },
+          { v1: "keep", v2: "kept", v3: "kept", tr: "держать, хранить", syn: ["держать", "хранить", "сохранять", "оставлять"] },
+          { v1: "know", v2: "knew", v3: "known", tr: "знать", syn: ["знать", "узнать", "ведать"] },
+          { v1: "lay", v2: "laid", v3: "laid", tr: "класть, положить, накрывать", syn: ["класть", "положить", "накрывать"] },
+          { v1: "lead", v2: "led", v3: "led", tr: "лидировать, вести (за собой)", syn: ["лидировать", "вести", "вести за собой", "руководить"] },
+          { v1: "learn", v2: "learnt / learned", v3: "learnt / learned", tr: "учить что-то, узнавать, учиться", syn: ["учить", "узнавать", "учиться", "изучать"] },
+          { v1: "leave", v2: "left", v3: "left", tr: "уезжать, оставлять", syn: ["уезжать", "оставлять", "уходить", "покидать"] },
+          { v1: "lend", v2: "lent", v3: "lent", tr: "давать взаймы, одалживать", syn: ["давать взаймы", "одалживать", "занять"] },
+          { v1: "let", v2: "let", v3: "let", tr: "позволять, разрешать", syn: ["позволять", "разрешать", "пускать"] },
+          { v1: "lose", v2: "lost", v3: "lost", tr: "терять, проигрывать", syn: ["терять", "проигрывать", "потерять", "проиграть"] },
+          { v1: "make", v2: "made", v3: "made", tr: "делать, заставлять", syn: ["делать", "заставлять", "создавать", "сделать"] },
+          { v1: "mean", v2: "meant", v3: "meant", tr: "означать, иметь в виду", syn: ["означать", "иметь в виду", "значить"] },
+          { v1: "meet", v2: "met", v3: "met", tr: "встречать(ся), познакомиться", syn: ["встречать", "встречаться", "познакомиться", "встретить"] },
+          { v1: "pay", v2: "paid", v3: "paid", tr: "платить", syn: ["платить", "заплатить", "оплачивать"] },
+          { v1: "put", v2: "put", v3: "put", tr: "класть, ставить", syn: ["класть", "ставить", "положить", "поставить"] },
+          { v1: "read", v2: "read", v3: "read", tr: "читать", syn: ["читать", "прочитать", "прочесть"] },
+          { v1: "ride", v2: "rode", v3: "ridden", tr: "кататься верхом", syn: ["кататься верхом", "ездить верхом", "кататься", "ехать"] },
+          { v1: "ring", v2: "rang", v3: "rung", tr: "звонить", syn: ["звонить", "позвонить", "звенеть"] },
+          { v1: "run", v2: "ran", v3: "run", tr: "бежать, бегать", syn: ["бежать", "бегать", "побежать"] },
+          { v1: "say", v2: "said", v3: "said", tr: "говорить, сказать", syn: ["говорить", "сказать", "произносить"] },
+          { v1: "see", v2: "saw", v3: "seen", tr: "видеть", syn: ["видеть", "увидеть", "смотреть"] },
+          { v1: "seek", v2: "sought", v3: "sought", tr: "искать", syn: ["искать", "разыскивать", "стремиться"] },
+          { v1: "sell", v2: "sold", v3: "sold", tr: "продавать", syn: ["продавать", "продать", "торговать"] },
+          { v1: "send", v2: "sent", v3: "sent", tr: "посылать, отправлять", syn: ["посылать", "отправлять", "послать", "отправить"] },
+          { v1: "set", v2: "set", v3: "set", tr: "ставить, класть", syn: ["ставить", "класть", "устанавливать", "поставить"] },
+          { v1: "shake", v2: "shook", v3: "shaken", tr: "трясти", syn: ["трясти", "встряхнуть", "дрожать"] },
+          { v1: "shine", v2: "shone", v3: "shone", tr: "светить", syn: ["светить", "сиять", "блестеть"] },
+          { v1: "show", v2: "showed", v3: "shown / showed", tr: "показывать", syn: ["показывать", "показать", "демонстрировать"] },
+          { v1: "shut", v2: "shut", v3: "shut", tr: "закрывать, захлопывать", syn: ["закрывать", "захлопывать", "закрыть", "захлопнуть"] },
+          { v1: "sing", v2: "sang", v3: "sung", tr: "петь", syn: ["петь", "спеть", "напевать"] }
         ]
       },
-      verbs_irreg: {
-        title: "Неправильные глаголы (2-я форма)",
-        icon: "⚡",
-        desc: "Прошедшее время без -ed",
-        boss: "🐉",
-        rule: `<b>Неправильные глаголы (Past Simple):</b><br>В прошедшем времени они меняют корень и не используют окончание <code>-ed</code>:<br><code>go → went</code>, <code>see → saw</code>, <code>have → had</code>, <code>do → did</code>.`,
-        words: [
-          {en:"went", tr:"[went]", ru:"ходил (от go)"},
-          {en:"saw", tr:"[sɔː]", ru:"видел (от see)"},
-          {en:"had", tr:"[hæd]", ru:"имел (от have)"},
-          {en:"did", tr:"[dɪd]", ru:"делал (от do)"},
-          {en:"came", tr:"[keɪm]", ru:"пришёл (от come)"},
-          {en:"ate", tr:"[et]", ru:"ел (от eat)"},
-          {en:"drank", tr:"[dræŋk]", ru:"пил (от drink)"},
-          {en:"gave", tr:"[ɡeɪv]", ru:"дал (от give)"},
-          {en:"took", tr:"[tʊk]", ru:"взял (от take)"},
-          {en:"made", tr:"[meɪd]", ru:"сделал (от make)"}
-        ]
-      },
-      question_words: {
-        title: "Вопросительные слова",
-        icon: "❓",
-        desc: "Кто, что, где, когда, почему?",
-        boss: "🦉",
-        rule: `<b>Вопросительные слова (Wh-questions):</b><br>Ставятся в самое начало специального вопроса:<br>• <code>What</code> — Что? Какой?<br>• <code>Where</code> — Где? Куда?<br>• <code>When</code> — Когда?<br>• <code>Why</code> — Почему? Зачем?<br>• <code>Who</code> — Кто?<br>• <code>Whose</code> — Чей?<br>• <code>Which</code> — Который (из)?<br>• <code>How</code> — Как? (<code>How many / How much</code> — Сколько?)`,
-        words: [
-          {en:"What", tr:"[wɒt]", ru:"Что? Какой?"},
-          {en:"Where", tr:"[weə]", ru:"Где? Куда?"},
-          {en:"When", tr:"[wen]", ru:"Когда?"},
-          {en:"Why", tr:"[waɪ]", ru:"Почему? Зачем?"},
-          {en:"Who", tr:"[huː]", ru:"Кто?"},
-          {en:"Whose", tr:"[huːz]", ru:"Чей?"},
-          {en:"Which", tr:"[wɪtʃ]", ru:"Который?"},
-          {en:"How", tr:"[haʊ]", ru:"Как?"},
-          {en:"How many", tr:"[haʊ ˈmeni]", ru:"Сколько? (с исчисл.)"},
-          {en:"How old", tr:"[haʊ əʊld]", ru:"Сколько лет?"}
-        ]
-      },
-      days_week: {
-        title: "Дни недели",
-        icon: "📅",
-        desc: "С понедельника по воскресенье",
-        boss: "🗓️",
-        rule: `<b>Дни недели (Days of the week):</b><br>1. В английском языке все дни недели всегда пишутся с <b>заглавной буквы</b>.<br>2. С днями недели используется предлог <code>on</code>: <i>on Monday</i> (в понедельник).<br>3. Выходные дни (суббота и воскресенье) называются <code>weekend</code>.`,
-        words: [
-          {en:"Monday", tr:"[ˈmʌndeɪ]", ru:"понедельник"},
-          {en:"Tuesday", tr:"[ˈtjuːzdeɪ]", ru:"вторник"},
-          {en:"Wednesday", tr:"[ˈwenzdeɪ]", ru:"среда"},
-          {en:"Thursday", tr:"[ˈθɜːzdeɪ]", ru:"четверг"},
-          {en:"Friday", tr:"[ˈfraɪdeɪ]", ru:"пятница"},
-          {en:"Saturday", tr:"[ˈsætədeɪ]", ru:"суббота"},
-          {en:"Sunday", tr:"[ˈsʌndeɪ]", ru:"воскресенье"}
-        ]
-      },
-      months_year: {
-        title: "Месяцы года",
-        icon: "🍂",
-        desc: "Все 12 месяцев от января до декабря",
-        boss: "❄️",
-        rule: `<b>Месяцы года (Months of the year):</b><br>1. Все названия месяцев всегда пишутся с <b>заглавной буквы</b>.<br>2. С месяцами используется предлог <code>in</code>: <i>in May</i> (в мае), <i>in September</i> (в сентябре).`,
-        words: [
-          {en:"January", tr:"[ˈdʒænjuəri]", ru:"январь"},
-          {en:"February", tr:"[ˈfebruəri]", ru:"февраль"},
-          {en:"March", tr:"[mɑːtʃ]", ru:"март"},
-          {en:"April", tr:"[ˈeɪprəl]", ru:"апрель"},
-          {en:"May", tr:"[meɪ]", ru:"май"},
-          {en:"June", tr:"[dʒuːn]", ru:"июнь"},
-          {en:"July", tr:"[dʒuˈlaɪ]", ru:"июль"},
-          {en:"August", tr:"[ˈɔːɡəst]", ru:"август"},
-          {en:"September", tr:"[sepˈtembə]", ru:"сентябрь"},
-          {en:"October", tr:"[ɒkˈtəʊbə]", ru:"октябрь"},
-          {en:"November", tr:"[nəʊˈvembə]", ru:"ноябрь"},
-          {en:"December", tr:"[dɪˈsembə]", ru:"декабрь"}
-        ]
-      },
-      word_order_stmt: {
-        title: "Порядок слов: утверждение",
-        icon: "🧱",
-        desc: "Как правильно строить утвердительное предложение",
-        boss: "🏰",
-        choiceOnly: true,
-        isSentence: true,
-        rule: `<b>Прямой порядок слов в утверждении:</b><br>В английском предложении строгий порядок:<br><code>1. Подлежащее (Кто?) → 2. Сказуемое (Что делает?) → 3. Дополнение (Что/кого?) → 4. Обстоятельство (Где? Когда?)</code><br><br>✅ <b>Правильно:</b> <code>Tom plays football in the park every day.</code><br>❌ <b>Неправильно:</b> <code>Every day plays Tom football.</code>`,
-        words: [
-          {en:"Tom plays football every day.", tr:"Утверждение", ru:"Том играет в футбол каждый день.", distractors:["Plays Tom football every day.", "Tom every day football plays.", "Football plays Tom every day."]},
-          {en:"My sister reads books in the evening.", tr:"Утверждение", ru:"Моя сестра читает книги вечером.", distractors:["Reads my sister books in the evening.", "My sister in the evening books reads.", "Books my sister reads in the evening."]},
-          {en:"We went to the zoo yesterday.", tr:"Past Simple", ru:"Мы ходили в зоопарк вчера.", distractors:["Went we to the zoo yesterday.", "We yesterday went to the zoo.", "To the zoo we yesterday went."]},
-          {en:"The cat is sleeping on the sofa.", tr:"Present Cont.", ru:"Кот спит на диване.", distractors:["Is sleeping the cat on the sofa.", "The cat on the sofa sleeping is.", "On the sofa sleeping is the cat."]},
-          {en:"She usually drinks tea in the morning.", tr:"Наречие частоты", ru:"Она обычно пьёт чай утром.", distractors:["She drinks tea usually in the morning.", "Usually drinks she tea in the morning.", "She tea usually drinks in the morning."]},
-          {en:"They have got a big red ball.", tr:"have got", ru:"У них есть большой красный мяч.", distractors:["Have got they a big red ball.", "They a big red ball have got.", "They have got a red big ball."]},
-          {en:"I can swim very well.", tr:"Модальный can", ru:"Я умею плавать очень хорошо.", distractors:["Can I swim very well.", "I swim can very well.", "Very well I can swim."]},
-          {en:"Our teacher gives us homework.", tr:"Утверждение", ru:"Наш учитель даёт нам домашнюю работу.", distractors:["Gives our teacher us homework.", "Our teacher homework us gives.", "Us gives our teacher homework."]}
-        ]
-      },
-      word_order_quest: {
-        title: "Порядок слов: вопрос",
-        icon: "⁉️",
-        desc: "Как правильно задавать вопросы",
-        boss: "🦁",
-        choiceOnly: true,
-        isSentence: true,
-        rule: `<b>Порядок слов в вопросе:</b><br>В вопросе вспомогательный или модальный глагол (<code>Do, Does, Did, Is, Are, Can</code>) всегда ставится <b>перед подлежащим</b>!<br><br><b>Общий вопрос:</b> <code>Вспом. глагол + Подлежащее + Основной глагол?</code><br>✅ <code>Do you like apples?</code><br><br><b>Специальный вопрос:</b> <code>Вопр. слово + Вспом. глагол + Подлежащее + Глагол?</code><br>✅ <code>Where does he live?</code>`,
-        words: [
-          {en:"Do you like ice cream?", tr:"Общий вопрос", ru:"Ты любишь мороженое?", distractors:["You do like ice cream?", "Like you ice cream?", "Do like you ice cream?"]},
-          {en:"Where does your friend live?", tr:"Спец. вопрос", ru:"Где живёт твой друг?", distractors:["Where your friend lives?", "Where lives your friend?", "Does where your friend live?"]},
-          {en:"Did she watch TV yesterday?", tr:"Past Simple", ru:"Она смотрела телевизор вчера?", distractors:["She did watch TV yesterday?", "Watched she TV yesterday?", "Did watched she TV yesterday?"]},
-          {en:"What are you doing now?", tr:"Present Cont.", ru:"Что ты сейчас делаешь?", distractors:["What you are doing now?", "What doing are you now?", "Are what you doing now?"]},
-          {en:"Can your brother ride a bike?", tr:"Вопрос с Can", ru:"Твой брат умеет кататься на велосипеде?", distractors:["Your brother can ride a bike?", "Can ride your brother a bike?", "Ride can your brother a bike?"]},
-          {en:"When do they go to school?", tr:"Спец. вопрос", ru:"Когда они ходят в школу?", distractors:["When they go to school?", "When go they to school?", "Do when they go to school?"]},
-          {en:"Is there a computer in your room?", tr:"there is/are", ru:"В твоей комнате есть компьютер?", distractors:["There is a computer in your room?", "Is a computer there in your room?", "A computer is there in your room?"]},
-          {en:"Why did Tom come late?", tr:"Спец. вопрос", ru:"Почему Том пришёл поздно?", distractors:["Why Tom came late?", "Why came Tom late?", "Why did Tom came late?"]}
-        ]
-      }
-    }
-  },  5: {
-    title: "5 класс",
-    topics: {
-      family: {
-        title: "Семья и родственники",
-        icon: "👨‍👩‍👧‍👦",
-        desc: "Близкие и дальние родные",
-        boss: "🧌",
-        rule: `<b>Слова по теме «Семья»:</b><br>• <code>parents</code> — родители (мама и папа)<br>• <code>cousin</code> — двоюродный брат или двоюродная сестра (одно слово для обоих!)<br>• <code>aunt</code> — тётя, <code>uncle</code> — дядя.`,
-        words: [
-          {en:"parents", tr:"[ˈpeərənts]", ru:"родители"},
-          {en:"daughter", tr:"[ˈdɔːtə]", ru:"дочь"},
-          {en:"son", tr:"[sʌn]", ru:"сын"},
-          {en:"aunt", tr:"[ɑːnt]", ru:"тётя"},
-          {en:"uncle", tr:"[ˈʌŋkl]", ru:"дядя"},
-          {en:"cousin", tr:"[ˈkʌzn]", ru:"двоюродный брат/сестра"},
-          {en:"grandparents", tr:"[ˈɡrænpeərənts]", ru:"бабушка и дедушка"},
-          {en:"nephew", tr:"[ˈnefjuː]", ru:"племянник"},
-          {en:"niece", tr:"[niːs]", ru:"племянница"},
-          {en:"twins", tr:"[twɪnz]", ru:"близнецы"}
-        ]
-      },
-      house: {
-        title: "Дом и мебель",
-        icon: "🏠",
-        desc: "Комнаты и предметы быта",
-        boss: "👻",
-        rule: `<b>Комнаты и мебель в доме:</b><br>• <code>kitchen</code> — кухня, <code>bedroom</code> — спальня, <code>living room</code> — гостиная, <code>bathroom</code> — ванная.<br>• Для описания предметов в комнате используй <code>There is</code> (ед.ч.) и <code>There are</code> (мн.ч.).`,
-        words: [
-          {en:"kitchen", tr:"[ˈkɪtʃɪn]", ru:"кухня"},
-          {en:"bedroom", tr:"[ˈbedruːm]", ru:"спальня"},
-          {en:"bathroom", tr:"[ˈbɑːθruːm]", ru:"ванная"},
-          {en:"living room", tr:"[ˈlɪvɪŋ ruːm]", ru:"гостиная"},
-          {en:"wardrobe", tr:"[ˈwɔːdrəʊb]", ru:"шкаф для одежды"},
-          {en:"armchair", tr:"[ˈɑːmtʃeə]", ru:"кресло"},
-          {en:"carpet", tr:"[ˈkɑːpɪt]", ru:"ковёр"},
-          {en:"curtains", tr:"[ˈkɜːtnz]", ru:"шторы"},
-          {en:"mirror", tr:"[ˈmɪrə]", ru:"зеркало"},
-          {en:"fridge", tr:"[frɪdʒ]", ru:"холодильник"}
-        ]
-      },
-      clothes: {
-        title: "Одежда и обувь",
-        icon: "👕",
-        desc: "Что мы носим в разную погоду",
-        boss: "🧛",
-        rule: `<b>Одежда и обувь:</b><br>Некоторые слова употребляются только во множественном числе: <code>trousers</code> (брюки), <code>jeans</code> (джинсы), <code>trainers</code> (кроссовки), <code>gloves</code> (перчатки).`,
-        words: [
-          {en:"trousers", tr:"[ˈtraʊzəz]", ru:"брюки"},
-          {en:"sweater", tr:"[ˈswetə]", ru:"свитер"},
-          {en:"jacket", tr:"[ˈdʒækɪt]", ru:"куртка, пиджак"},
-          {en:"skirt", tr:"[skɜːt]", ru:"юбка"},
-          {en:"shirt", tr:"[ʃɜːt]", ru:"рубашка"},
-          {en:"T-shirt", tr:"[ˈtiː ʃɜːt]", ru:"футболка"},
-          {en:"trainers", tr:"[ˈtreɪnəz]", ru:"кроссовки"},
-          {en:"scarf", tr:"[skɑːf]", ru:"шарф"},
-          {en:"gloves", tr:"[ɡlʌvz]", ru:"перчатки"},
-          {en:"coat", tr:"[kəʊt]", ru:"пальто"}
-        ]
-      },
-      food: {
-        title: "Еда и напитки",
-        icon: "🍎",
-        desc: "Продукты, фрукты и овощи",
-        boss: "🐙",
-        rule: `<b>Исчисляемые и неисчисляемые продукты:</b><br>• Можно посчитать (<code>a/an, many</code>): <i>apple, carrot, egg, sandwich</i>.<br>• Нельзя посчитать (<code>some, much</code>): <i>cheese, bread, butter, sugar, juice</i>.`,
-        words: [
-          {en:"cheese", tr:"[tʃiːz]", ru:"сыр"},
-          {en:"bread", tr:"[bred]", ru:"хлеб"},
-          {en:"butter", tr:"[ˈbʌtə]", ru:"масло"},
-          {en:"sugar", tr:"[ˈʃʊɡə]", ru:"сахар"},
-          {en:"cabbage", tr:"[ˈkæbɪdʒ]", ru:"капуста"},
-          {en:"carrot", tr:"[ˈkærət]", ru:"морковь"},
-          {en:"cucumber", tr:"[ˈkjuːkʌmbə]", ru:"огурец"},
-          {en:"tomato", tr:"[təˈmɑːtəʊ]", ru:"помидор"},
-          {en:"porridge", tr:"[ˈpɒrɪdʒ]", ru:"каша"},
-          {en:"juice", tr:"[dʒuːs]", ru:"сок"}
-        ]
-      },
-      speech_verbs: {
-        title: "Глаголы речи: say, tell, speak",
-        icon: "🗣️",
-        desc: "Как правильно сказать, рассказать и поговорить",
-        boss: "🎭",
-        choiceOnly: true,
-        isSentence: true,
-        rule: `<b>Разница между say, tell и speak:</b><br>• <code>say (said)</code> — сказать что-то (передаём слова; если указываем кому, нужен предлог <b>to</b>: <i>say to me</i>).<br>• <code>tell (told)</code> — сказать, рассказать <b>кому-то</b> (сразу после <i>tell</i> идёт человек, <b>без to</b>: <i>tell me, tell a story</i>).<br>• <code>speak (spoke)</code> — говорить на языке (<i>speak English</i>) или разговаривать с кем-то (<i>speak to / with</i>).`,
-        words: [
-          {en:"She can ___ English and French very well.", tr:"speak (язык)", ru:"Она умеет говорить по-английски и по-французски.", answer:"speak", distractors:["say", "tell", "tells"]},
-          {en:"Please ___ me the truth!", tr:"tell + кому (без to)", ru:"Пожалуйста, скажи мне правду!", answer:"tell", distractors:["say", "speak", "spoke"]},
-          {en:"Tom ___ : «I am ready for the lesson.»", tr:"say (прямая речь)", ru:"Том сказал: «Я готов к уроку».", answer:"said", distractors:["told", "spoke", "tell"]},
-          {en:"Grandma likes to ___ us interesting stories.", tr:"tell a story", ru:"Бабушка любит рассказывать нам интересные истории.", answer:"tell", distractors:["say", "speak", "says"]},
-          {en:"What did your teacher ___ to you?", tr:"say + to + кому", ru:"Что тебе сказал твой учитель?", answer:"say", distractors:["tell", "speak", "told"]},
-          {en:"Can I ___ to Mr Brown, please?", tr:"speak to (поговорить с)", ru:"Могу я поговорить с мистером Брауном?", answer:"speak", distractors:["say", "tell", "told"]},
-          {en:"Don't ___ anybody about our secret!", tr:"tell + кого-то", ru:"Никому не рассказывай наш секрет!", answer:"tell", distractors:["say", "speak", "said"]},
-          {en:"He always ___ «Hello» when he sees us.", tr:"say «Hello»", ru:"Он всегда говорит «Привет», когда видит нас.", answer:"says", distractors:["tells", "speaks", "tell"]}
+      "172": {
+        title: "Страница 172 (sit — write)",
+        type: "verbs",
+        items: [
+          { v1: "sit", v2: "sat", v3: "sat", tr: "сидеть", syn: ["сидеть", "посидеть", "садиться"] },
+          { v1: "sleep", v2: "slept", v3: "slept", tr: "спать", syn: ["спать", "поспать", "засыпать"] },
+          { v1: "smell", v2: "smelt / smelled", v3: "smelt / smelled", tr: "нюхать, пахнуть", syn: ["нюхать", "пахнуть", "понюхать", "чувствовать запах"] },
+          { v1: "speak", v2: "spoke", v3: "spoken", tr: "говорить, разговаривать", syn: ["говорить", "разговаривать", "сказать", "беседовать"] },
+          { v1: "spend", v2: "spent", v3: "spent", tr: "тратить, проводить", syn: ["тратить", "проводить", "потратить", "провести", "расходовать"] },
+          { v1: "stand", v2: "stood", v3: "stood", tr: "стоять", syn: ["стоять", "постоять", "вставать", "терпеть"] },
+          { v1: "sweep", v2: "swept", v3: "swept", tr: "подметать", syn: ["подметать", "подмести", "мести"] },
+          { v1: "swim", v2: "swam", v3: "swum", tr: "плавать", syn: ["плавать", "плыть", "поплавать"] },
+          { v1: "take", v2: "took", v3: "taken", tr: "брать, взять", syn: ["брать", "взять", "забирать", "принимать"] },
+          { v1: "teach", v2: "taught", v3: "taught", tr: "учить", syn: ["учить", "обучать", "научить", "преподавать"] },
+          { v1: "tell", v2: "told", v3: "told", tr: "сказать, рассказать", syn: ["сказать", "рассказать", "говорить", "рассказывать", "сообщать"] },
+          { v1: "think", v2: "thought", v3: "thought", tr: "думать, полагать", syn: ["думать", "полагать", "подумать", "считать", "мыслить"] },
+          { v1: "understand", v2: "understood", v3: "understood", tr: "понимать, предполагать", syn: ["понимать", "предполагать", "понять"] },
+          { v1: "wear", v2: "wore", v3: "worn", tr: "носить (одежду), изнашивать", syn: ["носить", "носить одежду", "изнашивать", "одевать", "быть одетым"] },
+          { v1: "win", v2: "won", v3: "won", tr: "выигрывать, побеждать", syn: ["выигрывать", "побеждать", "выиграть", "победить"] },
+          { v1: "write", v2: "wrote", v3: "written", tr: "писать", syn: ["писать", "написать", "записывать"] }
         ]
       }
     }
   }
 };
-
-const ACHIEVEMENTS = [
-
-  { id: 'first_star', icon: '⭐', title: 'Первая звезда', desc: 'Заработай 1 звезду' },
-  { id: 'star_15', icon: '🌟', title: 'Любитель слов', desc: 'Накопи 15 звёзд' },
-  { id: 'star_40', icon: '💫', title: 'Мастер английского', desc: 'Накопи 40 звёзд' },
-  { id: 'streak_5', icon: '🔥', title: 'Горячая серия', desc: '5 правильных ответов подряд' },
-  { id: 'streak_12', icon: '⚡', title: 'Молния знаний', desc: '12 правильных ответов подряд' },
-  { id: 'boss_1', icon: '🗡️', title: 'Победитель босса', desc: 'Одолей 1 босса на карте' },
-  { id: 'boss_3', icon: '👑', title: 'Гроза монстров', desc: 'Победи 3 боссов' },
-  { id: 'game_50', icon: '🎈', title: 'Ловец слов', desc: 'Набери 50 очков в игре' }
-];
-
-// Обратите внимание: 'scramble' (Собери) теперь стоит ПЕРЕД 'type' (Впиши)!
-const STEPS_NORMAL = [
-  { mode: 'choice', icon: '👀', label: 'Выбор перевода' },
-  { mode: 'listen', icon: '👂', label: 'Аудирование' },
-  { mode: 'pairs', icon: '🧩', label: 'Найди пару' },
-  { mode: 'scramble', icon: '🔤', label: 'Собери слово' },
-  { mode: 'type', icon: '⌨️', label: 'Впиши слово' },
-  { mode: 'boss', icon: '👑', label: 'Босс темы', isBoss: true }
-];
-
-const STEPS_CHOICE_ONLY = [
-  { mode: 'choice', icon: '👀', label: 'Выбор ответа' },
-  { mode: 'pairs', icon: '🧩', label: 'Найди пару' },
-  { mode: 'boss', icon: '👑', label: 'Босс темы', isBoss: true }
-];
-
-function getStepsForTopic(topic) {
-  return topic && topic.choiceOnly ? STEPS_CHOICE_ONLY : STEPS_NORMAL;
+function moveVerbsToEnd() {
+  const t = APP_DATA["4"].topics;
+  const verbs = t["g4_verbs"];
+  delete t["g4_verbs"];
+  t["g4_verbs"] = verbs;
 }
-let audioCtx = null;
-function playTone(freq, type, duration, delay = 0) {
-  if (!state.soundEnabled) return;
-  try {
-    if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    const osc = audioCtx.createOscillator();
-    const gain = audioCtx.createGain();
-    osc.type = type;
-    osc.frequency.setValueAtTime(freq, audioCtx.currentTime + delay);
-    gain.gain.setValueAtTime(0.15, audioCtx.currentTime + delay);
-    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + delay + duration);
-    osc.connect(gain); gain.connect(audioCtx.destination);
-    osc.start(audioCtx.currentTime + delay);
-    osc.stop(audioCtx.currentTime + delay + duration);
-  } catch (e) {}
+moveVerbsToEnd();
+
+let currentGrade = null, currentTopic = null, currentMode = null;
+let trainView = "map";
+let activeCampaignNode = null;
+let levelErrors = 0;
+
+let progress = JSON.parse(localStorage.getItem("en_trainer_v2") || "{}");
+let campaignProgress = JSON.parse(localStorage.getItem("en_campaign_v1") || "{}");
+let sessionQueue = [], streakMap = {}, isFinalPhase = false, finalErrors = 0;
+let currentWord = null, selectedPairEn = null, selectedPairRu = null, matchedCount = 0;
+
+function saveProgress() { localStorage.setItem("en_trainer_v2", JSON.stringify(progress)); }
+function saveCampaign() { localStorage.setItem("en_campaign_v1", JSON.stringify(campaignProgress)); }
+
+function getNodeStars(grade, topicKey, stepIdx) {
+  const key = `${grade}_${topicKey}_${stepIdx}`;
+  return campaignProgress[key] || 0;
 }
-function sfxCorrect() { playTone(523.25, 'sine', 0.14, 0); playTone(659.25, 'sine', 0.22, 0.1); }
-function sfxWrong() { playTone(190, 'sawtooth', 0.25, 0); playTone(150, 'sawtooth', 0.28, 0.12); }
-function sfxBossHit() { playTone(300, 'square', 0.1, 0); playTone(450, 'square', 0.18, 0.08); }
-function sfxWin() { [523.25, 659.25, 783.99, 1046.5].forEach((f, i) => playTone(f, 'triangle', 0.25, i * 0.1)); }
+
+function setNodeStars(grade, topicKey, stepIdx, stars) {
+  const key = `${grade}_${topicKey}_${stepIdx}`;
+  if (stars > (campaignProgress[key] || 0)) {
+    campaignProgress[key] = stars;
+    saveCampaign();
+  }
+}
+
+function calcStarsByErrors(errCount) {
+  if (errCount === 0) return 3;
+  if (errCount <= 2) return 2;
+  return 1;
+}
+
+function getModesForTopic(topicObj) {
+  const isWords = topicObj.type === "words";
+  return [
+    { id: "choice", step: "Шаг 1", name: "Выбери перевод", desc: "4 варианта ответа" },
+    { id: "pairs", step: "Шаг 2", name: "Найди пару", desc: "Соедини слова" },
+    { id: "type_ru", step: "Шаг 3", name: "Ввод перевода", desc: "Напиши по-русски" },
+    { id: "type_en", step: "Шаг 4", name: isWords ? "Ввод на английском" : "Три формы", desc: isWords ? "Напиши слово" : "Напиши V1, V2, V3" },
+    { id: "scramble", step: "Шаг 5", name: "Собери слово", desc: isWords ? "Собери из букв" : "Собери V2 и V3" }
+  ];
+}
+function getModeData(grade, topic, mode) {
+  const key = grade + "_" + topic;
+  if (!progress[key]) progress[key] = {};
+  if (!progress[key][mode]) progress[key][mode] = { mastered: [], completed: false };
+  return progress[key][mode];
+}
 
 function speak(text) {
-  if (!state.soundEnabled || !('speechSynthesis' in window)) return;
   window.speechSynthesis.cancel();
-  const cleanText = text.replace(/___/g, 'blank').replace(/^to\s+/i, '');
+  const cleanText = text.replace(/\//g, " or ").replace(/—/g, ",");
   const u = new SpeechSynthesisUtterance(cleanText);
-  u.lang = 'en-US'; u.rate = 0.9;
+  u.lang = "en-US"; u.rate = 0.85;
   window.speechSynthesis.speak(u);
 }
 
-let state = JSON.parse(localStorage.getItem('engTrainerV4')) || {
-  grade: null, stars: 0, streak: 0, maxStreak: 0, bossesDefeated: 0,
-  gameHighScore: 0, soundEnabled: true, unlockedBadges: [], campaign: {}
-};
-function saveState() { localStorage.setItem('engTrainerV4', JSON.stringify(state)); }
-
-function getTopicProgress(topicKey) {
-  const key = `${state.grade}_${topicKey}`;
-  const stepsLen = getStepsForTopic(DATA[state.grade].topics[topicKey]).length;
-  if (!state.campaign[key] || state.campaign[key].length !== stepsLen) {
-    state.campaign[key] = new Array(stepsLen).fill(0);
-  }
-  return state.campaign[key];
+function selectGrade(g) {
+  currentGrade = g;
+  const topics = APP_DATA[g].topics;
+  currentTopic = Object.keys(topics)[0];
+  document.getElementById("grade-select-screen").classList.add("hidden");
+  document.getElementById("main-app").classList.remove("hidden");
+  const badge = document.getElementById("header-grade-btn");
+  badge.classList.remove("hidden");
+  badge.innerText = (g === "4" ? "🎒 4 класс" : "🎓 5 класс") + " (сменить)";
+  setTrainView("map");
+  renderGamePages();
 }
 
-function initApp() {
-  updateSoundIcon();
-  if (!state.grade || !DATA[state.grade]) {
-    document.getElementById('gradeScreen').classList.remove('hidden');
-    document.getElementById('mainApp').classList.add('hidden');
-    document.getElementById('gradeBadge').classList.add('hidden');
+function showGradeSelect() {
+  clearInterval(gameTimer);
+  document.getElementById("main-app").classList.add("hidden");
+  document.getElementById("header-grade-btn").classList.add("hidden");
+  document.getElementById("grade-select-screen").classList.remove("hidden");
+}
+
+function setTrainView(view) {
+  trainView = view;
+  activeCampaignNode = null;
+  document.getElementById("vbtn-map").classList.toggle("active", view === "map");
+  document.getElementById("vbtn-free").classList.toggle("active", view === "free");
+  document.getElementById("exercise-box").classList.add("hidden");
+  document.getElementById("final-banner").classList.add("hidden");
+  document.getElementById("view-switch-bar").classList.remove("hidden");
+
+  if (view === "map") {
+    document.getElementById("free-mode-box").classList.add("hidden");
+    document.getElementById("campaign-container").classList.remove("hidden");
+    renderCampaignMap();
   } else {
-    document.getElementById('gradeScreen').classList.add('hidden');
-    document.getElementById('mainApp').classList.remove('hidden');
-    document.getElementById('gradeBadge').classList.remove('hidden');
-    document.getElementById('gradeBadgeText').textContent = DATA[state.grade].title;
-    updateStats(); renderCampaignMap(); renderTopics(); renderDictionary(); renderBadges();
+    document.getElementById("campaign-container").classList.add("hidden");
+    document.getElementById("free-mode-box").classList.remove("hidden");
+    renderSetup();
   }
 }
-function selectGrade(g) { state.grade = g; saveState(); initApp(); }
-function resetGrade() { stopGame(); state.grade = null; saveState(); initApp(); }
-function toggleSound() { state.soundEnabled = !state.soundEnabled; saveState(); updateSoundIcon(); }
-function updateSoundIcon() { document.getElementById('soundToggleBtn').textContent = state.soundEnabled ? '🔊' : '🔇'; }
-function switchTab(tab) {
-  stopGame();
-  ['learn', 'game', 'dict', 'awards'].forEach(t => {
-    document.getElementById('view' + t.charAt(0).toUpperCase() + t.slice(1)).classList.add('hidden');
-    document.getElementById('tab' + t.charAt(0).toUpperCase() + t.slice(1)).classList.remove('active');
-  });
-  document.getElementById('view' + tab.charAt(0).toUpperCase() + tab.slice(1)).classList.remove('hidden');
-  document.getElementById('tab' + tab.charAt(0).toUpperCase() + tab.slice(1)).classList.add('active');
-  if (tab === 'learn') { renderCampaignMap(); renderTopics(); }
-  if (tab === 'awards') renderBadges();
+
+function switchTab(btnEl, tab) {
+  clearInterval(gameTimer);
+  ["train", "game", "dict", "stats"].forEach(t => document.getElementById("tab-" + t).classList.add("hidden"));
+  document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+  document.getElementById("tab-" + tab).classList.remove("hidden");
+  btnEl.classList.add("active");
+  document.getElementById("game-back-map-btn").classList.add("hidden");
+  document.getElementById("game-page-selector").classList.remove("hidden");
+  document.getElementById("game-subtitle").innerText = "Выбери тему и лови падающие фрукты со словами в корзинку!";
+
+  if (tab === "dict") renderDict();
+  if (tab === "stats") renderStats();
+  if (tab === "train") setTrainView(trainView);
+  if (tab === "game") { renderGamePages(); updateGameHUD(); }
 }
 
-function setLearnView(view) {
-  document.getElementById('btnViewMap').classList.toggle('active', view === 'map');
-  document.getElementById('btnViewList').classList.toggle('active', view === 'list');
-  document.getElementById('campaignMapArea').classList.toggle('hidden', view !== 'map');
-  document.getElementById('topicListArea').classList.toggle('hidden', view !== 'list');
-  document.getElementById('viewHintText').textContent = view === 'map'
-    ? '👇 Нажимай на кружки на карте по порядку!'
-    : '👇 Выбирай любую тему из списка и тренируйся!';
-}
-
-function updateStats() {
-  document.getElementById('starCount').textContent = state.stars;
-  document.getElementById('streakCount').textContent = state.streak;
-  document.getElementById('bossCount').textContent = state.bossesDefeated;
-  document.getElementById('badgeCount').textContent = state.unlockedBadges.length;
-}
-
-function openRuleModal(topicKey) {
-  const topic = DATA[state.grade].topics[topicKey];
-  if (!topic) return;
-  document.getElementById('ruleModalTitle').innerHTML = `${topic.icon} ${topic.title}`;
-  const hasRuTr = topic.words.some(w => w.ruTr);
-  let html = '';
-  if (topic.rule) {
-    html += `<div class="rule-box">${topic.rule}</div>`;
-  }
-  html += `<table class="dict-table"><thead><tr><th>🔊</th><th>Английский</th><th>Транскрипция</th>${hasRuTr ? '<th>Произношение</th>' : ''}<th>Перевод</th></tr></thead><tbody>`;
-  topic.words.forEach(w => {
-    html += `<tr>
-      <td><button class="speak-mini" onclick="speak('${w.en.replace(/'/g, "\\'")}')">🔊</button></td>
-      <td><b>${w.en}</b></td>
-      <td style="color:#666;">${w.tr}</td>
-      ${hasRuTr ? `<td style="color:#1565C0;">${w.ruTr || ''}</td>` : ''}
-      <td>${w.ru}</td>
-    </tr>`;
-  });
-  html += `</tbody></table>`;
-  document.getElementById('ruleModalBody').innerHTML = html;
-  document.getElementById('ruleModal').style.display = 'flex';
-}
-
-function closeRuleModal() {
-  document.getElementById('ruleModal').style.display = 'none';
-}
+const CAMPAIGN_STEPS = [
+  { idx: 0, icon: "🎯", title: "1. Тренировка" },
+  { idx: 1, icon: "🔤", title: "2. Собери слово" },
+  { idx: 2, icon: "🍎", title: "3. Игра «Поймай перевод»" },
+  { idx: 3, icon: "⚔️", title: "4. Битва с боссом" }
+];
 
 function renderCampaignMap() {
-  const area = document.getElementById('campaignMapArea');
-  area.innerHTML = '';
-  const topics = DATA[state.grade].topics;
+  const container = document.getElementById("campaign-container");
+  const topics = APP_DATA[currentGrade].topics;
   const topicKeys = Object.keys(topics);
-  let prevTopicCompleted = true;
+  let html = "";
+  let prevCompleted = true;
 
-  topicKeys.forEach((tKey, tIdx) => {
-    const topic = topics[tKey];
-    const steps = getStepsForTopic(topic);
-    const prog = getTopicProgress(tKey);
-    const unitUnlocked = (tIdx === 0) || prevTopicCompleted;
-
-    let unitHtml = `<div class="campaign-unit">
-      <div class="unit-banner ${unitUnlocked ? '' : 'locked-unit'}">
+  topicKeys.forEach((tKey, tIndex) => {
+    const tObj = topics[tKey];
+    const unitUnlocked = prevCompleted;
+    html += `<div class="campaign-unit">
+      <div class="unit-banner ${unitUnlocked ? "" : "locked-unit"}">
         <div>
-          <h3>Этап ${tIdx + 1}: ${topic.icon} ${topic.title}</h3>
-          <small>${unitUnlocked ? topic.desc : '🔒 Пройди предыдущий этап и победи босса!'}</small>
+          <h3>Этап ${tIndex + 1}. ${tObj.title}</h3>
+          <small>${unitUnlocked ? "Пройди 4 испытания по тропинке" : "🔒 Пройди предыдущий этап, чтобы открыть"}</small>
         </div>
-        <div style="display:flex; align-items:center; gap:8px;">
-          <button class="btn-rule-mini" onclick="openRuleModal('${tKey}')">📖 Правило</button>
-          <div style="font-size:1.8rem;">${unitUnlocked ? topic.boss : '🔒'}</div>
-        </div>
+        <div style="font-size:1.7rem;">${unitUnlocked ? "🗺️" : "🔒"}</div>
       </div>
-      <div class="map-path">`;
-    steps.forEach((step, sIdx) => {
-      const stars = prog[sIdx];
-      const stepUnlocked = unitUnlocked && (sIdx === 0 || prog[sIdx - 1] > 0);
-      const statusClass = stars > 0 ? 'done' : (stepUnlocked ? 'current' : 'locked');
-      const bossClass = step.isBoss ? 'boss-node' : '';
-      const nodeIcon = step.isBoss ? topic.boss : (stepUnlocked ? step.icon : '🔒');
-      const starsHtml = stars > 0 ? '⭐'.repeat(stars) + '☆'.repeat(3 - stars) : (stepUnlocked ? '▶️ Старт' : 'Закрыто');
+      <div class="path-column">`;
 
-      unitHtml += `
-        <div class="map-node-wrap">
-          <button class="map-node ${statusClass} ${bossClass}"
-            ${stepUnlocked ? `onclick="startCampaignNode('${tKey}', ${sIdx})"` : 'disabled'}>
-            ${nodeIcon}
-          </button>
-          <div class="node-stars">${starsHtml}</div>
-          <div class="node-label">${step.label}</div>
-        </div>`;
+    CAMPAIGN_STEPS.forEach((st, sIdx) => {
+      const stars = getNodeStars(currentGrade, tKey, sIdx);
+      const isDone = stars > 0;
+      const isUnlocked = prevCompleted;
+      const stateClass = isDone ? "completed" : (isUnlocked ? "unlocked" : "locked");
+      const iconShow = isUnlocked ? st.icon : "🔒";
+      const starsHtml = isDone ? ("⭐".repeat(stars) + "☆".repeat(3 - stars)) : (isUnlocked ? "Нажми!" : "");
+
+      html += `<div class="path-node-wrap offset-${sIdx}">
+        <div class="node-circle ${stateClass}" onclick="launchCampaignLevel('${tKey}', ${sIdx}, ${isUnlocked})">${iconShow}</div>
+        <div class="node-stars">${starsHtml}</div>
+        <div class="node-label">${st.title}</div>
+      </div>`;
+
+      prevCompleted = isDone;
     });
 
-    unitHtml += `</div></div>`;
-    area.innerHTML += unitHtml;
-    prevTopicCompleted = prog[steps.length - 1] > 0;
-  });
-}
-
-function renderTopics() {
-  const grid = document.getElementById('topicGrid');
-  const gameSelect = document.getElementById('gameTopicSelect');
-  grid.innerHTML = ''; gameSelect.innerHTML = '';
-  const topics = DATA[state.grade].topics;
-
-  Object.keys(topics).forEach(key => {
-    const t = topics[key];
-    grid.innerHTML += `
-      <div class="topic-card">
-        <div>
-          <div style="font-size:2.4rem;">${t.icon}</div>
-          <h3>${t.title}</h3>
-          <p>${t.desc}</p>
-        </div>
-        <div class="topic-actions">
-          <button class="btn-rule-topic" onclick="openRuleModal('${key}')" title="Правило и словарь">📖</button>
-          <button class="btn-play" onclick="openTopic('${key}', 'choice', null)">Тренировать</button>
-        </div>
-      </div>`;
-    if (!t.isSentence) {
-      gameSelect.innerHTML += `<option value="${key}">${t.icon} ${t.title}</option>`;
-    }
-  });
-}
-
-let currentTopicKey = '', currentMode = 'choice', campaignStepIdx = null;
-let wordQueue = [], currentWord = null, qIndex = 0, sessionMistakes = 0;
-let bossHp = 8, maxBossHp = 8, playerHp = 3, maxPlayerHp = 3;
-let scrambledSelected = [], selectedPair = null, matchedCount = 0;
-
-function startCampaignNode(topicKey, stepIdx) {
-  const steps = getStepsForTopic(DATA[state.grade].topics[topicKey]);
-  openTopic(topicKey, steps[stepIdx].mode, stepIdx);
-}
-
-function openTopic(key, mode = 'choice', stepIdx = null) {
-  currentTopicKey = key;
-  campaignStepIdx = stepIdx;
-  const topic = DATA[state.grade].topics[key];
-  document.getElementById('topicSelectArea').classList.add('hidden');
-  document.getElementById('exerciseArea').classList.remove('hidden');
-  document.getElementById('currentTopicTitle').textContent = `${topic.icon} ${topic.title}`;
-
-  const isChoiceOnly = !!topic.choiceOnly;
-  ['choice', 'listen', 'pairs', 'scramble', 'type', 'boss'].forEach(m => {
-    const pill = document.getElementById('mode_' + m);
-    if (!pill) return;
-    if (isChoiceOnly && (m === 'listen' || m === 'scramble' || m === 'type')) {
-      pill.classList.add('hidden');
-    } else {
-      pill.classList.remove('hidden');
-    }
+    html += `</div></div>`;
   });
 
-  document.getElementById('modeBar').style.display = (stepIdx !== null) ? 'none' : 'flex';
-  setMode(mode);
-}
-function backToTopics() {
-  document.getElementById('topicSelectArea').classList.remove('hidden');
-  document.getElementById('exerciseArea').classList.add('hidden');
-  renderCampaignMap(); renderTopics();
+  container.innerHTML = html;
 }
 
-function setMode(mode) {
-  currentMode = mode;
-  document.querySelectorAll('.mode-pill').forEach(p => p.classList.remove('active'));
-  const pill = document.getElementById('mode_' + mode);
-  if (pill) pill.classList.add('active');
-  startModeSession();
-}
+function launchCampaignLevel(tKey, stepIdx, isUnlocked) {
+  if (!isUnlocked) {
+    playSound("wrong");
+    alert("Этот уровень пока закрыт 🔒! Сначала пройди предыдущий кружочек на тропинке.");
+    return;
+  }
+  currentTopic = tKey;
+  activeCampaignNode = { grade: currentGrade, topic: tKey, step: stepIdx };
+  levelErrors = 0;
 
-function startModeSession() {
-  const topic = DATA[state.grade].topics[currentTopicKey];
-  const words = [...topic.words];
-  sessionMistakes = 0;
-  document.getElementById('feedbackMsg').textContent = '';
-
-  if (currentMode === 'boss') {
-    document.getElementById('bossHud').classList.remove('hidden');
-    document.getElementById('bossAvatar').textContent = topic.boss;
-    maxBossHp = 8; bossHp = 8; maxPlayerHp = 3; playerHp = 3;
-    updateBossHud();
-    wordQueue = words.sort(() => Math.random() - 0.5);
-    while (wordQueue.length < 15) wordQueue = wordQueue.concat([...words].sort(() => Math.random() - 0.5));
-    qIndex = 0; nextQuestion();
+  if (stepIdx === 2) {
+    ["train", "game", "dict", "stats"].forEach(t => document.getElementById("tab-" + t).classList.add("hidden"));
+    document.getElementById("tab-game").classList.remove("hidden");
+    document.getElementById("game-back-map-btn").classList.remove("hidden");
+    document.getElementById("game-page-selector").classList.add("hidden");
+    document.getElementById("game-subtitle").innerText = `Уровень кампании: «${APP_DATA[currentGrade].topics[tKey].title}». Набери 30 очков для победы!`;
+    startGame();
     return;
   }
 
-  document.getElementById('bossHud').classList.add('hidden');
-  if (currentMode === 'pairs') {
-    document.getElementById('stepProgress').textContent = '5 пар';
-    renderPairsGame(words.sort(() => Math.random() - 0.5).slice(0, 5));
+  document.getElementById("campaign-container").classList.add("hidden");
+  document.getElementById("view-switch-bar").classList.add("hidden");
+
+  if (stepIdx === 0) startCampaignBatch("choice", "1. Тренировка");
+  else if (stepIdx === 1) startCampaignBatch("scramble", "2. Собери слово");
+  else if (stepIdx === 3) startFinalPhase();
+}
+let campTotalQ = 0;
+
+function startCampaignBatch(modeId, titleStr) {
+  currentMode = modeId;
+  isFinalPhase = false;
+  levelErrors = 0;
+  const items = [...APP_DATA[currentGrade].topics[currentTopic].items];
+  shuffle(items);
+  sessionQueue = items.slice(0, Math.min(8, items.length));
+  campTotalQ = sessionQueue.length;
+  document.getElementById("exercise-box").classList.remove("hidden");
+  document.getElementById("ex-mode-title").innerText = titleStr;
+  nextQuestion();
+}
+
+function renderSetup() {
+  const topics = APP_DATA[currentGrade].topics;
+  const pageSel = document.getElementById("page-selector");
+  pageSel.innerHTML = "";
+  Object.keys(topics).forEach(tKey => {
+    const tObj = topics[tKey];
+    const modes = getModesForTopic(tObj);
+    const allDone = modes.every(m => getModeData(currentGrade, tKey, m.id).completed);
+    const btn = document.createElement("button");
+    btn.className = "page-btn" + (tKey === currentTopic ? " active" : "");
+    btn.innerHTML = `<div>${tObj.title}</div>` + (allDone ? `<span class="badge-done">✅ Тема освоена!</span>` : "");
+    btn.onclick = () => { currentTopic = tKey; closeExercise(); renderSetup(); };
+    pageSel.appendChild(btn);
+  });
+
+  const currentTopicObj = topics[currentTopic];
+  const modesGrid = document.getElementById("modes-grid");
+  modesGrid.innerHTML = "";
+  const totalWords = currentTopicObj.items.length;
+
+  getModesForTopic(currentTopicObj).forEach(m => {
+    const mData = getModeData(currentGrade, currentTopic, m.id);
+    const card = document.createElement("div");
+    card.className = "mode-card";
+    card.innerHTML = `<span class="mode-step">${m.step}</span><h4>${m.name}</h4><p style="font-size:0.9rem; color:#666;">${m.desc}</p><div style="font-weight:bold; color:var(--primary);">Освоено: ${mData.mastered.length} / ${totalWords}</div>${mData.completed ? `<div class="mode-done-banner">🎉 Раздел освоен!</div>` : ""}`;
+    card.onclick = () => startMode(m.id);
+    modesGrid.appendChild(card);
+  });
+}
+
+function startMode(modeId) {
+  activeCampaignNode = null;
+  currentMode = modeId;
+  levelErrors = 0;
+  const topicObj = APP_DATA[currentGrade].topics[currentTopic];
+  const items = topicObj.items;
+  const mData = getModeData(currentGrade, currentTopic, modeId);
+  if (mData.completed) { mData.mastered = []; mData.completed = false; saveProgress(); }
+
+  streakMap = {};
+  items.forEach(v => { streakMap[v.v1] = mData.mastered.includes(v.v1) ? 2 : 0; });
+  isFinalPhase = false; finalErrors = 0;
+  sessionQueue = items.filter(v => !mData.mastered.includes(v.v1));
+  shuffle(sessionQueue);
+
+  document.getElementById("free-mode-box").classList.add("hidden");
+  document.getElementById("view-switch-bar").classList.add("hidden");
+
+  if (sessionQueue.length === 0) startFinalPhase();
+  else {
+    document.getElementById("exercise-box").classList.remove("hidden");
+    document.getElementById("ex-mode-title").innerText = getModesForTopic(topicObj).find(m => m.id === modeId).name;
+    nextQuestion();
+  }
+}
+
+const BOSSES = [
+  { icon: "👾", name: "Космический Грамма-Монстр" },
+  { icon: "🦖", name: "Тираннозавр Слов" },
+  { icon: "🐉", name: "Огненный Дракон Времён" },
+  { icon: "👹", name: "Хранитель Переводов" },
+  { icon: "🤖", name: "Робот-Экзаменатор" }
+];
+let currentBoss = BOSSES[0], bossMaxHp = 10, bossHp = 10, playerHearts = 3;
+
+function renderBossArena() {
+  const banner = document.getElementById("final-banner");
+  if (!banner) return;
+  const hpPct = Math.max(0, Math.round((bossHp / bossMaxHp) * 100));
+  const heartsStr = "❤️".repeat(Math.max(0, playerHearts)) + "🖤".repeat(Math.max(0, 3 - playerHearts));
+  banner.innerHTML = `<div class="boss-top"><span>⚔️ БОСС: ${currentBoss.name}</span><span style="font-size:1.2rem;">${heartsStr}</span></div>
+    <div class="boss-stage"><div class="boss-avatar" id="boss-avatar">${currentBoss.icon}</div>
+      <div class="boss-hp-wrap"><div style="display:flex; justify-content:space-between; font-size:0.85rem; margin-bottom:4px;"><span>Здоровье босса</span><span>${bossHp} / ${bossMaxHp}</span></div>
+        <div class="boss-hp-bar"><div class="boss-hp-fill" style="width:${hpPct}%;"></div></div></div></div>`;
+}
+
+function triggerBossAnim(cls) {
+  const av = document.getElementById("boss-avatar");
+  if (!av) return;
+  av.classList.remove("boss-hit", "boss-attack");
+  void av.offsetWidth;
+  av.classList.add(cls);
+}
+
+function launchBossConfetti() {
+  const colors = ["#FFD700", "#FF6B6B", "#4ECDC4", "#2ECC71", "#A855F7", "#FF8C00"];
+  for (let i = 0; i < 65; i++) {
+    const p = document.createElement("div");
+    p.className = "confetti-piece";
+    p.style.left = Math.random() * 100 + "vw";
+    p.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+    p.style.animationDuration = (1.8 + Math.random() * 1.6) + "s";
+    p.style.animationDelay = (Math.random() * 0.4) + "s";
+    document.body.appendChild(p);
+    setTimeout(() => p.remove(), 3800);
+  }
+}
+
+function startFinalPhase() {
+  isFinalPhase = true; finalErrors = 0; playerHearts = 3;
+  const allItems = [...APP_DATA[currentGrade].topics[currentTopic].items];
+  shuffle(allItems);
+  sessionQueue = activeCampaignNode ? allItems.slice(0, Math.min(10, allItems.length)) : allItems;
+  bossMaxHp = sessionQueue.length; bossHp = bossMaxHp;
+  currentBoss = BOSSES[Math.floor(Math.random() * BOSSES.length)];
+  if (!currentMode) currentMode = "choice";
+  document.getElementById("exercise-box").classList.remove("hidden");
+  document.getElementById("ex-mode-title").innerText = "4. Битва с боссом";
+  document.getElementById("final-banner").classList.remove("hidden");
+  renderBossArena();
+  nextQuestion();
+}
+function closeExercise() {
+  document.getElementById("exercise-box").classList.add("hidden");
+  document.getElementById("final-banner").classList.add("hidden");
+  setTrainView(trainView);
+}
+
+function updateExerciseProgress() {
+  const total = APP_DATA[currentGrade].topics[currentTopic].items.length;
+  const mData = getModeData(currentGrade, currentTopic, currentMode);
+  let pct = 0, txt = "";
+  if (isFinalPhase) {
+    pct = Math.round(((bossMaxHp - bossHp) / bossMaxHp) * 100);
+    txt = `Урон боссу: ${bossMaxHp - bossHp} из ${bossMaxHp}`;
+  } else if (activeCampaignNode) {
+    const done = campTotalQ - sessionQueue.length;
+    pct = Math.round((done / campTotalQ) * 100);
+    txt = `Прогресс уровня: ${done} из ${campTotalQ}`;
   } else {
-    wordQueue = words.sort(() => Math.random() - 0.5).slice(0, Math.min(8, words.length));
-    qIndex = 0; nextQuestion();
+    pct = Math.round((mData.mastered.length / total) * 100);
+    txt = `Освоено слов: ${mData.mastered.length} из ${total}`;
   }
+  document.getElementById("ex-progress-fill").style.width = pct + "%";
+  document.getElementById("ex-progress-text").innerText = txt;
 }
 
-function updateBossHud() {
-  document.getElementById('bossHpText').textContent = `${Math.max(0, bossHp)}/${maxBossHp} 💀`;
-  document.getElementById('bossHpBar').style.width = `${(Math.max(0, bossHp) / maxBossHp) * 100}%`;
-  document.getElementById('playerHpText').textContent = `${Math.max(0, playerHp)}/${maxPlayerHp} ❤️`;
-  document.getElementById('playerHpBar').style.width = `${(Math.max(0, playerHp) / maxPlayerHp) * 100}%`;
-}
-
-function nextQuestion() {
-  document.getElementById('feedbackMsg').textContent = '';
-  const topic = DATA[state.grade].topics[currentTopicKey];
-  if (currentMode !== 'boss' && qIndex >= wordQueue.length) {
-    finishSession(true); return;
-  }
-  currentWord = wordQueue[qIndex % wordQueue.length];
-  document.getElementById('stepProgress').textContent = currentMode === 'boss'
-    ? `Раунд ${qIndex + 1}` : `${qIndex + 1} / ${wordQueue.length}`;
-
-  let activeSubMode = currentMode;
-  if (currentMode === 'boss') {
-    const bossPool = topic.choiceOnly ? ['choice'] : ['choice', 'listen', 'scramble', 'type'];
-    activeSubMode = bossPool[qIndex % bossPool.length];
-  }
-
-  const content = document.getElementById('exerciseContent');
-  const allWords = topic.words;
-  const isSentence = !!topic.isSentence;
-  const promptClass = isSentence ? 'word-prompt sentence-prompt' : 'word-prompt';
-  const gridClass = (isSentence && !currentWord.answer) ? 'options-grid single-col' : 'options-grid';
-
-  if (activeSubMode === 'choice') {
-    let promptTitle = currentWord.en;
-    let hintStr = `${currentWord.tr} ${currentWord.ruTr || ''} <button class="speak-mini" onclick="speak('${currentWord.en.replace(/'/g, "\\'")}')">🔊</button>`;
-    let correctVal = currentWord.ru;
-    let options = [];
-
-    if (currentWord.distractors && currentWord.answer) {
-      promptTitle = currentWord.en;
-      hintStr = `Подсказка: ${currentWord.ru} <button class="speak-mini" onclick="speak('${currentWord.en.replace('___', currentWord.answer).replace(/'/g, "\\'")}')">🔊</button>`;
-      correctVal = currentWord.answer;
-      options = [currentWord.answer, ...currentWord.distractors].sort(() => Math.random() - 0.5);
-    } else if (currentWord.distractors && !currentWord.answer) {
-      promptTitle = `Выбери правильное предложение:<br><span style="color:#2C3E50; font-size:1.1rem;">«${currentWord.ru}»</span>`;
-      hintStr = `Обрати внимание на порядок слов!`;
-      correctVal = currentWord.en;
-      options = [currentWord.en, ...currentWord.distractors].sort(() => Math.random() - 0.5);
-    } else {
-      speak(currentWord.en);
-      let distractors = allWords.filter(w => w.ru !== currentWord.ru).sort(() => Math.random() - 0.5).slice(0, 3).map(w => w.ru);
-      options = [currentWord.ru, ...distractors].sort(() => Math.random() - 0.5);
-    }
-
-    content.innerHTML = `
-      <div class="question-box">
-        <div class="hint-text">${isSentence ? 'Задание на грамматику' : 'Выбери правильный перевод'}</div>
-        <div class="${promptClass}">${promptTitle}</div>
-        <div class="hint-text">${hintStr}</div>
-      </div>
-      <div class="${gridClass}">${options.map(opt => `<button class="opt-btn" onclick="checkChoice(this, '${opt.replace(/'/g, "\\'")}', '${correctVal.replace(/'/g, "\\'")}')">${opt}</button>`).join('')}</div>`;
-  } else if (activeSubMode === 'listen') {
-    speak(currentWord.en);
-    let distractors = allWords.filter(w => w.ru !== currentWord.ru).sort(() => Math.random() - 0.5).slice(0, 3).map(w => w.ru);
-    let options = [currentWord.ru, ...distractors].sort(() => Math.random() - 0.5);
-    content.innerHTML = `
-      <div class="question-box">
-        <div class="hint-text">Нажми на кнопку, послушай слово и выбери перевод:</div>
-        <button onclick="speak('${currentWord.en.replace(/'/g, "\\'")}')" style="font-size:2.4rem; background:var(--secondary); color:white; border:none; border-radius:50%; width:72px; height:72px; cursor:pointer; margin:10px 0;">🔊</button>
-      </div>
-      <div class="options-grid">${options.map(opt => `<button class="opt-btn" onclick="checkChoice(this, '${opt.replace(/'/g, "\\'")}', '${currentWord.ru.replace(/'/g, "\\'")}')">${opt}</button>`).join('')}</div>`;
-  } else if (activeSubMode === 'scramble') {
-    scrambledSelected = [];
-    const cleanWord = currentWord.en.replace(/^to\s+/i, '');
-    const letters = cleanWord.split('').map((ch, idx) => ({ ch: ch === ' ' ? '␣' : ch, idx })).sort(() => Math.random() - 0.5);
-    content.innerHTML = `
-      <div class="question-box">
-        <div class="hint-text">Собери английское слово по буквам:</div>
-        <div class="word-prompt">${currentWord.ru}</div>
-        <div class="hint-text">${currentWord.tr} ${currentWord.ruTr || ''} <button class="speak-mini" onclick="speak('${currentWord.en.replace(/'/g, "\\'")}')">🔊</button></div>
-      </div>
-      <div class="scramble-slots" id="scrambleSlots"></div>
-      <div class="letter-pool">${letters.map(l => `<div class="letter-tile" id="tile_${l.idx}" onclick="pickLetter(${l.idx}, '${l.ch}', '${cleanWord.replace(/'/g, "\\'")}')">${l.ch}</div>`).join('')}</div>`;
-  } else if (activeSubMode === 'type') {
-    content.innerHTML = `
-      <div class="question-box">
-        <div class="hint-text">Впиши английское слово по памяти:</div>
-        <div class="word-prompt">${currentWord.ru}</div>
-        <div class="hint-text">${currentWord.tr} ${currentWord.ruTr || ''} <button class="speak-mini" onclick="speak('${currentWord.en.replace(/'/g, "\\'")}')">🔊</button></div>
-      </div>
-      <div class="input-area">
-        <input type="text" id="typeInput" class="text-input" placeholder="Введи слово..." autocomplete="off" onkeydown="if(event.key==='Enter') checkTyped()">
-        <br><button class="btn-check" onclick="checkTyped()">Проверить</button>
-      </div>`;
-    setTimeout(() => document.getElementById('typeInput')?.focus(), 100);
-  }
-}
-function handleAnswer(isCorrect, correctAnswerText) {
-  const fb = document.getElementById('feedbackMsg');
-  if (isCorrect) {
-    sfxCorrect(); state.stars++; state.streak++;
-    if (state.streak > state.maxStreak) state.maxStreak = state.streak;
-    speak(currentWord.en);
-    if (currentMode === 'boss') {
-      bossHp--; sfxBossHit(); updateBossHud();
-      fb.innerHTML = `<span style="color:var(--success-dark);">⚔️ Удар по боссу! (-1 HP)</span>`;
-      if (bossHp <= 0) { setTimeout(() => finishSession(true), 800); return; }
-    } else {
-      fb.innerHTML = `<span style="color:var(--success-dark);">✅ Молодец! +1 ⭐</span>`;
-    }
-    saveState(); updateStats(); checkAchievements();
-    qIndex++; setTimeout(nextQuestion, 1000);
-  } else {
-    sfxWrong(); state.streak = 0; sessionMistakes++; saveState(); updateStats();
-    if (currentMode === 'boss') {
-      playerHp--; updateBossHud();
-      fb.innerHTML = `<span style="color:var(--accent);">💥 Босс атаковал! Правильно: <b>${correctAnswerText}</b></span>`;
-      if (playerHp <= 0) { setTimeout(() => finishSession(false), 1100); return; }
-    } else {
-      fb.innerHTML = `<span style="color:var(--accent);">❌ Правильно: <b>${correctAnswerText}</b></span>`;
-    }
-    qIndex++; setTimeout(nextQuestion, 1400);
-  }
-}
-
-function checkChoice(btn, chosen, correct) {
-  document.querySelectorAll('.opt-btn').forEach(b => b.disabled = true);
-  if (chosen === correct) { btn.classList.add('correct'); handleAnswer(true, correct); }
-  else { btn.classList.add('wrong'); handleAnswer(false, correct); }
-}
-
-function checkTyped() {
-  const inp = document.getElementById('typeInput');
-  if (!inp || !inp.value.trim()) return;
-  const val = inp.value.trim().toLowerCase();
-  const target = currentWord.en.toLowerCase();
-  const targetNoTo = target.replace(/^to\s+/, '');
-  handleAnswer(val === target || val === targetNoTo, currentWord.en);
-}
-
-function pickLetter(idx, char, targetWord) {
-  const tile = document.getElementById('tile_' + idx);
-  if (tile.classList.contains('used')) return;
-  tile.classList.add('used');
-  scrambledSelected.push({ idx, char: char === '␣' ? ' ' : char });
-  renderScrambleSlots(targetWord);
-}
-
-function removeLetter(slotPos, targetWord) {
-  const item = scrambledSelected.splice(slotPos, 1)[0];
-  document.getElementById('tile_' + item.idx).classList.remove('used');
-  renderScrambleSlots(targetWord);
-}
-
-function renderScrambleSlots(targetWord) {
-  const slots = document.getElementById('scrambleSlots');
-  slots.innerHTML = scrambledSelected.map((item, pos) =>
-    `<div class="letter-tile slot" onclick="removeLetter(${pos}, '${targetWord.replace(/'/g, "\\'")}')">${item.char === ' ' ? '␣' : item.char}</div>`
-  ).join('');
-  if (scrambledSelected.length === targetWord.length) {
-    const built = scrambledSelected.map(i => i.char).join('');
-    handleAnswer(built.toLowerCase() === targetWord.toLowerCase(), currentWord.en);
-  }
-}
-
-function renderPairsGame(words) {
-  selectedPair = null; matchedCount = 0;
-  const left = [...words].sort(() => Math.random() - 0.5);
-  const right = [...words].sort(() => Math.random() - 0.5);
-  document.getElementById('exerciseContent').innerHTML = `
-    <div class="pairs-grid">
-      <div class="pair-col">${left.map(w => `<button class="pair-btn" data-side="en" data-val="${w.en.replace(/"/g, '&quot;')}" onclick="selectPair(this)">${w.en}</button>`).join('')}</div>
-      <div class="pair-col">${right.map(w => `<button class="pair-btn" data-side="ru" data-val="${w.en.replace(/"/g, '&quot;')}" onclick="selectPair(this)">${w.ru}</button>`).join('')}</div>
-    </div>`;
-}
-function selectPair(btn) {
-  if (btn.dataset.side === 'en') speak(btn.dataset.val);
-  if (!selectedPair) { selectedPair = btn; btn.classList.add('selected'); return; }
-  if (selectedPair === btn) { btn.classList.remove('selected'); selectedPair = null; return; }
-  if (selectedPair.dataset.side === btn.dataset.side) {
-    selectedPair.classList.remove('selected'); selectedPair = btn; btn.classList.add('selected'); return;
-  }
-  if (selectedPair.dataset.val === btn.dataset.val) {
-    sfxCorrect(); selectedPair.classList.remove('selected');
-    selectedPair.classList.add('matched'); btn.classList.add('matched');
-    selectedPair = null; matchedCount++;
-    state.stars++; state.streak++;
-    if (state.streak > state.maxStreak) state.maxStreak = state.streak;
-    saveState(); updateStats(); checkAchievements();
-    if (matchedCount === 5) setTimeout(() => finishSession(true), 600);
-  } else {
-    sfxWrong(); sessionMistakes++;
-    const prev = selectedPair; btn.classList.add('selected');
-    setTimeout(() => { prev.classList.remove('selected'); btn.classList.remove('selected'); }, 400);
-    selectedPair = null;
-  }
-}
-
-function finishSession(victory) {
-  const content = document.getElementById('exerciseContent');
-  document.getElementById('feedbackMsg').textContent = '';
-  if (!victory) {
-    sfxWrong();
-    content.innerHTML = `<div style="text-align:center; padding:25px;">
-      <div style="font-size:3.5rem;">💔</div>
-      <h2>Босс оказался сильнее!</h2>
-      <p>Не сдавайся! Повтори слова и попробуй снова.</p>
-      <button class="btn-play" onclick="startModeSession()">🔄 Сразиться снова</button>
-    </div>`;
-    return;
-  }
-
-  sfxWin();
-  const earnedStars = sessionMistakes === 0 ? 3 : (sessionMistakes <= 2 ? 2 : 1);
-  if (currentMode === 'boss') { state.bossesDefeated++; state.stars += 5; }
-  if (campaignStepIdx !== null) {
-    const prog = getTopicProgress(currentTopicKey);
-    if (earnedStars > (prog[campaignStepIdx] || 0)) prog[campaignStepIdx] = earnedStars;
-  }
-  saveState(); updateStats(); checkAchievements();
-
-  content.innerHTML = `<div style="text-align:center; padding:25px;">
-    <div style="font-size:3.5rem;">${currentMode === 'boss' ? '👑🏆' : '🎉⭐'}</div>
-    <h2>${currentMode === 'boss' ? 'БОСС ПОБЕЖДЁН!' : 'Уровень пройден!'}</h2>
-    <div style="font-size:2rem; margin:10px 0;">${'⭐'.repeat(earnedStars)}${'☆'.repeat(3 - earnedStars)}</div>
-    <p>${currentMode === 'boss' ? 'Бонус за победу: +5 ⭐! Открыт следующий этап!' : 'Отличная работа! Двигайся дальше по карте!'}</p>
-    <button class="btn-play" onclick="backToTopics()">🗺️ Вернуться на карту</button>
+function finishCampaignStep(starsCount, titleMsg, descMsg) {
+  const box = document.getElementById("ex-content");
+  document.getElementById("final-banner").classList.add("hidden");
+  setNodeStars(activeCampaignNode.grade, activeCampaignNode.topic, activeCampaignNode.step, starsCount);
+  if (typeof checkAchievements === "function") checkAchievements();
+  playSound("win");
+  launchBossConfetti();
+  const starsVisual = "⭐".repeat(starsCount) + "☆".repeat(3 - starsCount);
+  box.innerHTML = `<div style="text-align:center; padding:20px;">
+    <div style="font-size:2.8rem; margin-bottom:8px;">${starsVisual}</div>
+    <h2>${titleMsg}</h2>
+    <p>${descMsg}</p>
+    <button class="btn" onclick="closeExercise()">🗺️ Вернуться на карту</button>
   </div>`;
 }
 
-let gameInterval = null, spawnInterval = null, gameScore = 0, gameLives = 3, gameWords = [], currentTarget = null;
-function startGame() {
-  stopGame();
-  const key = document.getElementById('gameTopicSelect').value;
-  gameWords = [...DATA[state.grade].topics[key].words];
-  gameScore = 0; gameLives = 3;
-  document.getElementById('gameScore').textContent = gameScore;
-  document.getElementById('gameLives').textContent = gameLives;
-  pickNewGameTarget();
-  spawnInterval = setInterval(spawnFallingWord, 1600);
-  gameInterval = setInterval(updateFallingWords, 30);
-}
-function stopGame() {
-  clearInterval(gameInterval); clearInterval(spawnInterval);
-  const arena = document.getElementById('gameArena');
-  if (arena) arena.innerHTML = '';
-}
-function pickNewGameTarget() {
-  currentTarget = gameWords[Math.floor(Math.random() * gameWords.length)];
-  document.getElementById('gameTargetWord').textContent = currentTarget.ru;
-}
-function spawnFallingWord() {
-  const arena = document.getElementById('gameArena');
-  if (!arena) return;
-  const wordObj = Math.random() < 0.45 ? currentTarget : gameWords[Math.floor(Math.random() * gameWords.length)];
-  const el = document.createElement('div');
-  el.className = 'falling-word'; el.textContent = wordObj.en;
-  el.style.left = Math.floor(Math.random() * Math.max(40, arena.clientWidth - 150)) + 'px';
-  el.style.top = '-45px'; el.dataset.en = wordObj.en;
-  el.onclick = () => {
-    if (wordObj.en === currentTarget.en) {
-      sfxCorrect(); speak(wordObj.en); gameScore += 10; state.stars++;
-      if (gameScore > state.gameHighScore) state.gameHighScore = gameScore;
-      document.getElementById('gameScore').textContent = gameScore;
-      saveState(); updateStats(); checkAchievements(); el.remove(); pickNewGameTarget();
-    } else { sfxWrong(); loseGameLife(); el.remove(); }
-  };
-  arena.appendChild(el);
-}
-function updateFallingWords() {
-  const arena = document.getElementById('gameArena');
-  if (!arena) return;
-  arena.querySelectorAll('.falling-word').forEach(el => {
-    const top = parseFloat(el.style.top) + 1.8;
-    el.style.top = top + 'px';
-    if (top > arena.clientHeight) { if (el.dataset.en === currentTarget.en) loseGameLife(); el.remove(); }
-  });
-}
-function loseGameLife() {
-  gameLives--; document.getElementById('gameLives').textContent = gameLives;
-  if (gameLives <= 0) {
-    stopGame(); sfxWrong();
-    document.getElementById('gameArena').innerHTML = `<div style="text-align:center; padding-top:120px;"><h2>Игра окончена! 🏆 Счёт: ${gameScore}</h2><button class="btn-play" onclick="startGame()">Играть снова</button></div>`;
+function nextQuestion() {
+  document.getElementById("ex-feedback").classList.add("hidden");
+  document.getElementById("ex-next-btn").classList.add("hidden");
+  updateExerciseProgress();
+
+  if (isFinalPhase && playerHearts <= 0) {
+    const box = document.getElementById("ex-content");
+    playSound("wrong");
+    box.innerHTML = `<div style="text-align:center; padding:20px;">
+      <div style="font-size:3.5rem;">${currentBoss.icon}</div>
+      <h2>💥 Босс оказался сильнее!</h2>
+      <p>У тебя закончились все 3 сердца! Попробуй одолеть босса ещё раз.</p>
+      <button class="btn" onclick="startFinalPhase()">⚔️ Сразиться снова</button>
+      <button class="btn" style="background:#6B7280; box-shadow:none; margin-left:8px;" onclick="closeExercise()">Назад</button>
+    </div>`;
+    return;
+  }
+
+  if (sessionQueue.length === 0) {
+    if (activeCampaignNode && !isFinalPhase) {
+      const st = calcStarsByErrors(levelErrors);
+      finishCampaignStep(st, "🎉 Уровень пройден!", `Ошибок допущено: ${levelErrors}. Открыт следующий шаг на карте!`);
+      return;
+    }
+    if (!isFinalPhase) {
+      playSound("win");
+      alert("Отлично! Все слова освоены! Впереди финальная БИТВА С БОССОМ!");
+      startFinalPhase(); return;
+    } else {
+      if (activeCampaignNode) {
+        const st = calcStarsByErrors(finalErrors);
+        finishCampaignStep(st, "🏆 БОСС ПОВЕРЖЕН!", `Ты одолел монстра «${currentBoss.name}» и завершил этап!`);
+        return;
+      }
+      const box = document.getElementById("ex-content");
+      document.getElementById("final-banner").classList.add("hidden");
+      const mData = getModeData(currentGrade, currentTopic, currentMode);
+      mData.completed = true; saveProgress();
+      if (typeof checkAchievements === "function") checkAchievements();
+      playSound("win");
+      launchBossConfetti();
+      box.innerHTML = `<div style="text-align:center; padding:20px;">
+        <div style="font-size:4rem;">🏆</div>
+        <h2>ПОБЕДА НАД БОССОМ!</h2>
+        <p>Ты одолел монстра «${currentBoss.name}» и полностью освоил этот раздел!</p>
+        <button class="btn" onclick="closeExercise()">К выбору режимов</button>
+      </div>`;
+      return;
+    }
+  }
+
+  if (currentMode === "pairs") { renderPairsQuestion(); return; }
+
+  currentWord = sessionQueue.shift();
+  const topicObj = APP_DATA[currentGrade].topics[currentTopic];
+  const isWords = topicObj.type === "words";
+  const box = document.getElementById("ex-content");
+
+  const displayEn = isWords ? currentWord.v1 : `${currentWord.v1} — ${currentWord.v2} — ${currentWord.v3}`;
+  const speakEn = isWords ? currentWord.v1 : `${currentWord.v1}, ${currentWord.v2}, ${currentWord.v3}`;
+
+  if (currentMode === "choice") {
+    const allItems = topicObj.items;
+    let options = [currentWord.tr];
+    while (options.length < 4) {
+      const rnd = allItems[Math.floor(Math.random() * allItems.length)].tr;
+      if (!options.includes(rnd)) options.push(rnd);
+    }
+    shuffle(options);
+    speak(speakEn);
+    box.innerHTML = `<div class="question-title">${displayEn} <button class="btn btn-sound" onclick="speak('${speakEn}')">🔊</button></div><div class="options-grid">${options.map(opt => `<button class="opt-btn" onclick="checkChoice(this, '${opt}')">${opt}</button>`).join("")}</div>`;
+  } else if (currentMode === "type_ru") {
+    speak(speakEn);
+    box.innerHTML = `<div class="question-title">${displayEn} <button class="btn btn-sound" onclick="speak('${speakEn}')">🔊</button></div><input type="text" id="ru-input" placeholder="Введи перевод на русском..." autocomplete="off"><button class="btn" style="width:100%;" onclick="checkTypeRu()">Проверить</button>`;
+  } else if (currentMode === "type_en") {
+    if (isWords) {
+      box.innerHTML = `<div class="question-title">${currentWord.tr}</div><input type="text" id="en-v1" placeholder="Напиши слово по-английски..." autocomplete="off"><button class="btn" style="width:100%;" onclick="checkTypeEn(true)">Проверить</button>`;
+    } else {
+      box.innerHTML = `<div class="question-title">${currentWord.tr}</div><div class="forms-inputs"><input type="text" id="en-v1" placeholder="1-я форма (V1)" autocomplete="off"><input type="text" id="en-v2" placeholder="2-я форма (V2)" autocomplete="off"><input type="text" id="en-v3" placeholder="3-я форма (V3)" autocomplete="off"></div><button class="btn" style="width:100%;" onclick="checkTypeEn(false)">Проверить</button>`;
+    }
+  } else if (currentMode === "scramble") {
+    renderScramble();
   }
 }
 
-function renderDictionary() {
-  const container = document.getElementById('dictContainer');
-  container.innerHTML = '';
-  const topics = DATA[state.grade].topics;
-  Object.keys(topics).forEach(key => {
-    const t = topics[key];
-    const hasRuTr = t.words.some(w => w.ruTr);
-    let html = `<h3 style="color:var(--primary-dark); margin-top:20px;">${t.icon} ${t.title}</h3>`;
-    if (t.rule) html += `<div class="rule-box">${t.rule}</div>`;
-    html += `<table class="dict-table"><thead><tr><th>🔊</th><th>Английский</th><th>Транскрипция</th>${hasRuTr ? '<th>Произношение</th>' : ''}<th>Перевод</th></tr></thead><tbody>`;
-    t.words.forEach(w => {
-      html += `<tr>
-        <td><button class="speak-mini" onclick="speak('${w.en.replace(/'/g, "\\'")}')">🔊</button></td>
-        <td><b>${w.en}</b></td>
-        <td style="color:#666;">${w.tr}</td>
-        ${hasRuTr ? `<td style="color:#1565C0;">${w.ruTr || ''}</td>` : ''}
-        <td>${w.ru}</td>
-      </tr>`;
+function handleResult(isCorrect, hintText) {
+  const exBox = document.getElementById("exercise-box");
+  exBox.classList.remove("anim-correct", "anim-wrong");
+  void exBox.offsetWidth;
+  exBox.classList.add(isCorrect ? "anim-correct" : "anim-wrong");
+
+  const fb = document.getElementById("ex-feedback");
+  fb.classList.remove("hidden", "ok", "err");
+  const isWords = APP_DATA[currentGrade].topics[currentTopic].type === "words";
+  const rightEn = isWords ? currentWord.v1 : `${currentWord.v1} — ${currentWord.v2} — ${currentWord.v3}`;
+
+  if (isCorrect) {
+    playSound("correct");
+    fb.classList.add("ok"); fb.innerHTML = `✅ Верно! ${hintText || ""}`;
+    if (isFinalPhase) {
+      bossHp = Math.max(0, bossHp - 1);
+      renderBossArena();
+      triggerBossAnim("boss-hit");
+    } else if (!activeCampaignNode) {
+      streakMap[currentWord.v1] = (streakMap[currentWord.v1] || 0) + 1;
+      if (streakMap[currentWord.v1] >= 2) {
+        const mData = getModeData(currentGrade, currentTopic, currentMode);
+        if (!mData.mastered.includes(currentWord.v1)) {
+          mData.mastered.push(currentWord.v1);
+          saveProgress();
+          if (typeof checkAchievements === "function") checkAchievements();
+        }
+      } else sessionQueue.splice(Math.min(3, sessionQueue.length), 0, currentWord);
+    }
+  } else {
+    playSound("wrong");
+    levelErrors++;
+    fb.classList.add("err"); fb.innerHTML = `❌ Ошибка! Правильно: <b>${rightEn}</b> (${currentWord.tr})`;
+    if (isFinalPhase) {
+      finalErrors++;
+      playerHearts--;
+      renderBossArena();
+      triggerBossAnim("boss-attack");
+      if (playerHearts > 0) sessionQueue.push(currentWord);
+    } else if (activeCampaignNode) {
+      sessionQueue.splice(Math.min(2, sessionQueue.length), 0, currentWord);
+    } else {
+      streakMap[currentWord.v1] = 0;
+      sessionQueue.splice(Math.min(2, sessionQueue.length), 0, currentWord);
+    }
+  }
+  updateExerciseProgress();
+  document.getElementById("ex-next-btn").classList.remove("hidden");
+}
+function checkChoice(btn, selected) {
+  document.querySelectorAll(".opt-btn").forEach(b => b.disabled = true);
+  const isOk = selected === currentWord.tr;
+  btn.classList.add(isOk ? "correct" : "wrong");
+  handleResult(isOk);
+}
+
+const SEMANTIC_GROUPS = [
+  ["выходной", "выходные", "каникулы", "праздник", "отпуск"],
+  ["отметки", "оценки", "баллы"],
+  ["ластик", "резинка", "стерка"],
+  ["город", "большой город", "городок"],
+  ["деревня", "сельская местность", "за городом"],
+  ["кушать", "есть", "поесть", "съесть"],
+  ["вести", "водить", "управлять"],
+  ["покупать", "ходить за покупками", "купить"],
+  ["говорить", "разговаривать", "сказать", "рассказывать"],
+  ["учить", "изучать", "учиться", "узнавать"]
+];
+
+function getRuStem(word) {
+  let w = word.toLowerCase().replace(/ё/g, "е").replace(/[^а-яa-z0-9]/g, "");
+  if (w.length <= 4) return w;
+  if (w.length <= 6) return w.slice(0, -1);
+  return w.slice(0, -2);
+}
+
+function isCloseWord(w1, w2) {
+  if (w1 === w2) return true;
+  if (w1.length >= 4 && w2.length >= 4 && getRuStem(w1) === getRuStem(w2)) return true;
+  if (Math.abs(w1.length - w2.length) <= 1 && w1.length >= 5) {
+    let diff = 0;
+    for (let i = 0; i < Math.min(w1.length, w2.length); i++) {
+      if (w1[i] !== w2[i]) diff++;
+    }
+    if (diff <= 1) return true;
+  }
+  return false;
+}
+
+function checkTypeRu() {
+  const raw = document.getElementById("ru-input").value.trim().toLowerCase().replace(/ё/g, "е");
+  if (!raw) return;
+
+  const cleanTr = currentWord.tr.toLowerCase().replace(/ё/g, "е").replace(/\([^)]*\)/g, "");
+  let validPhrases = [cleanTr, ...currentWord.syn.map(s => s.toLowerCase().replace(/ё/g, "е"))];
+
+  validPhrases.forEach(p => {
+    SEMANTIC_GROUPS.forEach(group => {
+      if (group.some(g => p.includes(g))) validPhrases.push(...group);
     });
-    html += `</tbody></table>`;
-    container.innerHTML += html;
   });
+
+  const userParts = raw.split(/[,;/—-]+/).map(s => s.trim()).filter(Boolean);
+  const isOk = userParts.some(uPart => {
+    const uWords = uPart.split(/\s+/).filter(w => w.length >= 2);
+    return validPhrases.some(vPhrase => {
+      if (vPhrase.includes(uPart) && uPart.length >= 3) return true;
+      const vWords = vPhrase.split(/[\s,;/—-]+/).filter(w => w.length >= 2);
+      return uWords.length > 0 && uWords.every(uw => vWords.some(vw => isCloseWord(uw, vw)));
+    });
+  });
+
+  handleResult(isOk, `По учебнику: ${currentWord.tr}`);
+}
+
+function matchForm(input, expected) {
+  const cleanIn = input.trim().toLowerCase().replace(/\s+/g, " ");
+  const normExp = expected.toLowerCase().replace(/—/g, "-");
+  if (cleanIn === normExp || cleanIn === normExp.replace(/\s*-\s*/g, " ")) return true;
+  const variants = normExp.split(/[/—-]+/).map(s => s.trim()).filter(Boolean);
+  return variants.includes(cleanIn);
+}
+
+function checkTypeEn(isWords) {
+  let isOk = false;
+  if (isWords) {
+    isOk = matchForm(document.getElementById("en-v1").value, currentWord.v1);
+    speak(currentWord.v1);
+  } else {
+    isOk = matchForm(document.getElementById("en-v1").value, currentWord.v1) && matchForm(document.getElementById("en-v2").value, currentWord.v2) && matchForm(document.getElementById("en-v3").value, currentWord.v3);
+    speak(`${currentWord.v1}, ${currentWord.v2}, ${currentWord.v3}`);
+  }
+  handleResult(isOk);
+}
+
+let scrambleStages = [], scrambleStageIdx = 0;
+
+function getCleanTarget(str) {
+  return str.split(/[\/—]/).shift().trim().toLowerCase();
+}
+
+function renderScramble() {
+  const topicObj = APP_DATA[currentGrade].topics[currentTopic];
+  const isWords = topicObj.type === "words";
+  scrambleStageIdx = 0;
+
+  if (isWords) {
+    const t = getCleanTarget(currentWord.v1);
+    scrambleStages = [{ label: "Собери английское слово:", target: t, letters: t.replace(/\s+/g, "").split(""), bank: [], picked: [] }];
+  } else {
+    const t2 = getCleanTarget(currentWord.v2);
+    const t3 = getCleanTarget(currentWord.v3);
+    scrambleStages = [
+      { label: "2-я форма (Past Simple):", target: t2, letters: t2.replace(/\s+/g, "").split(""), bank: [], picked: [] },
+      { label: "3-я форма (Past Participle):", target: t3, letters: t3.replace(/\s+/g, "").split(""), bank: [], picked: [] }
+    ];
+  }
+
+  scrambleStages.forEach(st => {
+    const shuffled = st.letters.map((ch, idx) => ({ ch, idx }));
+    shuffle(shuffled);
+    st.bank = shuffled;
+  });
+
+  drawScrambleUI();
+}
+
+function drawScrambleUI() {
+  const isWords = APP_DATA[currentGrade].topics[currentTopic].type === "words";
+  const box = document.getElementById("ex-content");
+  const curStage = scrambleStages[scrambleStageIdx];
+
+  let headerHtml = `<div class="question-title">${currentWord.tr}</div>`;
+  if (!isWords) {
+    headerHtml += `<div style="text-align:center; font-size:1.1rem; margin-bottom:10px;">Начальная форма (V1): <b>${currentWord.v1}</b> <button class="btn btn-sound" onclick="speak('${currentWord.v1}')">🔊</button></div>`;
+  }
+
+  const rowsHtml = scrambleStages.map((st, sIdx) => {
+    let letterCursor = 0;
+    const slots = st.target.split("").map(ch => {
+      if (ch === " ") return `<span style="width:14px; display:inline-block;"></span>`;
+      const pIdx = st.picked[letterCursor];
+      letterCursor++;
+      const val = pIdx !== undefined ? st.bank[pIdx].ch.toUpperCase() : "";
+      return `<span class="letter-slot ${val ? "filled" : ""}">${val}</span>`;
+    }).join("");
+    const activeMark = sIdx === scrambleStageIdx ? "👉 " : "";
+    return `<div class="scramble-row"><div class="scramble-label">${activeMark}${st.label}</div><div class="scramble-slots">${slots}</div></div>`;
+  }).join("");
+
+  const bankHtml = curStage.bank.map((item, bIdx) => {
+    const used = curStage.picked.includes(bIdx);
+    return `<button class="letter-btn" ${used ? "disabled" : ""} onclick="pickScrambleLetter(${bIdx})">${item.ch.toUpperCase()}</button>`;
+  }).join("");
+
+  box.innerHTML = `${headerHtml}${rowsHtml}
+    <div class="letters-bank">${bankHtml}</div>
+    <div class="scramble-actions">
+      <button class="btn" style="background:#6B7280; box-shadow:0 4px 0 #4B5563;" onclick="undoScrambleLetter()">⬅ Удалить букву</button>
+      <button class="btn" onclick="checkScramble()">✅ Проверить</button>
+    </div>`;
+}
+
+function pickScrambleLetter(bIdx) {
+  const curStage = scrambleStages[scrambleStageIdx];
+  if (curStage.picked.length >= curStage.letters.length) return;
+  curStage.picked.push(bIdx);
+  if (curStage.picked.length === curStage.letters.length && scrambleStageIdx < scrambleStages.length - 1) {
+    scrambleStageIdx++;
+  }
+  drawScrambleUI();
+}
+
+function undoScrambleLetter() {
+  let curStage = scrambleStages[scrambleStageIdx];
+  if (curStage.picked.length === 0 && scrambleStageIdx > 0) {
+    scrambleStageIdx--;
+    curStage = scrambleStages[scrambleStageIdx];
+  }
+  if (curStage.picked.length > 0) {
+    curStage.picked.pop();
+    drawScrambleUI();
+  }
+}
+
+function checkScramble() {
+  const isWords = APP_DATA[currentGrade].topics[currentTopic].type === "words";
+  const allFilled = scrambleStages.every(st => st.picked.length === st.letters.length);
+  if (!allFilled) { alert("Сначала собери все буквы слова!"); return; }
+  const isOk = scrambleStages.every(st => {
+    const built = st.picked.map(i => st.bank[i].ch).join("");
+    return built === st.letters.join("");
+  });
+  speak(isWords ? currentWord.v1 : `${currentWord.v1}, ${currentWord.v2}, ${currentWord.v3}`);
+  handleResult(isOk);
+}
+function renderPairsQuestion() {
+  const batch = sessionQueue.splice(0, 4);
+  matchedCount = 0; selectedPairEn = null; selectedPairRu = null;
+  const enList = [...batch], ruList = [...batch];
+  shuffle(enList); shuffle(ruList);
+  const box = document.getElementById("ex-content");
+  box.innerHTML = `<p style="text-align:center;">Нажми на английское слово, а затем на его перевод:</p><div class="pairs-container"><div class="pair-col">${enList.map(w => `<div class="pair-item" data-v1="${w.v1}" onclick="selectPair(this, 'en')">${w.v1} 🔊</div>`).join("")}</div><div class="pair-col">${ruList.map(w => `<div class="pair-item" data-v1="${w.v1}" onclick="selectPair(this, 'ru')">${w.tr}</div>`).join("")}</div></div>`;
+  box.dataset.batchSize = batch.length;
+}
+
+function selectPair(el, side) {
+  if (side === "en") {
+    speak(el.dataset.v1);
+    document.querySelectorAll(".pair-col:first-child .pair-item").forEach(i => i.classList.remove("selected"));
+    el.classList.add("selected"); selectedPairEn = el;
+  } else {
+    document.querySelectorAll(".pair-col:last-child .pair-item").forEach(i => i.classList.remove("selected"));
+    el.classList.add("selected"); selectedPairRu = el;
+  }
+  if (selectedPairEn && selectedPairRu) {
+    const v1 = selectedPairEn.dataset.v1;
+    const wordObj = APP_DATA[currentGrade].topics[currentTopic].items.find(w => w.v1 === v1);
+    const leftEl = selectedPairEn, rightEl = selectedPairRu;
+    if (v1 === rightEl.dataset.v1) {
+      playSound("correct");
+      leftEl.classList.remove("selected"); rightEl.classList.remove("selected");
+      leftEl.classList.add("matched", "anim-correct"); rightEl.classList.add("matched", "anim-correct");
+      matchedCount++;
+      if (isFinalPhase) {
+        bossHp = Math.max(0, bossHp - 1);
+        renderBossArena(); triggerBossAnim("boss-hit");
+      } else if (!activeCampaignNode) {
+        streakMap[v1] = (streakMap[v1] || 0) + 1;
+        if (streakMap[v1] >= 2) {
+          const mData = getModeData(currentGrade, currentTopic, currentMode);
+          if (!mData.mastered.includes(v1)) {
+            mData.mastered.push(v1); saveProgress();
+            if (typeof checkAchievements === "function") checkAchievements();
+          }
+        } else sessionQueue.push(wordObj);
+      }
+      if (matchedCount === parseInt(document.getElementById("ex-content").dataset.batchSize)) {
+        updateExerciseProgress(); document.getElementById("ex-next-btn").classList.remove("hidden");
+      }
+    } else {
+      playSound("wrong");
+      leftEl.classList.add("anim-wrong"); rightEl.classList.add("anim-wrong");
+      if (isFinalPhase) {
+        finalErrors++; playerHearts--; renderBossArena(); triggerBossAnim("boss-attack");
+      } else if (!activeCampaignNode) {
+        streakMap[v1] = 0; if (!sessionQueue.includes(wordObj)) sessionQueue.push(wordObj);
+      }
+      setTimeout(() => {
+        leftEl.classList.remove("selected", "anim-wrong");
+        rightEl.classList.remove("selected", "anim-wrong");
+        alert("Неверная пара! Попробуй еще раз.");
+      }, 360);
+    }
+    selectedPairEn = null; selectedPairRu = null;
+  }
+}
+
+let gameTimer = null, gameScore = 0, gameLives = 3, activeFallingWord = null, fallingY = 0, isNewRecordInSession = false;
+const FRUITS = ["🍎", "🍊", "🍋", "🍐", "🍓", "🍑", "🍒", "🍍"];
+
+function getBestKey() { return "en_game_best_" + currentGrade; }
+
+function exitGameToMap() {
+  clearInterval(gameTimer);
+  activeCampaignNode = null;
+  document.getElementById("tab-game").classList.add("hidden");
+  document.getElementById("tab-train").classList.remove("hidden");
+  setTrainView("map");
+}
+
+function renderGamePages() {
+  const topics = APP_DATA[currentGrade].topics;
+  const sel = document.getElementById("game-page-selector");
+  if (!sel) return;
+  sel.innerHTML = "";
+  Object.keys(topics).forEach(tKey => {
+    const btn = document.createElement("button");
+    btn.className = "page-btn" + (tKey === currentTopic ? " active" : "");
+    btn.innerText = topics[tKey].title;
+    btn.onclick = () => {
+      currentTopic = tKey;
+      renderGamePages();
+      if (gameTimer) startGame();
+    };
+    sel.appendChild(btn);
+  });
+}
+
+function startGame() {
+  clearInterval(gameTimer);
+  gameScore = 0; gameLives = 3; isNewRecordInSession = false;
+  updateGameHUD();
+  spawnWord();
+}
+
+function updateGameHUD() {
+  let best = parseInt(localStorage.getItem(getBestKey()) || "0");
+  if (gameScore > best) {
+    best = gameScore;
+    localStorage.setItem(getBestKey(), best);
+    isNewRecordInSession = true;
+  }
+  document.getElementById("game-score").innerText = gameScore;
+  document.getElementById("game-best").innerText = best;
+  document.getElementById("game-lives").innerText = "❤️".repeat(Math.max(0, gameLives));
+}
+
+function spawnWord() {
+  let best = parseInt(localStorage.getItem(getBestKey()) || "0");
+  if (activeCampaignNode && gameScore >= 30) {
+    clearInterval(gameTimer);
+    const errCount = 3 - gameLives;
+    const stars = calcStarsByErrors(errCount);
+    setNodeStars(activeCampaignNode.grade, activeCampaignNode.topic, activeCampaignNode.step, stars);
+    if (typeof checkAchievements === "function") checkAchievements();
+    playSound("win");
+    launchBossConfetti();
+    const starsVisual = "⭐".repeat(stars) + "☆".repeat(3 - stars);
+    document.getElementById("game-area").innerHTML = `<div style="text-align:center; padding-top:55px;">
+      <div style="font-size:2.4rem;">${starsVisual}</div>
+      <h2>🎉 Уровень пройден!</h2>
+      <p style="font-weight:bold;">Ты набрал ${gameScore} очков и открыл Битву с боссом!</p>
+    </div>`;
+    document.getElementById("game-controls").innerHTML = `<button class="btn" onclick="exitGameToMap()">🗺️ Вернуться на карту</button>`;
+    return;
+  }
+
+  if (gameLives <= 0) {
+    clearInterval(gameTimer);
+    if (isNewRecordInSession && gameScore > 0) playSound("win");
+    else playSound("wrong");
+    document.getElementById("game-area").innerHTML = `<div style="text-align:center; padding-top:75px;"><h2>Игра окончена! Счет: ${gameScore}</h2><p style="font-size:1.15rem; font-weight:bold; color:var(--primary-dark);">🏆 Лучший рекорд: ${best}</p></div>`;
+    document.getElementById("game-controls").innerHTML = `<button class="btn" onclick="startGame()">🔄 Играть снова</button>` + (activeCampaignNode ? `<button class="btn" style="background:#6B7280; box-shadow:none;" onclick="exitGameToMap()">🗺️ На карту</button>` : "");
+    return;
+  }
+  const items = APP_DATA[currentGrade].topics[currentTopic].items;
+  activeFallingWord = items[Math.floor(Math.random() * items.length)];
+  fallingY = 0;
+  speak(activeFallingWord.v1);
+
+  let choices = [activeFallingWord.tr];
+  while (choices.length < 3) {
+    const r = items[Math.floor(Math.random() * items.length)].tr;
+    if (!choices.includes(r)) choices.push(r);
+  }
+  shuffle(choices);
+
+  const fruit = FRUITS[Math.floor(Math.random() * FRUITS.length)];
+  document.getElementById("game-area").innerHTML = `<div class="falling-fruit" id="fall-el" style="left:50%; top:0px;"><div class="fruit-icon">${fruit}</div><div class="fruit-word">${activeFallingWord.v1}</div></div><div class="basket" id="game-basket">🧺</div>`;
+  document.getElementById("game-controls").innerHTML = choices.map(c => `<button class="btn" style="background:var(--secondary); box-shadow:0 4px 0 #369B94;" onclick="catchWord(this, '${c}')">${c}</button>`).join("");
+
+  clearInterval(gameTimer);
+  gameTimer = setInterval(() => {
+    fallingY += 2.5;
+    const el = document.getElementById("fall-el");
+    if (el) el.style.top = fallingY + "px";
+    if (fallingY > 205) {
+      playSound("wrong");
+      gameLives--;
+      updateGameHUD();
+      spawnWord();
+    }
+  }, 50);
+}
+
+function catchWord(btn, ans) {
+  clearInterval(gameTimer);
+  document.querySelectorAll("#game-controls .btn").forEach(b => b.disabled = true);
+  if (ans === activeFallingWord.tr) {
+    playSound("correct");
+    btn.classList.add("anim-correct");
+    btn.style.background = "var(--success)";
+    gameScore += 10;
+    if (typeof checkAchievements === "function") checkAchievements();
+    const basket = document.getElementById("game-basket");
+    if (basket) basket.classList.add("catch-anim");
+    setTimeout(() => { updateGameHUD(); spawnWord(); }, 260);
+  } else {
+    playSound("wrong");
+    btn.classList.add("anim-wrong");
+    btn.style.background = "var(--accent)";
+    gameLives--;
+    setTimeout(() => { updateGameHUD(); spawnWord(); }, 300);
+  }
+}
+const ACHIEVEMENTS = [
+  { id: "first_5", icon: "🌱", title: "Первые шаги", desc: "Выучить 5 слов или пройти уровень" },
+  { id: "scholar_25", icon: "📚", title: "Уверенный старт", desc: "Выучить 25 слов или 3 уровня" },
+  { id: "flawless", icon: "🎯", title: "Знаток", desc: "Одолеть босса или получить 3 звезды" },
+  { id: "topic_master", icon: "👑", title: "Покоритель этапа", desc: "Пройти всю тему целиком" },
+  { id: "basket_30", icon: "🧺", title: "Мастер корзинки", desc: "Набрать 30 очков в игре" },
+  { id: "basket_100", icon: "🏆", title: "Чемпион фруктов", desc: "Набрать 100 очков в игре" }
+];
+
+let unlockedAwards = JSON.parse(localStorage.getItem("en_awards_v1") || "[]");
+
+function showAwardToast(ach) {
+  const toast = document.getElementById("award-toast");
+  if (!toast) return;
+  toast.innerHTML = `🎉 Новая награда!<br><span style="font-size:1.1rem;">${ach.icon} ${ach.title}</span><div style="font-size:0.82rem; font-weight:normal;">${ach.desc}</div>`;
+  toast.classList.add("show");
+  playSound("win");
+  setTimeout(() => toast.classList.remove("show"), 3600);
+}
+
+function unlockAward(id) {
+  if (unlockedAwards.includes(id)) return;
+  unlockedAwards.push(id);
+  localStorage.setItem("en_awards_v1", JSON.stringify(unlockedAwards));
+  const ach = ACHIEVEMENTS.find(a => a.id === id);
+  if (ach) showAwardToast(ach);
 }
 
 function checkAchievements() {
-  const checks = {
-    first_star: state.stars >= 1, star_15: state.stars >= 15, star_40: state.stars >= 40,
-    streak_5: state.maxStreak >= 5, streak_12: state.maxStreak >= 12,
-    boss_1: state.bossesDefeated >= 1, boss_3: state.bossesDefeated >= 3, game_50: state.gameHighScore >= 50
-  };
-  let newlyUnlocked = null;
-  ACHIEVEMENTS.forEach(a => {
-    if (checks[a.id] && !state.unlockedBadges.includes(a.id)) {
-      state.unlockedBadges.push(a.id); newlyUnlocked = a;
-    }
+  let totalMastered = 0, anyCompleted = false, fullTopicDone = false;
+  const campValues = Object.values(campaignProgress);
+  const completedNodes = campValues.filter(s => s > 0).length;
+  if (campValues.includes(3)) anyCompleted = true;
+
+  Object.keys(APP_DATA).forEach(g => {
+    const topics = APP_DATA[g].topics;
+    Object.keys(topics).forEach(tKey => {
+      const modes = getModesForTopic(topics[tKey]);
+      let modesDoneCount = 0;
+      modes.forEach(m => {
+        const md = getModeData(g, tKey, m.id);
+        totalMastered += md.mastered.length;
+        if (md.completed) { anyCompleted = true; modesDoneCount++; }
+      });
+      const campStepsDone = [0, 1, 2, 3].every(s => getNodeStars(g, tKey, s) > 0);
+      if (modesDoneCount === modes.length || campStepsDone) fullTopicDone = true;
+    });
   });
-  if (newlyUnlocked) {
-    saveState(); updateStats(); sfxWin();
-    const toast = document.getElementById('awardToast');
-    toast.innerHTML = `🎉 Новая награда!<br><span style="font-size:1.3rem;">${newlyUnlocked.icon} ${newlyUnlocked.title}</span>`;
-    toast.style.display = 'block';
-    setTimeout(() => { toast.style.display = 'none'; }, 3500);
+
+  const best4 = parseInt(localStorage.getItem("en_game_best_4") || "0");
+  const best5 = parseInt(localStorage.getItem("en_game_best_5") || "0");
+  const maxBest = Math.max(best4, best5, gameScore);
+
+  if (totalMastered >= 5 || completedNodes >= 1) unlockAward("first_5");
+  if (totalMastered >= 25 || completedNodes >= 3) unlockAward("scholar_25");
+  if (anyCompleted) unlockAward("flawless");
+  if (fullTopicDone) unlockAward("topic_master");
+  if (maxBest >= 30) unlockAward("basket_30");
+  if (maxBest >= 100) unlockAward("basket_100");
+}
+
+function renderAwards() {
+  const box = document.getElementById("awards-content");
+  if (!box) return;
+  box.innerHTML = ACHIEVEMENTS.map(a => {
+    const isOpen = unlockedAwards.includes(a.id);
+    return `<div class="award-card ${isOpen ? "unlocked" : ""}">
+      <div style="font-size:2.2rem; margin-bottom:4px;">${a.icon}</div>
+      <div style="font-weight:bold; color:var(--primary-dark);">${a.title}</div>
+      <div style="font-size:0.82rem; color:#555; margin-top:4px;">${a.desc}</div>
+      <div style="margin-top:6px; font-size:0.78rem; font-weight:bold; color:${isOpen ? "var(--success)" : "#888"};">${isOpen ? "✅ Получено" : "🔒 Закрыто"}</div>
+    </div>`;
+  }).join("");
+}
+
+function renderDict() {
+  const topics = APP_DATA[currentGrade].topics;
+  document.getElementById("dict-content").innerHTML = Object.keys(topics).map(tKey => {
+    const tObj = topics[tKey];
+    if (tObj.type === "words") {
+      return `<h3>${tObj.title}</h3><table><tr><th>Слово / выражение</th><th>Перевод</th><th>Звук</th></tr>${tObj.items.map(w => `<tr><td><b>${w.v1}</b></td><td>${w.tr}</td><td><button class="btn btn-sound" onclick="speak('${w.v1}')">🔊</button></td></tr>`).join("")}</table>`;
+    }
+    return `<h3>${tObj.title}</h3><table><tr><th>V1</th><th>V2</th><th>V3</th><th>Перевод</th><th>Звук</th></tr>${tObj.items.map(v => `<tr><td><b>${v.v1}</b></td><td>${v.v2}</td><td>${v.v3}</td><td>${v.tr}</td><td><button class="btn btn-sound" onclick="speak('${v.v1}, ${v.v2}, ${v.v3}')">🔊</button></td></tr>`).join("")}</table>`;
+  }).join("");
+}
+
+function renderStats() {
+  checkAchievements();
+  renderAwards();
+  const topics = APP_DATA[currentGrade].topics;
+  document.getElementById("stats-content").innerHTML = Object.keys(topics).map(tKey => {
+    const tObj = topics[tKey];
+    const total = tObj.items.length;
+    const campStars = [0, 1, 2, 3].reduce((acc, s) => acc + getNodeStars(currentGrade, tKey, s), 0);
+    return `<div style="margin-bottom:18px; border-bottom:2px solid #EEE; padding-bottom:10px;">
+      <h3>${tObj.title} <span style="font-size:0.9rem; color:var(--primary-dark);">(Карта: ${campStars}/12 ⭐)</span></h3>
+      ${getModesForTopic(tObj).map(m => { const md = getModeData(currentGrade, tKey, m.id); return `<div>${m.name}: <b>${md.mastered.length} / ${total}</b> ${md.completed ? "✅" : ""}</div>`; }).join("")}
+    </div>`;
+  }).join("");
+}
+
+function resetProgress() {
+  if (confirm("Точно сбросить весь прогресс, звёзды на карте и награды?")) {
+    progress = {}; saveProgress();
+    campaignProgress = {}; saveCampaign();
+    unlockedAwards = []; localStorage.removeItem("en_awards_v1");
+    localStorage.removeItem("en_game_best_4");
+    localStorage.removeItem("en_game_best_5");
+    renderStats(); updateGameHUD();
+    if (trainView === "map") renderCampaignMap();
   }
 }
 
-function renderBadges() {
-  const grid = document.getElementById('badgeGrid');
-  grid.innerHTML = ACHIEVEMENTS.map(a => {
-    const unlocked = state.unlockedBadges.includes(a.id);
-    return `<div class="badge-card ${unlocked ? 'unlocked' : ''}">
-      <div class="badge-icon">${unlocked ? a.icon : '🔒'}</div>
-      <div style="font-weight:bold; margin:6px 0 4px;">${a.title}</div>
-      <div style="font-size:0.8rem; color:#666;">${a.desc}</div>
-    </div>`;
-  }).join('');
-}
-
-initApp();
+function shuffle(arr) { for (let i = arr.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [arr[i], arr[j]] = [arr[j], arr[i]]; } }
 </script>
 </body>
 </html>
